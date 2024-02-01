@@ -1,0 +1,103 @@
+.MuiMenuItem-root.synchro-action-item-wrapper {
+  padding: 0;
+  .action-item-content {
+    display: flex;
+    flex: 1;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 0 18px 0 15px;
+    height: 42px;
+    font-weight: normal;
+    font-size: 11px;
+    color: #47b16a;
+    border-radius: 5px;
+    background-color: #eaf5ee;
+    .action-item-content-lbl {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .action-item-video-icon,
+    .action-item-content-icon {
+      width: 12px;
+      height: 26px;
+    }
+    .action-item-divider {
+      width: 1px;
+      height: 25px;
+      background-color: #47b16a;
+    }
+  }
+  &.scrollvideo_scrollcontent {
+    .action-item-video-icon {
+      background: url("~assets/images/media-editor/synchro-scroll-icon.png") no-repeat center;
+    }
+    .action-item-content-icon {
+      background: url("~assets/images/media-editor/synchro-scroll-icon.png") no-repeat center;
+    }
+  }
+  &.scrollvideo_pausecontent {
+    .action-item-video-icon {
+      background: url("~assets/images/media-editor/synchro-pause-icon.png") no-repeat center;
+    }
+    .action-item-content-icon {
+      background: url("~assets/images/media-editor/synchro-scroll-icon.png") no-repeat center;
+    }
+  }
+  &.pausevideo_scrollcontent {
+    .action-item-video-icon {
+      background: url("~assets/images/media-editor/synchro-scroll-icon.png") no-repeat center;
+    }
+    .action-item-content-icon {
+      background: url("~assets/images/media-editor/synchro-pause-icon.png") no-repeat center;
+    }
+  }
+  &:hover {
+    background-color: #a1c1eb;
+  }
+  &.Mui-selected {
+    &,
+    &:hover {
+      background-color: transparent;
+    }
+    .action-item-content {
+      color: #000000;
+      background-color: #47b16a;
+    }
+    .action-item-divider {
+      background-color: #59c37c;
+    }
+    &.scrollvideo_scrollcontent {
+      .action-item-video-icon {
+        background: url("~assets/images/media-editor/synchro-scroll-selected-icon.png") no-repeat
+          center;
+      }
+      .action-item-content-icon {
+        background: url("~assets/images/media-editor/synchro-scroll-selected-icon.png") no-repeat
+          center;
+      }
+    }
+    &.scrollvideo_pausecontent {
+      .action-item-video-icon {
+        background: url("~assets/images/media-editor/synchro-pause-selected-icon.png") no-repeat
+          center;
+      }
+      .action-item-content-icon {
+        background: url("~assets/images/media-editor/synchro-scroll-selected-icon.png") no-repeat
+          center;
+      }
+    }
+    &.pausevideo_scrollcontent {
+      .action-item-video-icon {
+        background: url("~assets/images/media-editor/synchro-scroll-selected-icon.png") no-repeat
+          center;
+      }
+      .action-item-content-icon {
+        background: url("~assets/images/media-editor/synchro-pause-selected-icon.png") no-repeat
+          center;
+      }
+    }
+  }
+}

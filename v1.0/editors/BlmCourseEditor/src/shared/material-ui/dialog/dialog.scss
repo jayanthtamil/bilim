@@ -1,0 +1,99 @@
+.dialog,
+.confirm-dialog {
+  &.MuiDialog-root {
+    .MuiPaper-root {
+      border-radius: 0px;
+      .dialog-content {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto;
+        justify-items: center;
+        align-items: center;
+        align-content: space-between;
+        box-sizing: border-box;
+        width: 482px;
+        height: 379px;
+        column-gap: 8px;
+        padding: 60px 0px 51px 0px;
+        .dialog-title {
+          position: relative;
+          grid-column: 1/3;
+          display: inline-flex;
+          font-size: 25px;
+          font-weight: 700;
+          padding-bottom: 32px;
+          justify-content: center;
+          line-height: 1.6;
+          letter-spacing: 0.0075em;
+          &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #d9d9d9;
+            bottom: 0px;
+          }
+        }
+        .dialog-message {
+          grid-column: 1/3;
+          width: 265px;
+          margin: 0;
+          padding: 0;
+          margin-bottom: 16px;
+          text-align: justify;
+          text-align-last: center;
+          font-size: 18px;
+          font-weight: 400;
+          color: rgba(0, 0, 0, 0.54);
+          line-height: 1.5;
+          letter-spacing: 0.00938em;
+        }
+        .dialog-button {
+          display: inline-flex;
+          box-sizing: border-box;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          width: 120px;
+          height: 37px;
+          margin: 0px;
+          padding: 6px 8px;
+          font-size: 17px;
+          font-weight: normal;
+          border-radius: 0px;
+          text-transform: uppercase;
+          line-height: 1.75;
+          letter-spacing: 0.02857em;
+          &.dialog-ok-btn {
+            color: white;
+            background-color: #507de2;
+            justify-self: flex-start;
+          }
+          &.dialog-cancel-btn {
+            color: #000000;
+            background-color: #f3f6fd;
+            justify-self: flex-end;
+          }
+        }
+      }
+    }
+  }
+}
+.dialog {
+  &.MuiDialog-root {
+    .MuiPaper-root {
+      .dialog-content {
+        .dialog-title {
+          margin-left: 120px;
+          justify-self: flex-start;
+        }
+        .dialog-button {
+          &.dialog-ok-btn {
+            grid-column: 1/3;
+            justify-self: center;
+          }
+        }
+      }
+    }
+  }
+}

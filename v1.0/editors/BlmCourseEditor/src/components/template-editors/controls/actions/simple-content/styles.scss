@@ -1,0 +1,52 @@
+.template-sc-action-wrapper {
+  .template-sc-frm-lbl {
+    margin: 0;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #2b2b2b;
+    }
+  }
+  .template-sc-option-group {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    margin: 0 0 0 22px;
+    .template-sc-frm-ctrl {
+      margin: 13px 0 0 0;
+      .MuiFormControlLabel-label {
+        margin: 0 0 0 6px;
+        font-weight: normal;
+        font-size: 12px;
+        color: #262626;
+        text-transform: uppercase;
+      }
+    }
+  }
+  .structure-select,
+  .template-sc-action-dropdown {
+    margin: 7px 0 0 22px;
+    width: calc(100% - 19px);
+    min-width: 205px;
+    .BlmSelect-select,
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 29px;
+      font-weight: 500;
+      font-size: 14px;
+      color: #3a3e42;
+      border: 1px solid #d5dff7;
+      background-color: #ffffff;
+      ~ .BlmSelect-icon,
+      ~ .MuiSelect-icon {
+        margin-right: 7px;
+        background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+      }
+    }
+  }
+  .template-sc-action-dropdown {
+    margin: 10px 0 0 22px;
+  }
+}

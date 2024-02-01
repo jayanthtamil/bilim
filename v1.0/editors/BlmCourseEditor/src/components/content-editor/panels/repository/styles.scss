@@ -1,0 +1,32 @@
+.component-repository-wrapper {
+  overflow: auto;
+  height: 100%;
+  .repeater-list-wrapper {
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+  .text-accordion {
+    .MuiAccordionDetails-root {
+      padding: 31px 24px 25px 25px;
+    }
+    &.selected {
+      background-color: #f2f5fc;
+    }
+  }
+  .media-accordion {
+    .MuiAccordionDetails-root {
+      padding: 23px 22px 25px 23px;
+    }
+  }
+  .button-accordion {
+    .MuiAccordionDetails-root {
+      padding: 25px 23px 25px 25px;
+    }
+  }
+  .sound-accordion {
+    .MuiAccordionDetails-root {
+      padding: 25px 23px 25px 25px;
+    }
+  }
+}

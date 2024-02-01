@@ -1,0 +1,107 @@
+.media-editor-drawer {
+  .MuiPaper-root {
+    max-width: 1302px;
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+  .media-editor-wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) repeat(2, auto);
+    grid-template-rows: 1fr repeat(2, auto);
+    min-height: 831px;
+    height: 100%;
+    background-color: #ffffff;
+    .seekbar-wrapper,
+    .waveform-wrapper {
+      grid-column: 1/-1;
+    }
+    .cue-list-wrapper {
+      &.subtitles,
+      &.markers,
+      &.labels,
+      &.contents {
+        position: relative;
+        margin: 78px 7px -15px 0;
+        &::before {
+          position: absolute;
+          display: block;
+          content: " ";
+          top: 1px;
+        }
+        &::after {
+          position: absolute;
+          display: block;
+          content: " ";
+          inset: 60px auto 16px auto;
+          width: 1px;
+          background-color: #f1f1f1;
+        }
+      }
+      &.subtitles,
+      &.labels {
+        &::before {
+          padding-bottom: 41px;
+          width: 30px;
+          height: 21px;
+          transform: translateX(-40%);
+          background: url("~assets/images/media-editor/subtitles-icon.png") no-repeat center;
+        }
+      }
+      &.markers,
+      &.contents {
+        width: 286px;
+        &::before {
+          width: 19px;
+          height: 26px;
+          transform: translateX(-50%);
+          padding-bottom: 41px;
+          background: url("~assets/images/media-editor/markers-icon.png") no-repeat center;
+        }
+      }
+      &.markers {
+        margin-right: 30px;
+        .cue-list-title {
+          padding-left: 22px;
+          &::after {
+            left: 22px;
+          }
+        }
+        .ReactVirtualized__List {
+          .cue-item-wrapper {
+            .cue-item-txt-wrapper {
+              padding: 11px 13px 11px 29px;
+            }
+          }
+        }
+      }
+      &.contents {
+        margin-right: 18px;
+        width: 508px;
+      }
+    }
+    .media-editor-close-btn {
+      position: absolute;
+      cursor: pointer;
+      inset: 29px 33px auto auto;
+      width: 14px;
+      height: 14px;
+      background: url("~assets/images/close-4.png") no-repeat center;
+    }
+    &.audio {
+      .media-dashboard-wrapper {
+        .media-player-wrapper {
+          height: 80%;
+        }
+      }
+    }
+  }
+  &.synchro-video {
+    .MuiPaper-root {
+      max-width: 1494px;
+      .media-dashboard-wrapper {
+        padding: 68px 62px 20px 62px;
+      }
+    }
+  }
+}

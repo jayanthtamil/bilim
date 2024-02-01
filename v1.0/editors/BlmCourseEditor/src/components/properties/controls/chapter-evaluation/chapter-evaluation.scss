@@ -1,0 +1,196 @@
+@import "assets/styles/shared.scss";
+
+.chapter-evaluation-props-container {
+  padding-top: 55px;
+  padding-left: 60px;
+  padding-right: 90px;
+  color: #3a3e42;
+  .evaluation-top-container {
+    display: flex;
+    align-items: center;
+    margin-left: -5px;
+    margin-right: -6px;
+    .evaluation-dropdown {
+      flex: 0 0 auto;
+      width: 310px;
+      .MuiSelect-root {
+        font-size: 20px;
+      }
+    }
+    .related-to-lbl {
+      margin-left: 18px;
+      .MuiFormControlLabel-label {
+        padding-left: 7px;
+        width: 81px;
+      }
+    }
+    .related-to-select {
+      margin-left: 13px;
+      width: 267px;
+      .BlmSelect-select {
+        padding: 5px 24px 6px 15px;
+        font-size: 15px;
+      }
+    }
+  }
+  .evalutaion-switch-frm-lbl {
+    display: flex;
+    margin-top: 12px;
+    &::before {
+      content: " ";
+      display: block;
+      flex: 1;
+      margin-left: 6px;
+      margin-right: 12px;
+      border-bottom: 1px solid #bbd2f2;
+    }
+    &.MuiFormControlLabel-root {
+      margin-right: 6px;
+      .MuiFormControlLabel-label {
+        margin-left: 7px;
+        font-size: 16px;
+        font-weight: normal;
+        color: #2b2b2b;
+        &.Mui-disabled {
+          color: #bcbfc3;
+        }
+      }
+    }
+  }
+  .themes-list-container ~ div {
+    display: none;
+  }
+  .evaluation-fb-quiz-container {
+    position: relative;
+    margin-top: 22px;
+    .retry-quiz-container {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 231px;
+      padding-left: 24px;
+      .evaluation-retry-quiz-frm-lbl {
+        &.MuiFormControlLabel-root {
+          margin-left: -24px;
+          .MuiFormControlLabel-label {
+            font-weight: bold;
+            font-size: 18px;
+            color: #3a3e42;
+            margin-left: 10px;
+          }
+        }
+      }
+      .evaluation-retry-quiz-dropdown {
+        width: 154px;
+        margin-top: 4px;
+        margin-bottom: 8px;
+        .MuiSelect-root {
+          padding-top: 2px;
+          padding-bottom: 2px;
+          font-weight: get-font-weight(medium);
+        }
+      }
+      .evaluation-retry-quiz-lock-frm-lbl {
+        &.MuiFormControlLabel-root {
+          margin-left: 0px;
+          .MuiFormControlLabel-label {
+            margin-left: 10px;
+            font-weight: 500;
+            font-size: 15px;
+            color: #3a3e42;
+          }
+        }
+      }
+    }
+  }
+  .evaluation-timer-container {
+    display: inline-grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 61px;
+    margin-top: 49px;
+    padding-left: 1px;
+    .evaluation-timer-frm-lbl,
+    .evaluation-random-quiz-frm-lbl {
+      grid-row: 1/2;
+    }
+    .evaluation-timer-txt,
+    .evaluation-random-quiz-txt {
+      grid-row: 2/3;
+    }
+    .evaluation-timer-frm-lbl,
+    .evaluation-random-quiz-frm-lbl {
+      &.MuiFormControlLabel-root {
+        margin-left: 0;
+        margin-bottom: 3px;
+        .MuiFormControlLabel-label {
+          font-weight: 500;
+          font-size: 18px;
+          color: #3a3e42;
+          margin-left: 8px;
+        }
+      }
+    }
+    .evaluation-timer-txt {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 13px;
+    }
+    .evaluation-random-quiz-txt {
+      width: 150px;
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-right: 10px;
+    }
+  }
+  .evaluation-question-container {
+    display: grid;
+    grid-template-columns: 350px 220px;
+    grid-template-rows: repeat(3, auto);
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-right: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    .evaluation-proposition-feedback-title,
+    .evaluation-question-feedback-title {
+      grid-row: 1/2;
+      margin-bottom: 18px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #eaeffb;
+    }
+    .evaluation-proposition-feedback-group,
+    .evaluation-question-feedback-group {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      min-height: 120px;
+    }
+    .evaluation-proposition-feedback-option {
+      margin-bottom: 17px;
+    }
+    .evaluation-question-feedback-option {
+      margin-bottom: 15px;
+    }
+    .evaluation-question-feedback-group {
+      margin-left: -2px;
+    }
+  }
+  .evaluation-advanced-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-right: 8px;
+    .evaluation-advanced-title {
+      margin-bottom: 15px;
+      padding-bottom: 3px;
+      font-size: 20px;
+      font-weight: 500;
+      border-bottom: 1px solid #eaeffb;
+    }
+    .MuiFormControlLabel-root {
+      margin-bottom: 18px;
+    }
+  }
+}

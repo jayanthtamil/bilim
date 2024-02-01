@@ -1,0 +1,85 @@
+{
+  "title": {
+    "option": "Options",
+    "replace": "Replace",
+    "width": "Width",
+    "height": "Height",
+    "option360": "Options 360"
+  },
+  "animation_attach": {
+    "download": "Download",
+    "subtitles": "Subtitles"
+  },
+  "translation_editor": {
+    "translate_texts": "Translate Texts",
+    "current_text": "Curent text",
+    "next_text": "Next text"
+  },
+  "animation": {
+    "preview": "Preview",
+    "translate": "Translate",
+    "option": "Options",
+    "attached_media": "Attached Media",
+    "click_to_replace": "Click to replace elements"
+  },
+  "background_media": {
+    "loop": "Loop",
+    "restore": "Restore when scroll down"
+  },
+  "background_size": {
+    "content": "Content",
+    "large": "Large"
+  },
+  "evaluation_feedback": {
+    "title": "Evaluation feedback",
+    "success_score": "Success score"
+  },
+  "feedback_display": {
+    "popup": "In popup",
+    "below_partpage": "Below Partpage",
+    "next_page": "Next Page"
+  },
+  "format_opt": {
+    "format": "Format",
+    "square": "Square",
+    "round": "Round",
+    "large": "Large",
+    "wide": "Wide",
+    "extra_wide": "Extra Wide",
+    "fixed_height": "Fixed Height",
+    "homothety": "Homothety",
+    "fixed_width": "Fixed Width",
+    "fixed_size": "Fixed Size",
+    "high": "High",
+    "extra_high": "Extra High",
+    "full_height": "Full Height",
+    "auto": "Auto"
+  },
+  "main_timeline": {
+    "delete": "Delete",
+    "merge": "Merge"
+  },
+  "synchro_action_item": {
+    "video": "Video",
+    "content": "Content"
+  },
+  "base_media_editor": {
+    "subtitle_marker": "Subtitles & markers Editor",
+    "synchro_video": "Synchro Video Editor"
+  },
+  "cue_list": {
+    "simple_content": "Select simple content"
+  },
+  "hotspot360": {
+    "chooseDirection": "Choose Direction",
+    "alignHorizontal": "Horizontal",
+    "alignVertical": "Vertical",
+    "allowZoom": "Allow Zoom"
+  },
+  "list": {
+    "cover": "Cover",
+    "contain": "Contain",
+    "no_resize": "No resize",
+    "parallax": "Parallax"
+  }
+}

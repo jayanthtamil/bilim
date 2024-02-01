@@ -1,0 +1,48 @@
+.content-accordion-wrapper {
+  &.MuiAccordion-root {
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    .MuiAccordionSummary-root {
+      min-height: unset;
+      margin-left: 25px;
+      margin-right: 32px;
+      padding: 0;
+      padding-top: 17px;
+      padding-right: 2px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #507de2;
+      text-transform: uppercase;
+      border-bottom: 1px solid #cccfd6;
+      .MuiAccordionSummary-content {
+        margin: 0;
+        padding-bottom: 2px;
+      }
+      .MuiAccordionSummary-expandIcon {
+        margin: 0;
+        padding: 0;
+        transform: rotate(180deg);
+        &.Mui-expanded {
+          transform: rotate(0deg);
+        }
+      }
+      &.Mui-expanded {
+        min-height: unset;
+      }
+      &.Mui-focused {
+        background-color: transparent;
+      }
+    }
+    .MuiAccordionDetails-root {
+      display: flex;
+      flex-direction: column;
+    }
+    &::before {
+      opacity: 0;
+    }
+    &.Mui-expanded {
+      margin: 0;
+    }
+  }
+}

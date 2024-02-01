@@ -1,0 +1,139 @@
+@import "assets/styles/shared.scss";
+.copy-from-panel {
+  margin-left: 352px;
+  margin-top: -16px;
+  .MuiPopover-paper {
+    min-height: 100vh !important;
+    height: 100%;
+    position: absolute;
+    overflow-y: hidden;
+  }
+  .copy-from-props-container {
+    width: 865px;
+    height: 100% !important;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto) 58px auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 23px 73px 38px 36px;
+    z-index: 1;
+    color: #2b2b2b;
+    background: #f2f5fc !important;
+    .copy-from-left-container {
+      overflow-y: auto;
+      top: 30px;
+      min-height: 100vh !important;
+      height: 100% !important;
+      margin: -25px 0px 0px -18px;
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(124, 123, 123, 0.931);
+      }
+      &::-webkit-scrollbar-track-piece {
+        background-color: #212b43;
+      }
+    }
+
+    .copy-from-panel-close-btn {
+      @include image-button("~assets/images/close-1.png", 15px, 15px);
+      position: absolute;
+      top: 34px;
+      right: 34px;
+      z-index: 2000;
+    }
+    &::before {
+      content: " ";
+      position: absolute;
+      width: 396px;
+      height: 100%;
+      background-color: #212b43;
+      background-repeat: repeat-y;
+      z-index: -1;
+    }
+    .domain-lists {
+      margin-left: 2px;
+      margin-top: 27px;
+      width: 371px;
+      .page-bg-props-bg-media-title {
+        font-size: 18px;
+        border-bottom: 3px solid #eaeffb;
+        font-weight: 500;
+        color: white;
+        width: 104px;
+        padding-bottom: 8px;
+      }
+      .copt-from-domain-dropdown {
+        margin-top: 20px;
+        width: 351px;
+        .BlmSelect-select,
+        .MuiSelect-root {
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          box-sizing: border-box;
+          height: 38px;
+          font-weight: 500;
+          font-size: 16px;
+          color: #3a3e42;
+          border: 1px solid #d5dff7;
+          background-color: #ffffff;
+          ~ .BlmSelect-icon,
+          ~ .MuiSelect-icon {
+            margin-right: 7px;
+            background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+          }
+          .MuiListItemText-root {
+            .MuiTypography-root {
+              font-weight: 500;
+              margin-left: -43px;
+            }
+          }
+        }
+      }
+      .catory-list-container {
+        color: white;
+        padding-top: 28px;
+        .MuiTypography-root {
+          font-size: 15px;
+          font-weight: 400;
+          display: flex;
+          text-transform: uppercase;
+          img {
+            width: 15px;
+            height: 18px;
+            margin: 6px 7px 0px -22px;
+          }
+          .globe-flag-icon {
+            margin: 6px 7px 0px -26px;
+            transform: scale(1.6);
+            width: 19px;
+            height: 15px;
+          }
+          .no-children {
+            background: url("~assets/images/tree/expand-close.png") no-repeat center;
+            width: 19px;
+            height: 15px;
+            margin: 8px 3px -3px -24px;
+          }
+          .empty-children {
+            background: none;
+          }
+        }
+      }
+    }
+    .copy-from-struture-container {
+      margin: 65px 11px 0px 0px;
+      width: 368px;
+      .copy-from-header {
+        font-weight: 500;
+      }
+      .copy-from-struture-title {
+        margin-top: 15px;
+        color: #507de2;
+        font-size: 20px;
+        font-weight: 300;
+      }
+    }
+  }
+}

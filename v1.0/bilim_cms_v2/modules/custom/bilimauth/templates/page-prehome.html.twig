@@ -1,0 +1,69 @@
+{# page prehome template #}
+{{ attach_library('bilimauth/pre-home') }}
+<script type="text/javascript">
+	const base_url = "{{ url('<front>')|render }}";
+</script>
+<div class="path-frontpage">
+  <main id="content" class="column main-content" role="main">
+      <section class="section">
+<div class="loading-gif"></div>
+        <a id="main-content" tabindex="-1"></a>
+        <div class="login-box">
+          <div class="login-left-box">
+            <div class="login-content-box">
+              {{ content.block }}
+              <p class="reset-pwd"><a class="open-reset-password" onclick="openResetPopup(event)">Reset Password</a></p>
+              <div class="lang-sw-band">
+                <div class="lang-switch container">
+                    <div class="switch">
+                        <input type="radio" class="switch-input" name="view" value="french" id="french" checked>
+                        <label for="french" class="switch-label switch-label-off">FRANçais</label>
+                        <input type="radio" class="switch-input" name="view" value="english" id="english">
+                        <label for="english" class="switch-label switch-label-on">ENGLISH</label>
+                        <span class="switch-selection"></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="login-right-box">
+            <div class="login-logo-box">
+              <img src="{{url('<front>')|render}}/modules/custom/bilimauth/images/design-home-page.png" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  
+  <!-- User Email reset popup -->
+<div id="email-reset-popup" class="email-reset-popup">
+	<div class="context-menu-backdrop" onclick="hideResetPopup()"></div>
+	<div class="reset-container">
+	<button class="popup-close-btn" onclick="hideResetPopup(event)"></button>
+	<input type='text' class='email-reset' id='email-reset' placeHolder="Enter your email">
+	<p>to receive more information to reset your password</p>
+	<div class="email-reset-btn">
+	  <span class="email-reset-lbl-btn" id="email-reset-lbl-btn">SEND</span>
+	  <div class="email-reset-icon-btn"></div>
+	</div>
+	</div>
+</div>
+
+<div id="pwd-reset-popup" class="pwd-reset-popup">
+	<div class="context-menu-backdrop"></div>
+	<div class="pwd-reset-container">
+	<button class="popup-close-btn" onclick="hidePwdResetPopup(event)"></button>
+	<div class='reset-title'>Reset your password here</div>
+	<input type='password' class='reset-password' id='reset-password' placeHolder="Password">
+	<input type='password' class='reset-confirm-password' id='reset-confirm-password' placeHolder="Confirm password">
+	<div id="recaptcha-service" class="g-recaptcha"
+	 data-callback="recaptchaCallback"
+	 data-sitekey="6LfWRkkbAAAAAKjo28ar30RaWOGMEcCGsfPUQ5VU"></div>
+	<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+	<div class="pwd-reset-btn">
+	  <span class="pwd-reset-lbl-btn" id="pwd-reset-lbl-btn">ENTER</span>
+	  <div class="pwd-reset-icon-btn"></div>
+	</div>
+	</div>
+</div>

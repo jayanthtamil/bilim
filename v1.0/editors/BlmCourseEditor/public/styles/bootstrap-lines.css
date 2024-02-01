@@ -1,0 +1,17 @@
+.swimlane_main_container {
+  position: fixed;
+  margin-top: -50px;
+}
+
+.swimlane div:first-child {
+  border-left: #eeeeee;
+  border-left-style: dashed;
+  border-left-width: 1px;
+}
+
+.swimlanecell {
+  height: 110vh;
+  border: #eeeeee;
+  border-style: dashed;
+  border-width: 1px;
+}

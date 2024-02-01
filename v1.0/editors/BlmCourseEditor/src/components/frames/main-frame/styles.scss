@@ -1,0 +1,90 @@
+.main-frame-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  .display-wrapper {
+    top: 0px;
+    position: absolute;
+    right: 0px;
+    color: white;
+    z-index: 9;
+    display: flex;
+    .desktop-display {
+      cursor: pointer;
+      background-image: url("~assets/images/display/desktop.png");
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+      &:hover {
+        background-image: url("~assets/images/display/desktop-over.png");
+      }
+      &.active {
+        background-image: url("~assets/images/display/desktop-selected.png");
+      }
+    }
+    .mobile-display {
+      cursor: pointer;
+      background-image: url("~assets/images/display/mobile.png");
+      height: 40px;
+      width: 40px;
+      margin-right: 10px;
+      &:hover {
+        background-image: url("~assets/images/display/mobile-over.png");
+      }
+      &.active {
+        background-image: url("~assets/images/display/mobile-selected.png");
+      }
+    }
+  }
+  .orientation-wrapper {
+    display: flex;
+    width: 375px;
+    .orientation {
+      cursor: pointer;
+      height: 51px;
+      width: 51px;
+      background-image: url("~assets/images/display/portrait.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      &:hover {
+        background-image: url("~assets/images/display/portrait-over.png");
+      }
+    }
+    .orientation-size {
+      font-weight: 700;
+      align-self: flex-end;
+      padding-bottom: 10px;
+    }
+    &.landscape {
+      width: 700px;
+      .orientation {
+        background-image: url("~assets/images/display/landscape.png");
+        &:hover {
+          background-image: url("~assets/images/display/landscape-over.png");
+        }
+      }
+    }
+  }
+  .main-frame {
+    width: 100%;
+    border: transparent;
+    scrollbar-width: thin;
+  }
+  &.desktop {
+    .display-wrapper {
+      .desktop-display {
+        background-image: url("~assets/images/display/desktop-selected.png");
+      }
+    }
+  }
+  &.mobile {
+    .display-wrapper {
+      .mobile-display {
+        background-image: url("~assets/images/display/mobile-selected.png");
+      }
+    }
+    background-color: #ebedf3;
+  }
+}

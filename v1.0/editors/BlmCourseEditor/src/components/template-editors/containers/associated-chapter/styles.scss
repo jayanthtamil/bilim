@@ -1,0 +1,54 @@
+.associated-chapter-panel {
+  display: flex;
+  flex-direction: column;
+  color: #2b2b2b;
+  .associated-chapter-anchor {
+    margin-left: 79px;
+    margin-bottom: -1px;
+    width: 27px;
+    height: 15px;
+    background: url("~assets/images/up-anchor-1.png");
+    z-index: 1;
+  }
+  .associated-chapter-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: max-content 1fr;
+    padding-top: 13px;
+    width: 400px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 1px solid #e0e5f1;
+    > div {
+      z-index: 1;
+    }
+    .associated-chapter-title {
+      margin-left: 21px;
+      padding-bottom: 4px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #3f3f3f;
+      text-transform: uppercase;
+      border-bottom: 1px solid #f4f5fc;
+    }
+    .associated-chapter-close-btn {
+      cursor: pointer;
+      visibility: hidden;
+      margin: 1px 19px 0 13px;
+      width: 15px;
+      height: 15px;
+      background: url("~assets/images/close-1.png") no-repeat center;
+      &.show {
+        visibility: visible;
+      }
+    }
+    .blm-course-tree-container {
+      grid-column: 1/-1;
+      padding: 0px 0 5px 15px;
+      width: auto;
+      height: 358px;
+      scrollbar-width: thin;
+    }
+  }
+}

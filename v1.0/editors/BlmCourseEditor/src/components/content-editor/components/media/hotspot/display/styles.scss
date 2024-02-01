@@ -1,0 +1,72 @@
+.hotspot-display-editor-drawer {
+  .MuiPaper-root {
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    scrollbar-width: thin;
+    background-color: transparent;
+  }
+  .hotspot-display-editor-wrapper {
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+    margin: auto;
+    scrollbar-width: thin;
+    overflow: auto;
+    width: 579px;
+    height: calc(100vh - 100px);
+    max-height: 487px;
+    color: #2b2b2b;
+    border-radius: 5px;
+    border: 1px solid #e0e5f1;
+    background: #ffffff;
+    .hotspot-display-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 27px 18px 22px;
+      background-color: #f2f5fc;
+      .hotspot-display-title {
+        font-weight: 500;
+        font-size: 18px;
+        color: #507de2;
+      }
+      .hotspot-display-close-btn {
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        background: url("~assets/images/close-1.png") no-repeat center;
+      }
+    }
+    .hotspot-display-content {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      row-gap: 13px;
+      padding: 48px 0 0 54px;
+      .hotspot-display-frm-lbl {
+        margin: 0;
+        .MuiFormControlLabel-label {
+          margin: 0 0 0 14px;
+          font-weight: 300;
+          font-size: 20px;
+          color: #2b2b2b;
+        }
+      }
+    }
+    .hotspot-display-footer {
+      display: flex;
+      justify-content: flex-end;
+      column-gap: 40px;
+      padding: 0 68px 21px 0;
+      .hotspot-display-save-btn,
+      .hotspot-display-cancel-btn {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 21px;
+        color: #3a3e42;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

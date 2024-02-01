@@ -1,0 +1,32 @@
+{
+  "media": {
+    "target": "Target"
+  },
+  "alert": {
+    "file_size": "File size should not exceed 100 MB",
+    "file_type": "File type should match with new file",
+    "enter_target": "Please enter name for target media",
+    "default_temp_target": "Please select default template for target media",
+    "video_type": "Please select type of video",
+    "youtube_vimeo": "Please enter valid Youtube or Vimeo url",
+    "mp4": "Please add MP4 video file for standard video",
+    "hotspot_group_name": "Please enter name for hotspot group",
+    "hotspot_name": "Please enter name for hotspot",
+    "hotspot_group": "Please enter group for hotspot",
+    "simplecontent_element": "Please select element for simple content action",
+    "simplecontent_display": "Please select display for simple content action",
+    "simplecontent_target": "Please select target for simple content action",
+    "valid_url": "Please enter valid URL for open http link action",
+    "valid_email": "Please enter valid email for mail to action",
+    "select_target": "Please select target for replace target action",
+    "select_simplecontent": "Please select simple content for replace target action",
+    "select_action_goto": "Please select action for goto",
+    "select_element": "Please select element for goto page/screen action",
+    "detail_popover": "Please edit details for popover",
+    "label_popover": "Please enter button label for popover action",
+    "action_popover": "Please select button action for popover action",
+    "hotspot_type": "Please select a valid hotspot",
+    "select_360": "Please select 360 for goto 360",
+    "marker": "Please select marker"
+  }
+}

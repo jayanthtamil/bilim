@@ -1,0 +1,23 @@
+.main-timeline-wrapper {
+  position: absolute;
+  pointer-events: none;
+  overflow-x: hidden;
+  overflow-y: visible;
+  z-index: 5;
+  inset: 0;
+  counter-reset: main-timeline-counter var(--start-ind);
+}
+.main-timeline-ctx-menu {
+  .MuiMenu-paper {
+    border-radius: 0;
+    .MuiMenu-list {
+      .MuiMenuItem-root {
+        font-weight: 500;
+        font-size: 14px;
+        &:hover {
+          background-color: #b3c6f1;
+        }
+      }
+    }
+  }
+}

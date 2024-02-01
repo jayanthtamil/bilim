@@ -1,0 +1,29 @@
+@import "assets/styles/shared.scss";
+
+.category-list-panel {
+  position: relative;
+  padding: 52px 0px 20px 0;
+  width: 238px;
+  height: 100%;
+  .category-list-scroller {
+    position: relative;
+    padding: 0 25px 0 46px;
+    height: 100%;
+    overflow: auto;
+    .category-list-divider {
+      margin: 15px 0 14px 0;
+      width: 26%;
+      &:first-of-type,
+      &:last-of-type {
+        margin: 30px 0 25px 0;
+        width: 93%;
+      }
+    }
+  }
+  .category-list-close-btn {
+    @include image-button("~assets/images/close-1.png", 15px, 15px);
+    position: absolute;
+    right: 27px;
+    top: 20px;
+  }
+}

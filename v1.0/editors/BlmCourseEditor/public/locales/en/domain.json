@@ -1,0 +1,22 @@
+{
+    "variant_list": {
+        "variants": "Variants",
+        "full_screen": "Full Screen",
+        "substitue": "Substitue",
+        "more_template": "More templates..."
+    },
+    "template_list_item":{
+        "variant": "VARIANTS",
+        "replace": "REPLACE",
+        "add": "ADD"
+    },
+    "template_list": {
+        "warning": "You have the possibility to delete certain elements on each template."
+    },
+    "themes": {
+        "theme": "Theme",
+        "select": "Select the Theme",
+        "tooltip": "CAUTION: The theme you will choose is definitive and you will cannot change it as soon as you will add a question on this evaluation",
+        "validate": "VALIDATE"
+    }
+}

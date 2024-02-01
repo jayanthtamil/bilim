@@ -1,0 +1,14 @@
+.component-switch-actions-btn {
+  cursor: pointer;
+  margin: 3px 0 0;
+  width: 40px;
+  height: 40px;
+  visibility: hidden;
+  background: url("~assets/images/content-actions/switch-btn.png") no-repeat center;
+  &.show {
+    visibility: visible;
+  }
+  &:hover {
+    background: url("~assets/images/content-actions/switch-btn-over.png") no-repeat center;
+  }
+}

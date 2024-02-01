@@ -1,0 +1,308 @@
+<?php 
+
+/**
+ * Implements hook_theme().
+ **/
+use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+
+use Drupal\Core\Form\FormBase;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\HtmlCommand;
+
+use Drupal\Code\Database\Database;
+
+use Drupal\Core\DrupalKernel; 
+use Drupal\user\Entity\User; 
+use Symfony\Component\HttpFoundation\RedirectResponse; 
+use Symfony\Component\HttpFoundation\Request;
+use Drupal\user\UserInterface;
+
+use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\Core\Messenger\MessengerTrait;
+
+define('DRUPAL_ROOT', getcwd());
+
+function bilimauth_theme($existing, $type, $theme, $path) {
+  return [
+    'user_prehome' => [
+      'variables' => ['intro' => '', 'base_url' => '', 'loginForm' => [],]
+    ],
+    'page_prehome' => [
+      'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+    ],
+    'page_customerhome' => [
+      'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+    ],
+    'page_domainview' => [
+      'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+    ],
+    'page_styleview' => [
+      'variables' => ['intro' => '', 'style' => [], 'base_url' => '' ],
+    ],
+    'page_stylehome' => [
+      'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+    ],
+  	'page_userhome' => [
+  		'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+  	],
+  	'page_domainlist' => [
+  		'variables' => ['intro' => '', 'content' => [], 'base_url' => '' ],
+  	]
+  ];
+}
+
+function bilimauth_page_attachments_alter(&$page){
+  $path = $current_path = \Drupal::service('path.current')->getPath();
+ 
+  if($path == '/node/') {
+    $page['#attached']['library'][] = 'my-theme/my-library';
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ **/
+function bilimauth_page_attachments(array &$attachments) {
+$path = $current_path = \Drupal::service('path.current')->getPath();
+
+  if(strpos($path, 'admin') == false) {
+	$attachments['#attached']['library'][] = 'bilimauth/global-style';
+  }
+}
+
+/**
+ * Implements hook_css_alter()
+ **/
+ function bilimauth_css_alter(&$css){
+	   $path = drupal_get_path('theme', 'bartik');
+        unset($css[$path . '/css/elements.css']);
+ }
+
+/**
+ * Implements hook_form_alter().
+ **/
+function bilimauth_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+    global $user;
+	//$form['#disable_inline_form_errors'] = TRUE;
+	//$form['#inline_form_errors_summary'] = FALSE;
+
+    if($form_id == 'user_login_form'){
+		//unset($form['messages']);
+		//$form['#disable_inline_form_errors'] = TRUE;
+		$form['name']['#attributes']['placeholder'] = t('User-ID');
+		$form['pass']['#attributes']['placeholder'] = t('Password');
+		unset($form['name']['#description']);
+		unset($form['pass']['#description']);
+		
+       //unset($form['#validate']);
+	   
+	   //$message = (empty($_SESSION['bilimauth_user_login_block_alter']) ? t('The password entered is wrong. Please retry.') : $_SESSION['bilimauth_user_login_block_alter']);
+ 
+	   //$form['#validate'] = array('bilimauth_login_validate', 'user_login_authenticate_validate');
+
+	   ///////////////
+	   /* $form['message'] = [
+		'#type' => 'markup',
+		'#markup' => '<div id="result-message"></div>'
+	  	];
+  
+	  $form['actions']['#type'] = 'actions';
+		$form['actions']['submit'] = array(
+		'#type' => 'submit',
+		'#name' => 'submit',
+		'#value' => t('ENTER &#8594;'),
+		'#ajax' => array(
+		  'callback' => '::bilimauth_login_validate',
+		  'event' => 'click',
+		  'progress' => array(
+			'type' => 'throbber',
+		  	),
+			),
+		); */
+
+		/* $form['actions'] = array(
+			'#type' => 'actions',
+		);
+	  
+	  
+		$form['actions']['submit'] = array(
+		'#type' => 'submit',
+		'#name' => 'submit',
+		'#validate' => array('bilimauth_login_validate'),
+		'#value' => t('ENTER &#8594;')
+		); */
+
+		//$form['actions']['submit']['#value'] = t('ENTER &#8594;');
+		
+		//$form['submit']['#value'] = t('ENTER &#8594;');
+		$form['#validate'][] ='bilimauth_login_validate';
+        $form['actions']['submit']['#value'] = t('ENTER &#8594;');
+
+		/* $form['#validate'] = 'bilimauth_login_validate';
+  		$form['actions'] = array('#type' => 'actions');
+  		//$form['actions']['submit'] = array('#type' => 'submit', '#value' => t('ENTER &#8594;'));
+		$form['actions']['submit']['#value'] = t('ENTER &#8594;'); */
+		  
+
+		//$form['button']['#value'] = t('ENTER &#8594;');
+		//$form['actions']['submit']['#submit'][] = 'bilimauth_login_validate';
+
+	   //////////////
+
+	   /* $form['submit']['#value'] = t('ENTER &#8594;');	
+	   $form['#validate'] = array('bilimauth_login_validate');
+	   $form['actions']['submit']['#value'] = t('ENTER &#8594;'); */
+
+		//$form['submit']['#value'][] = t('ENTER &#8594;');
+		//$form['actions']['submit']['#submit'][] = 'mynode_submit_handler';
+	}
+}
+
+//The password entered is wrong. Please retry.
+//////////////////////////////////////////////
+
+function bilimauth_login_validate(&$form, FormStateInterface $form_state) {
+	//echo "hi";
+	//drupal_get_messages();
+	//drupal_get_messages('error', FALSE);
+	
+	
+	$user_name = $form_state->getValue('name');
+	$user_pass = $form_state->getValue('pass');
+	//print_r($value); die();
+	
+	$uid = _bilimauth_is_user_exists($user_name);
+
+	//$errors = form_get_errors();
+	$form_errors = $form_state->getErrors();
+
+	if(!$uid) {
+	  //form_set_error('name','Username not found.');
+	  $form_state->clearErrors();
+	  $form_state->setErrorByName('name', t('Username not found'));
+	  $form_state->setRebuild();
+	 
+	}
+	else {
+		$user_auth = \Drupal::service('user.auth')->authenticate($user_name, $user_pass);
+	  //if(!user_authenticate($user_name, $user_pass))
+	  //if(!bilimauth_login_authenticate_validate($user_name, $user_pass))
+	  if(!$user_auth) {
+		 //form_set_error('pass','Incorrect password.');
+		 //unset($form['messages']);
+		 //$form_state->setRebuild();
+		 $form_state->clearErrors();
+		 $form_state->setErrorByName('pass', t('The password entered is wrong. Please retry.'));
+		 $form_state->setRebuild();
+		 //$err_msg = \Drupal::messenger()->messagesByType('warning'); 
+		 //print_r($err_msg); 
+		 
+		 //unset($form_errors['name']);
+		 //$string_error = $form_errors['name'];
+		 //echo "<pre>";
+		 //print_r($string_error); 
+		 
+		 //exit;
+		 
+	  } 
+	  //else {
+		//$form_state->setErrorByName('pass', t('The password entered is correct.'));
+		//$form['actions']['submit']['#value'] = t('ENTER &#8594;');
+		//$url = Url::fromRoute('YOUR_ROUTE_MACHINE_NAME');
+        //$form_state->setRedirectUrl($url);
+
+		/* if($user_name == 'bilim' && \Drupal::currentUser()->isAuthenticated()){
+			$response = new RedirectResponse($base_url.'/platform/homepage');
+        	$response->send();
+        	return;
+		}
+		else {
+			$response = new RedirectResponse('/app/platform/homepage');
+    	$response->send();
+		} */
+		/* $response = new RedirectResponse('/app/platform/homepage');
+        $response->send();
+        return $response; */
+		//user_login_finalize($user_name, $user_pass);
+		//\Drupal::messenger()->addStatus('Success');
+		/* $autoloader = require_once DRUPAL_ROOT.'/component/autoload.php'; 
+		$kernel = new DrupalKernel('prod', $autoloader); 
+		$request = Request::createFromGlobals(); 
+		$response = $kernel->handle($request);
+
+		$uid = \Drupal::currentUser()->id();
+		if(isset($uid)) { 
+			$user = User::load($uid); 
+			user_login_finalize($user); 
+			$user_destination = \Drupal::destination()->get(); 
+			$response = new RedirectResponse($user_destination); 
+			$response->send(); 
+		} */
+
+	  //}
+	}
+  
+}
+  /**
+   * Query user table to check if such username is already exists.
+   */
+function _bilimauth_is_user_exists($username) {
+	$database = \Drupal::database();
+	//return $database->query("SELECT u.uid FROM {users} u WHERE LOWER(u.name) = LOWER(:username)", array(':username'=>$username))->fetchField();
+
+	return $database->query("SELECT uid from {users_field_data} u WHERE name = :name LIMIT 1", array(":name" => $username))->fetchField();
+
+	
+
+}
+
+function bilimauth_login_authenticate_validate($username,$pwd) {
+	$database = \Drupal::database();
+	
+
+	return $database->query("SELECT uid from {users_field_data} u WHERE name = :name and pass = :pass LIMIT 1", array(":name" => $username, ":pass" => MD5($pwd)))->fetchField();
+
+}
+
+
+/* function my_module_form_submit($form, FormStateInterface $form_state) {
+	// Accessing form values.
+	$value = $form_state->getValue('name');
+	
+	// Setting form values.
+	$form_state->setValue('name', $value);
+	
+	// Other form state operations.
+  } */
+
+///////////////////////////////////////////////////
+
+
+function bilimauth_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+	if($entity->getEntityType()->id() == 'node' && $entity->bundle() == 'domain'){
+		$title = $entity->getTitle();
+		$d_chlds = $entity->get('field_domain_children')->getString();
+		
+		if(!$d_chlds){
+			$dcr = Node::create([
+		              'type' => 'domain_content_root',
+		              'title' => $title.' content root'
+		            ]); 
+			$dcr->save();
+			
+			$dsr = Node::create([
+		              'type' => 'domain_styles_root',
+		              'title' => $title.' style root'
+		            ]); 
+			$dsr->save();
+			
+			$domain_roots = [
+					['target_id' => $dcr->id()], 
+					['target_id' => $dsr->id()]
+			];
+			$entity->set('field_domain_children', $domain_roots);
+		}
+	}
+}

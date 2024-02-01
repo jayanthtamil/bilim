@@ -1,0 +1,31 @@
+@import "assets/styles/shared.scss";
+
+.detailed-feedback-wrapper {
+  .detailed-feedback-item-wrapper {
+    &.right {
+      margin-top: 1px;
+    }
+    &.wrong {
+      margin-top: 21px;
+    }
+  }
+  .detailed-feedback-options {
+    flex-direction: row;
+    margin-top: 41px;
+    margin-left: 34px;
+    padding-top: 21px;
+    width: 300px;
+    border-top: 1px solid #cfd0da;
+    .MuiFormControlLabel-root {
+      margin: 0;
+      &:first-child {
+        margin-right: 85px;
+      }
+      .MuiTypography-root {
+        margin-left: 4px;
+        font-weight: 500;
+        font-size: 15px;
+      }
+    }
+  }
+}

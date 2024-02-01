@@ -1,0 +1,47 @@
+@import "assets/styles/shared.scss";
+
+.course-props-panel {
+  z-index: 100;
+  .course-props-panel-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 1212px;
+    height: 997px;
+    max-height: calc(100vh - 65px);
+    padding: 27px 10px 0px 60px;
+    background-color: #ffffff;
+    border: 1px solid #e0e5f1;
+    box-shadow: 0px 15px 10px -15px #cccccc, 15px 0px 10px -15px #cccccc;
+    .course-props-panel-anchor-btn {
+      position: absolute;
+      inset: -15px 46px auto auto;
+      width: 30px;
+      height: 15px;
+      background: url("~assets/images/up-anchor-3.png");
+    }
+    .course-props-panel-close-btn {
+      @include image-button("~assets/images/close-1.png", 15px, 15px);
+      position: absolute;
+      top: 21px;
+      right: 22px;
+      z-index: 2000;
+    }
+    .course-props-tabs {
+      .MuiAppBar-root .MuiTabs-root {
+        min-height: 25px;
+        .MuiTab-root {
+          box-sizing: border-box;
+          padding-right: 10px;
+          min-width: 118px;
+          min-height: 25px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+.course-props-panel-backdrop {
+  &.MuiBackdrop-root {
+    z-index: 100;
+  }
+}

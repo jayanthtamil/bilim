@@ -1,0 +1,106 @@
+.button-card-wrapper {
+  display: flex;
+  height: 58px;
+  .button-card-box {
+    display: grid;
+    grid-template-columns: 1fr 131px auto;
+    grid-template-rows: repeat(2, 1fr);
+    cursor: pointer;
+    flex: 1 1 auto;
+    margin-right: 9px;
+    padding-left: 13px;
+    padding-right: 8px;
+    min-width: 0;
+    border-radius: 5px;
+    border: 1px solid #dee6fa;
+    .button-card-lbl {
+      min-width: 0;
+      grid-row: 1 / span 2;
+      display: inline-flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 14px;
+      color: #2b2b2b;
+      border-right: 1px solid #dee6fa;
+    }
+    .button-card-action,
+    .button-card-parameters {
+      display: inline-flex;
+      grid-column: 2/3;
+      align-items: center;
+      margin-left: 9px;
+      margin-right: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #2b2b2b;
+      text-transform: uppercase;
+    }
+    .button-card-parameters {
+      font-weight: normal;
+      border-top: 1px solid #dee6fa;
+      &.show-icon {
+        background: url("~assets/images/info-5.png") no-repeat center;
+      }
+    }
+    .button-card-lbl,
+    .button-card-action,
+    .button-card-parameters {
+      span {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+    .button-card-drag-btn {
+      display: block;
+      grid-column: 3/4;
+      grid-row: 1 / span 2;
+      width: 22px;
+      height: 100%;
+      border-left: 1px solid #e2ecfa;
+      background: url("~assets/images/content-editor/drag-1.png") no-repeat right center;
+    }
+  }
+  .button-card-delete-btn {
+    display: block;
+    flex: 0 0 auto;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 15px;
+    height: 21px;
+    visibility: hidden;
+    background: url("~assets/images/template/delete-btn-over.png") no-repeat center;
+  }
+  .button-card-duplicate-btn {
+    display: block;
+    flex: 0 0 auto;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 15px;
+    height: 21px;
+    visibility: hidden;
+    background: url("~assets/images/template/duplicate-btn-over.png") no-repeat center;
+    background-size: 13px 18px;
+  }
+  &:hover {
+    .button-card-box {
+      background-color: #f1f4fa;
+    }
+    &.deletable {
+      .button-card-delete-btn {
+        visibility: visible;
+      }
+      .button-card-duplicate-btn {
+        visibility: visible;
+      }
+    }
+  }
+  &.dragging {
+    box-shadow: 3px 3px 12px 0px rgba(27, 54, 94, 0.09);
+  }
+  &.selected {
+    .button-card-box {
+      background-color: #f2f5fc;
+    }
+  }
+}

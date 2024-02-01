@@ -1,0 +1,11 @@
+.wave-scroller {
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  z-index: 5;
+  height: 40px;
+  background-color: rgba(#2196f3, 0);
+  &.scrolling {
+    cursor: grabbing;
+  }
+}

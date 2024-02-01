@@ -1,0 +1,112 @@
+.template-item-wrapper {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: auto 1fr max-content 1fr;
+  align-items: center;
+  justify-items: center;
+  padding-right: 13px;
+  .template-item-lbl {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 1px;
+    width: 25px;
+    height: 20px;
+    margin-top: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000000;
+    background-color: #dadeee;
+  }
+  .template-item-img-wrapper {
+    grid-column: 2/-1;
+    display: inline-flex;
+    width: 200px;
+    height: 120px;
+    outline: 1px solid #e1e4f3;
+    .template-item-img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .template-item-name {
+    grid-column: 2/-1;
+    grid-row: 2/3;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin: 5px 0 0 2px;
+    font-weight: 300;
+    font-size: 14px;
+    color: #2b2b2b;
+    visibility: visible;
+    max-width: 239px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .template-item-add-btn,
+  .template-item-variant-btn {
+    grid-row: 2/3;
+    cursor: pointer;
+    visibility: hidden;
+    font-weight: bold;
+    font-size: 14px;
+    color: #2b2b2b;
+  }
+  .template-item-add-btn {
+    grid-column: 2/3;
+    margin-left: -6px;
+  }
+  .template-item-divider {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    width: 1px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 6px;
+    visibility: hidden;
+    background-color: #b3b6c1;
+  }
+  .template-item-variant-btn {
+    grid-column: 4/5;
+    margin-left: -8px;
+  }
+  .template-item-info-icon,
+  .template-item-warning-icon {
+    position: absolute;
+    cursor: pointer;
+    width: 19px;
+    height: 19px;
+    top: 11px;
+    right: 21px;
+  }
+  .template-item-info-icon:not(:last-child) {
+    right: 45px;
+  }
+  .template-item-info-icon {
+    background: url("~assets/images/info-1.png") no-repeat center;
+  }
+  .template-item-warning-icon {
+    background: url("~assets/images/warning-1.png") no-repeat center;
+  }
+  &:hover {
+    background: linear-gradient(transparent calc(100% - 88px), #e1e4f3 88px) no-repeat;
+    background-position-x: 7px;
+    .template-item-img-wrapper {
+      outline: 2px solid #2b2b2b;
+    }
+    .template-item-name {
+      visibility: hidden;
+    }
+    .template-item-add-btn,
+    .template-item-variant-btn,
+    .template-item-divider {
+      visibility: visible;
+    }
+  }
+  &.selected {
+    .template-item-img-wrapper {
+      outline: 2px solid #2b2b2b;
+    }
+  }
+}

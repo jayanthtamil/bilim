@@ -1,0 +1,9 @@
+name: 'bilim auth'
+type: module
+description: 'API Module for custom rest communication call between react and cms.'
+core: 8.x
+package: 'Custom'
+core_version_requirement: ^8 || ^9
+
+libraries-override:
+  system/base: false

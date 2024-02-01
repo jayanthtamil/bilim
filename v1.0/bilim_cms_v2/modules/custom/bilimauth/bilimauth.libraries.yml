@@ -1,0 +1,69 @@
+bilimauth:
+  version: 1.0
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+      css/bilim-theme.css: {}
+  fontawesome:
+    css:
+      theme:
+        https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+
+domain-tree:
+  version: 1.0
+  css:
+    theme:
+      css/domain-tree.css: {}
+  js:
+    js/domain-tree.js: {} 
+  dependencies:
+    - core/jquery
+
+homepage:
+  version: 1.0
+  css:
+    theme:
+      css/homepage.css: {}
+  js:
+    js/homepage.js: {}
+
+global-style:
+  version: 1.0
+  css:
+    base:
+      css/custom.css: {weight: -50}
+  js:
+    https://unpkg.com/jszip@3.7.1/dist/jszip.js: {type: external}
+
+style-home:
+  version: 1.0
+  css:
+    theme:
+      css/domain-tree.css: {}
+      css/homepage.css: {}
+
+user-home:
+  version: 1.0
+  css:
+    theme:
+      css/homepage.css: {}
+      css/userpage.css: {}
+  js:
+    js/userhome.js: {} 
+
+domain-list:
+  version: 1.0
+  css:
+    theme:
+      css/homepage.css: {}
+      css/domain-list.css: {}
+  js:
+    js/domain-tree.js: {} 
+
+pre-home:
+  version: 1.0
+  js:
+    js/prehome.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

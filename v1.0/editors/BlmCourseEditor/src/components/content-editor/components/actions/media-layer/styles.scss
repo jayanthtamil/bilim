@@ -1,0 +1,32 @@
+.media-layer-action-wrapper {
+  margin: 18px 0 0 1px;
+  .media-layer-picker {
+    width: 163px;
+    height: 130px;
+    border: none;
+    .media-browse-wrapper {
+      .browse-placeholder {
+        display: none;
+      }
+    }
+    .media-preview-wrapper {
+      .media-name {
+        display: block;
+        position: absolute;
+        margin: 0;
+        top: 0px;
+        right: calc(-100% - 12px);
+        font-size: 15px;
+        font-weight: 500;
+        color: #2b2b2b;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .media-layer-info-lbl {
+    margin: 8px 0 0 3px;
+    font-weight: normal;
+    font-size: 11px;
+    color: #262626;
+  }
+}

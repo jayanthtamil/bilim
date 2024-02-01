@@ -1,0 +1,254 @@
+@media all and (min-width: 851px) {
+    .layout-container {
+      max-width: 100% !important;
+    }
+  }
+body {
+  margin: 0;
+  font-family: "roboto";
+  font-weight: normal;
+  font-size: 12px;
+  color: #000000;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: #798bb0 #182135;
+}
+
+.block .content {
+  height: 100vh;
+}
+
+/*** left sidebar ***/
+
+.domain-list {}
+
+.domain-list ul {
+    margin: 0px;
+    padding-left: 19px;
+    padding-right: 50px;
+    list-style-type: none;
+}
+
+.domain-list ul li {
+    font-weight: 500;
+    font-size: 14px;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #405075;
+    text-transform: uppercase;
+}
+
+.domain-list ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    border: 0px;
+}
+
+/*** header title ***/
+.title-container {
+  padding: 24px 0px 48px 39px;
+  background-color: #f0f1f4;
+  border: 1px solid #ececec;
+  border-top: none;
+}
+
+.title-content {
+  font-weight: 500;
+  color: #2b2b2b;
+  border-left: 1px solid #d2d2d2;
+  padding-left: 9px;
+}
+
+.title-content .title {
+  font-size: 15px;
+  display: block;
+  padding-left: 4px;
+}
+
+.title-content .sub-title {
+  font-size: 48px;
+  height: 49px;
+  display: block;
+  margin-top: -9px;
+}
+
+
+/*** Course lists ***/
+.course-lists-container {
+  flex: 1 1 auto;
+  color: #2b2b2b;
+  padding-left: 42px;
+  background-color: #fafafa;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.course-list-container {
+  margin-top: 41px;
+}
+
+.favorites-courses-container {}
+
+.latest-courses-container {
+  margin-top: 40px;
+}
+
+.course-list-title {
+  font-weight: 300;
+  font-size: 28px;
+}
+
+.course-list-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.latest-courses-container .course-list-row {
+  margin-top: 14px;
+}
+
+/* .card-modified .title,
+.card-modified .time {
+    display: none;
+} */
+
+.card-created,
+.card-modified {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    font-size: 12px;
+    border-left: 1px solid #ecebeb;
+    box-sizing: border-box;
+}
+
+.card-modified {
+  justify-content: unset;
+  padding-top: 4px;
+  padding-left: 27px;
+}
+
+.card-created,
+.card-modified {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    background-color: #212b43;
+    color: #ffffff;
+    left: 0px;
+    top: 36px;
+    right: 0px;
+    bottom: 0px;
+    padding: 10px 20px 10px 18px;
+}
+
+.tile-view .card-created.show,
+.tile-view .card-modified.show {
+    visibility: visible;
+}
+
+.card-created .title,
+.card-modified .title {
+    position: relative;
+    display: inline-block;
+    font-weight: normal;
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.card-modified .title::after {
+    position: absolute;
+    content: " ";
+    width: 50px;
+    height: 1px;
+    display: inline-block;
+    border-bottom: 1px solid #405075;
+    left: 0;
+    bottom: 0;
+}
+
+.card-created .date,
+.card-modified .date {
+    font-weight: bold;
+    font-size: 19px;
+    margin-top: 5px;
+}
+
+.card-created .time,
+.card-modified .time {
+    font-weight: normal;
+    font-size: 19px;
+}
+
+.card-modified.show {
+  visibility: visible;
+}
+
+/* .card-btn-box {
+  visibility: hidden;
+}
+
+.card-created.show~.card-btn-box,
+.card-modified.show~.card-btn-box {
+    visibility: visible;
+} */
+
+.card-info-btn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  background: url("../images/info-btn.png") no-repeat center;
+  cursor: pointer;
+}
+
+.card-created.show~.card-btn-box>.card-info-btn,
+.card-modified.show~.card-btn-box>.card-info-btn {
+    z-index: 1;
+    background: url("../images/category-info-btn.png") no-repeat center;
+}
+
+.card-ctx-btn {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 23px;
+  height: 15px;
+  margin-top: -3px;
+  background: url("../images/context-over-btn.png") no-repeat center;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  visibility: hidden; 
+}
+
+.card:hover .card-info-btn, .card:hover .card-ctx-btn {
+  visibility: visible;
+}
+
+.card-ctx-btn.show {
+  background: url("../images/context-btn.png") no-repeat center;
+}
+
+.context-menu {
+  position: absolute;
+}
+
+.context-menu ul {
+  margin: 0;
+  padding: 17px 0;
+  list-style-type: none;
+  width: 198px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.16);
+}

@@ -1,0 +1,105 @@
+.audiomaker-action-wrapper {
+  width: 100%;
+  .MuiFormControl-root {
+    width: 100%;
+  }
+  .structure-select,
+  .audiomaker-actions-dropdown {
+    margin-top: 20px;
+    width: 100%;
+    .BlmSelect-select,
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 40px;
+      font-weight: 500;
+      font-size: 16px;
+      color: #3a3e42;
+      border: 1px solid #d5dff7;
+      background-color: #ffffff;
+      ~ .BlmSelect-icon,
+      ~ .MuiSelect-icon {
+        margin-right: 7px;
+        background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+      }
+      .MuiListItemText-root {
+        .MuiTypography-root {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .structure-select {
+    margin-top: 12px;
+  }
+}
+.audiomaker-actions-dropdown-popover {
+  .MuiMenu-paper {
+    padding: 15px 0;
+    scrollbar-width: thin;
+    .videomaker-dropdown-menu-title {
+      margin: 0 15px 10px 15px;
+      font-weight: 500;
+      font-size: 12px;
+      color: #3484e7;
+      text-transform: uppercase;
+    }
+    .MuiMenuItem-root {
+      padding: 2px 20px;
+      &.Mui-selected {
+        background-color: #99b6fd;
+      }
+    }
+    .MuiDivider-root {
+      margin: 15px;
+      background-color: #eaeef9;
+    }
+  }
+}
+.audiomaker-actions-dropdown,
+.audiomaker-actions-dropdown-popover .MuiList-root {
+  .MuiListItemText-root {
+    margin: 0;
+    .MuiTypography-root {
+      font-weight: bold;
+      font-size: 16px;
+      color: #3a3e42;
+    }
+  }
+  .MuiListItemIcon-root {
+    margin-right: 10px;
+    min-width: 20px;
+    height: 15px;
+    margin-left: -8px;
+  }
+  .markerIcon {
+    background: url("~assets/images/content-actions/audiovideo/marker.png") no-repeat center;
+  }
+  .audioIcon {
+    background: url("~assets/images/content-actions/audiovideo/sound.png") no-repeat center;
+  }
+  .videoIcon {
+    background: url("~assets/images/content-actions/audiovideo/video.png") no-repeat center;
+  }
+  .selectedItem {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
+  .selectedMarkerIndex {
+    color: #507de2;
+    margin-right: 5px;
+  }
+}
+.audiomarker-warning-lbl {
+  margin: 10px 0 0 3px;
+  span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #3b7ddb;
+    text-transform: uppercase;
+  }
+}

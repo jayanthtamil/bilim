@@ -1,0 +1,55 @@
+.replace-target-action-wrapper {
+  margin-top: 12px;
+  width: 100%;
+  .structure-select,
+  .replace-target-dropdown {
+    grid-column: 1/-1;
+    width: 100%;
+    .BlmSelect-select,
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 40px;
+      font-weight: 500;
+      font-size: 16px;
+      color: #3a3e42;
+      border: 1px solid #d5dff7;
+      background-color: #ffffff;
+      ~ .BlmSelect-icon,
+      ~ .MuiSelect-icon {
+        margin-right: 7px;
+        background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+      }
+    }
+  }
+  .replace-target-warning-lbl {
+    margin: 10px 0 0 3px;
+    span {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #3b7ddb;
+      text-transform: uppercase;
+    }
+  }
+  .structure-select {
+    margin-top: 22px;
+  }
+  .restore-box {
+    margin-top: 8px;
+    .restore-check-box-label {
+      margin-left: 6px;
+    }
+  }
+}
+.replace-target-dropdown,
+.replace-target-dropdown-popover {
+  .MuiListItemIcon-root {
+    margin-right: 6px;
+    min-width: 20px;
+    height: 20px;
+    background: url("~assets/images/content-actions/target.png") no-repeat center;
+  }
+}

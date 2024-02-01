@@ -1,0 +1,460 @@
+{{ attach_library('bilimauth/domain-tree') }}
+<script type="text/javascript">
+  const domains = {{content.domain|json_encode()|raw}};
+</script>
+<div class="main-container">
+  <header>
+    <div class="header-container">
+      <div class="header-menu-container">
+        <section class="app-bar-container">
+          <div class="app-bar-btn app-domains-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Domain</span>
+          </div>
+          <div class="app-bar-separator"></div>
+          <div class="app-bar-btn app-users-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Users</span>
+          </div>
+          <div class="app-bar-separator"></div>
+          <div class="app-bar-btn app-styles-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Styles</span>
+          </div>
+        </section>
+        <button class="header-menu-btn"></button>
+      </div>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl">BILIM</span>
+        <div class="header-domain-container">
+          <div class="header-back-btn"></div>
+          <div class="header-domain-title">
+            {% for bc in content.domaininfo.breadcrumb %}
+              <span>{{bc.title}}</span>
+              {% if loop.last %}
+              {% else %}
+                <span class="header-domain-title-separator">/</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <span class="header-right-lbl">{{content.username}}</span>
+      </div>
+      <a href="/bilim/v1.0/bilim_cms/user/logout" class="header-logout-btn"></a>
+    </div>
+  </header>
+  <section class="main-section">
+
+    <section class="left-section">
+      <div class="search-container">
+        <button class="search-btn" onclick="searchBtnClick(event)"></button>
+      </div>
+      <a href="/bilim/v1.0/bilim_cms/platform/homepage" class="domain-back-btn">
+        <span>{{content.domaininfo.domain}}</span>
+      </a>
+      <div id="domainsTreeContainer" class="domains-tree-container custom-scrollbar"></div>
+
+      <div class="btns-container">
+        <div class="icon-button">
+          <span>MODELES</span>
+        </div>
+        <div class="btn-separator"></div>
+        <div class="icon-button">
+          <span>TESTS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="right-section">
+      <div class="title-container">
+        <div class="title-content">
+          <div class="title"><span>{{content.domaininfo.page_title}}</span></div>
+          <div class="title-btns-container">
+            <button class="add-folder-btn"></button>
+            <button
+              class="add-course-btn"
+              onclick="onNewCourseBtnClick(event)"
+            ></button>
+            <button class="import-course-btn"></button>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar-container">
+        <div class="view-btn-group">
+          <button
+            name="tile"
+            class="tiles-view-btn active"
+            onclick="viewGroupBtnClick(event)"
+          ></button>
+          <button
+            sname="list"
+            class="list-view-btn"
+            onclick="viewGroupBtnClick(event)"
+          ></button>
+        </div>
+        <div class="sort-list-container">
+          <span>Sort by:</span>
+          <select class="sort-select">
+            <option value="">-</option>
+            <option>Recent</option>
+            <option>Alphabhetical</option>
+          </select>
+        </div>
+      </div>
+      <div class="course-lists-container custom-scrollbar">
+        <div id="courseViewContainer" class="tile-view">
+          <div class="list-view-header">
+            <span class="list-title-header"></span>
+            <span class="list-created-header">Création</span>
+            <span class="list-modified-header">Modification</span>
+            <span class="list-lang-header"></span>
+            <span class="list-fav-header"></span>
+            <span class="list-ctx-header"></span>
+          </div>
+          
+          {% for crs in content.courses %}
+            {% if crs.type in ['domain_content_root','content_folder'] %} 
+              <!-- category-card -->
+              {% if crs.type == 'content_folder' %}
+                  {% set cf_val = crs.id %}
+                  {% set cf_root = content.ids.root %}
+              {% else %}
+                  {% set cf_root = crs.id %}
+                  {% set cf_val = 0 %}
+              {% endif %}
+              <div class="card category-card" onclick="subfolder_view({{content.ids.domain}},{{cf_root}},{{cf_val}})">
+                <div class="card-column-box">
+                  <div class="card-title">
+                    <span>{{ crs.title }}</span>
+                  </div>
+                  <div class="card-content">
+                    <span></span>
+                  </div>
+                </div>
+                <div class="card-created">
+                  <span class="title">Created</span>
+                  <span class="date">{{ crs.date }}</span>
+                  <span class="time">{{ crs.time }}</span>
+                </div>
+                <div class="card-modified">
+                  <span class="title">Last modification</span>
+                  <span class="date">{{ crs.changed|date('d-m-Y') }}</span>
+                  <span class="time">{{ crs.changed|date('H:i') }}</span>
+                </div>
+                <div class="card-lang-box">
+                  <div class="card-lang-btn"></div>
+                </div>
+                <div class="card-fav-box">
+                  <button class="card-fav-btn"></button>
+                </div>
+                <div class="card-btn-box">&nbsp;</div>
+              </div>
+              <!-- end category-card -->
+            {% else %}
+              <!-- course card -->
+              <div class="card course-card" data-title="{{crs.title}}" data-changed="{{crs.changed}}">
+                <div class="card-column-box">
+                  <div class="card-title">
+                    <span class="course-title">{{content.domaininfo.domain}}</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="desc">{{ crs.title }}</span>
+                  </div>
+                </div>
+                <div class="card-created">
+                  <span class="title">Created</span>
+                  <span class="date">{{ crs.date }}</span>
+                  <span class="time">{{ crs.time }}</span>
+                </div>
+                <div class="card-modified">
+                  <span class="title">Last modification</span>
+                  <span class="date">{{ crs.changed|date('d-m-Y') }}</span>
+                  <span class="time">{{ crs.changed|date('H:i') }}</span>
+                </div>
+                <div class="card-lang-box">
+                  <button class="card-icon card-lang-icon"></button>
+                </div>
+                <div class="card-fav-box">
+                  {{ crs.flag_link }}
+                </div>
+                <div class="card-btn-box">
+                  <button
+                    class="card-info-btn"
+                    onclick="onInfoBtnClick(event)"
+                  ></button>
+                  <button
+                    class="card-ctx-btn"
+                    onclick="onCtxBtnClick(event)"
+                  ></button>
+                </div>
+              </div>
+              <!-- end course-card -->
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+  </section>
+  <section id="searchPanel" class="search-section custom-scrollbar close">
+    <div class="search-title-box">
+      <span class="search-title-lbl">Search</span>
+      <button
+        class="search-close-btn"
+        onclick="searchCloseBtnClick(event)"
+      ></button>
+    </div>
+    <div class="search-txt-box">
+      <input type="text" class="search-txt" />
+    </div>
+    <div class="search-options-box">
+      <div class="search-options-column-box">
+        <label class="custom-checkbox-lbl">
+          <input id="title" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Title</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="description" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Description</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="version" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Version</span>
+        </label>
+      </div>
+      <div class="search-options-column-box">
+        <label class="custom-checkbox-lbl">
+          <input id="keyword" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Keyword</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="learnignObjectives" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Learning objectives</span>
+        </label>
+      </div>
+    </div>
+    <div class="search-expand-box search-user-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Who</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <div class="search-user-ctrl">
+          <span class="search-user-lbl">Created by</span>
+          <input type="text" class="search-user-txt" />
+        </div>
+        <div class="search-user-ctrl">
+          <span class="search-user-lbl">Edited by</span>
+          <input type="text" class="search-user-txt" />
+        </div>
+      </div>
+    </div>
+    <div class="search-expand-box search-creation-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Creation date</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <input id="creationFrom" type="date" class="search-date-txt" />
+        <input id="creationTo" type="date" class="search-date-txt" />
+      </div>
+    </div>
+    <div class="search-expand-box search-edition-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Edition date</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <input id="editionFrom" type="date" class="search-date-txt" />
+        <input id="editionTo" type="date" class="search-date-txt" />
+      </div>
+    </div>
+    <div class="search-expand-box search-language-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Language</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <select type="text" class="search-lang-select">
+          <option>Franch</option>
+          <option>English</option>
+        </select>
+      </div>
+    </div>
+    <div class="search-bottom-options-box">
+      <div class="search-course-options-box">
+        <span class="search-course-options-title">Course</span>
+        <div class="search-course-options">
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>All</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>Original</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>Copied</span>
+          </label>
+        </div>
+      </div>
+      <div class="search-options-ruler"></div>
+      <div class="search-zone-options-box">
+        <span class="search-zone-options-title">Zone</span>
+        <div class="search-zone-options">
+          <label class="custom-radio-lbl">
+            <input type="radio" name="zone" />
+            <span class="custom-radio"></span>
+            <span>All</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="zone" />
+            <span class="custom-radio"></span>
+            <span>Current</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="search-filter-box">
+      <div class="search-filter-btn">FILTER</div>
+    </div>
+  </section>
+</div>
+
+<div class="context-menu-container" onclick="onCtxMenuClick(event)">
+  <div class="context-menu-backdrop"></div>
+  <div class="course-context-menu context-menu">
+    <ul>
+      <li>Edit</li>
+      <div class="context-menu-divider"></div>
+      <li>Rename</li>
+      <li>Delete</li>
+      <li>Copy</li>
+      <li>Move</li>
+      <li>Duplicate</li>
+      <div class="context-menu-divider"></div>
+      <li>Preview</li>
+      <li>Export</li>
+      <li>Translate</li>
+      <div class="context-menu-divider"></div>
+      <li>Change style</li>
+      <li>Add/remove Favorite</li> 
+      <li>Properties</li>
+    </ul>
+  </div>
+  <div class="tree-context-menu context-menu">
+    <ul>
+      <li>Add Category</li>
+      <li>Add Course</li>
+      <li>Import Course</li>
+      <div class="context-menu-divider"></div>
+      <li>Rename</li>
+      <li>Delete</li>
+      <li>Copy</li>
+    </ul>
+  </div>
+</div>
+<!-- context menu -->
+
+<div id="popupContainer" class="popup-container">
+  <div class="popup-backdrop"></div>
+  <div class="popup new-course-popup">
+    <button class="popup-close-btn" onclick="onPopupClose(event)"></button>
+    <div class="new-course-popup-scroll custom-scrollbar">
+      <div class="new-course-popup-form">
+        <div class="course-name-form-control">
+          <div class="course-name-lbl">Name</div>
+          <input
+            class="course-name-txt"
+            type="text"
+            value="Danone - Aide a la vente"
+          />
+        </div>
+        <div class="course-lang-form-control">
+          <span class="course-lang-form-lbl">Language</span>
+          <div class="course-lang-list">
+            <span class="course-lang-list-lbl"></span>
+            <button class="course-lang-list-btn"></button>
+          </div>
+        </div>
+        <div class="course-style-form-box">
+          <div class="course-style-left-form">
+            <div class="course-style-title-box">
+              <div class="course-style-title-icon"></div>
+              <div class="course-style-title-lbl">Choose style</div>
+            </div>
+            <div class="course-style-list-box">
+              <div
+                class="course-style-drop-down-box"
+                onclick="onCourseStyleDropDownClick(event)"
+              >
+                <span class="course-style-drop-down-lbl">Cartier</span>
+                <span class="course-style-drop-down-icon"></span>
+              </div>
+              <div
+                id="styleDropDownList"
+                class="course-style-drop-down-list"
+              >
+                <div
+                  id="stylesTreeContainer"
+                  class="styles-tree-container custom-scrollbar"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="course-style-right-form">
+            <div class="course-style-details-box">
+              <span class="course-style-name">sales skills for cartier</span>
+              <img class="course-style-img" src="/bilim/v1.0/bilim_cms/core/themes/bartik/images/style-temp.png" />
+              <div class="course-style-details-info">
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Creation :</span>
+                  <span class="course-style-info-txt date">Thu Sept 8</span>
+                  <span class="course-style-info-txt time">- 11h45 GMT - 2011</span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Modification :</span>
+                  <span class="course-style-info-txt date">Uta - Fri Oct 28</span>
+                  <span class="course-style-info-txt time">- 16h41 GMT - 2011</span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Created from :</span>
+                  <span class="course-style-info-txt"></span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Modified :</span>
+                  <span class="course-style-info-txt"></span>
+                </div>
+              </div>
+              <div class="course-create-btn">
+                <span class="course-create-lbl-btn">CREATE</span>
+                <div class="course-create-icon-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

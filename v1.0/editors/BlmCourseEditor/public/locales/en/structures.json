@@ -1,0 +1,67 @@
+{
+  "menu_antion": {
+    "add_chapter": "Add Chapter",
+    "add_page": "Add Page",
+    "add_screen": "Add Screen",
+    "add_question": "Add Question",
+    "add_evaluation": "Add Evaluation",
+    "add_custom": "Add Custom",
+    "add_simple_content": "Add Simple Content",
+    "reset_margin": "Reset Margin",
+    "add_simple_page": "Add Simple Page",
+    "add_annexes_folder": "Add Annexes Folder",
+    "edit_screen": "Edit Screen",
+    "edit_page": "Edit Page",
+    "edit_question": "Edit Question",
+    "edit_simple_content": "Edit Simple Content",
+    "edit_simple_page": "Edit Simple Page",
+    "edit_part_page": "Edit Part Page",
+    "copy_from": "Copy From...",
+    "1st_connexion": "Define for 1st connexion",
+    "define_reconnexion": "Define for reconnexion",
+    "define_everytime": "Define Everytime",
+    "duplicate": "Duplicate",
+    "move_to": "Move To",
+    "rename": "Rename",
+    "reset_template": "Reset Template",
+    "delete": "Delete",
+    "import_custom": "Import Custom",
+    "properties": "Properties...",
+    "auto_summary": "Reactivate Auto Summary",
+    "deactivate_summary": "Deactivate Summary",
+    "define_summary": "Define as Summary",
+    "delete_summary": "Delete Summary",
+    "switch_summary_screen": "Switch to Summary Screen",
+    "switch_summary_page": "Switch to Summary Page",
+    "divider": "divider"
+  },
+  "title": {
+    "new": "New ",
+    "auto_summary": "Auto-summary",
+    "feedback": "feedback"
+  },
+  "accordion": {
+    "starting": "STARTING",
+    "structure": "STRUCTURE",
+    "annexes": "ANNEXES",
+    "local": "Local"
+  },
+  "element_type": {
+    "page": "page",
+    "screen": "screen",
+    "simple_content": "simple_content",
+    "simple_page": "simple_page",
+    "simple_partpage": "simple_partpage",
+    "chapter": "chapter",
+    "evaluation": "evaluation",
+    "custom": "custom",
+    "question": "question",
+    "feedback": "feedback",
+    "associate_content": "associate_content",
+    "annexes_folder": "annexes_folder"
+  },
+  "copy_from": {
+    "title": "COPY FROM",
+    "structure_header": "Select the element to copy in the course structure:"
+  }
+}

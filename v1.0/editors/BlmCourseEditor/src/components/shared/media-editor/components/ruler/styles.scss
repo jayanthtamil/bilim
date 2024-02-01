@@ -1,0 +1,17 @@
+.ruler-wrapper {
+  position: absolute;
+  user-select: none;
+  cursor: ew-resize;
+  inset: 0;
+  z-index: 5;
+  .ruler-selection-wrapper {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    inset: 0 auto;
+    width: 100px;
+    border-left: 1px solid rgba(76, 175, 80, 0.8);
+    border-right: 1px solid rgba(76, 175, 80, 0.8);
+    background-color: rgba(76, 175, 80, 0.5);
+  }
+}

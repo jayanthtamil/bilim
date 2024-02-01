@@ -1,0 +1,205 @@
+.hotspot-360-tabs {
+  &.MuiTabs-root {
+    margin-top: -45px;
+    .MuiTabScrollButton-root {
+      align-self: flex-end;
+      min-height: 45px;
+    }
+    .MuiTabs-scroller {
+      pointer-events: none;
+    }
+    .MuiTab-root {
+      position: relative;
+      align-items: flex-end;
+      padding: 0;
+      min-width: 118px;
+      max-width: 150px;
+      min-height: 93px;
+      font-weight: 500;
+      font-size: 20px;
+      color: #000000;
+      text-transform: none;
+      line-height: 1;
+      opacity: 1;
+      .MuiTab-wrapper {
+        pointer-events: all;
+        padding: 6px;
+        min-height: 48px;
+        .hotspot-360-tab-lbl {
+          max-width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .hotspot-360-tab-txt {
+          max-width: 100%;
+          text-align: center;
+          font-weight: 500;
+          font-size: 20px;
+          color: #000000;
+          border: none;
+          background: transparent;
+        }
+        .hotspot-360-tab-btns-wrapper {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          margin: 0;
+          top: 0;
+          width: 100%;
+          height: 45px;
+          visibility: hidden;
+          border-radius: 7px 7px 0 0;
+          background-color: #dee6fa;
+          .hotspot-360-tab-duplicate-btn,
+          .hotspot-360-tab-delete-btn {
+            flex: 1 1 auto;
+            align-self: stretch;
+          }
+          .hotspot-360-tab-divider {
+            flex: 0 0 auto;
+            width: 1px;
+            height: 30px;
+            background-color: #d2d5da;
+          }
+          .hotspot-360-tab-duplicate-btn {
+            background: url("~assets/images/content-media/slideshow/duplicate.png") no-repeat center;
+          }
+          .hotspot-360-tab-delete-btn {
+            background: url("~assets/images/content-media/slideshow/delete.png") no-repeat center;
+          }
+        }
+      }
+      &.Mui-selected {
+        .MuiTab-wrapper {
+          border-radius: 7px 7px 0 0;
+          background-color: #dee6fa;
+          &:hover {
+            border-radius: 0;
+            .hotspot-360-tab-btns-wrapper {
+              visibility: visible;
+            }
+          }
+        }
+      }
+      &:not(:last-child):not(:nth-last-child(2)) {
+        &::after {
+          display: block;
+          content: " ";
+          position: absolute;
+          right: 0px;
+          bottom: 7px;
+          width: 1px;
+          height: 26px;
+          background-color: #d2d5da;
+        }
+      }
+      &:last-child {
+        min-width: auto;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-weight: normal;
+        font-size: 30px;
+        color: #3e3e3e;
+      }
+    }
+    .MuiTabs-indicator {
+      display: none;
+    }
+  }
+}
+.hotspot360_options-editor-modal {
+  .hotspot360_options-editor-wrapper {
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr max-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    .hotspot360_options-title {
+      grid-column: 1/-1;
+      padding: 0px 0 14px 29px;
+      font-weight: 500;
+      font-size: 18px;
+      color: #507de2;
+      background-color: #f2f5fc;
+    }
+    .options-modal-close-btn {
+      position: relative;
+      top: -5px;
+      left: -20px;
+      cursor: pointer;
+      height: 20px;
+      background: url("~assets/images/close-3.png") no-repeat center right;
+    }
+    .option-selected {
+      border: solid 3px #81a3f9;
+    }
+    .options-horizontal-lock {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/horizontal_lock.png") no-repeat center right;
+    }
+    .options-horizontal-half {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/horizontal_half.png") no-repeat center right;
+    }
+    .options-horizontal-full {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/horizontal_full.png") no-repeat center right;
+    }
+    .options-vertical-lock {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/vertical_locked.png") no-repeat center right;
+    }
+    .options-vertical-half {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/vertical_half.png") no-repeat center right;
+    }
+    .options-vertical-full {
+      cursor: pointer;
+      width: 150px;
+      height: 90px;
+      background: url("~assets/images/360_assets/vertical_full.png") no-repeat center right;
+    }
+    .hotspot360_options-save-btn,
+    .hotspot360_options-cancel-btn {
+      align-self: flex-end;
+      justify-self: flex-end;
+      margin: 55px 38px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 21px;
+      color: #3a3e42;
+      text-transform: uppercase;
+    }
+    .hotspot360_options-save-btn {
+      margin-right: 40px;
+    }
+    .hotspot360_option-chk-frm-ctrl {
+      margin: 4px 0 0 0;
+      .MuiFormControlLabel-label {
+        margin: 0 0 0 10px;
+        font-weight: 300;
+        font-size: 17px;
+        color: #2b2b2b;
+      }
+    }
+    .checkBox {
+      transform: scale(1.3);
+    }
+  }
+}

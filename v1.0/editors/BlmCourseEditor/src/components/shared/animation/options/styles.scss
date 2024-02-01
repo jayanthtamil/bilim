@@ -1,0 +1,39 @@
+.options-editor-modal {
+  .options-editor-wrapper {
+    display: grid;
+    position: absolute;
+    grid-template-columns: 1fr max-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 440px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    background-color: #ffffff;
+    .options-title {
+      grid-column: 1/-1;
+      padding: 24px 0 14px 29px;
+      font-weight: 500;
+      font-size: 18px;
+      color: #507de2;
+      background-color: #f2f5fc;
+    }
+    .option-item-wrapper {
+      grid-column: 1/-1;
+    }
+    .options-save-btn,
+    .options-cancel-btn {
+      align-self: flex-end;
+      justify-self: flex-end;
+      margin: 55px 38px 25px 0;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 21px;
+      color: #3a3e42;
+      text-transform: uppercase;
+    }
+    .options-save-btn {
+      margin-right: 40px;
+    }
+  }
+}

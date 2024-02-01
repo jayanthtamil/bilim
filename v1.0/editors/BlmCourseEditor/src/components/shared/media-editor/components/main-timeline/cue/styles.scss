@@ -1,0 +1,56 @@
+.main-cue-wrapper {
+  position: absolute;
+  cursor: move;
+  user-select: none;
+  pointer-events: all;
+  overflow: hidden;
+  counter-increment: main-timeline-counter;
+  font-weight: 500;
+  font-size: 14px;
+  color: #2f3f60;
+  white-space: pre-wrap;
+  background-color: rgba(#93b0f1, 0.15);
+  .transform-handle-wrapper {
+    &.w,
+    &.e {
+      cursor: col-resize;
+      transform: none;
+      width: 10px;
+      height: auto;
+      &:hover {
+        background-color: rgba(#ffffff, 0.1);
+      }
+    }
+    &.w {
+      inset: 0 auto 0 0;
+    }
+    &.e {
+      inset: 0 0 0 auto;
+    }
+  }
+  .main-cue-lbl {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 25px;
+    width: 100%;
+    height: 100%;
+    &::before {
+      display: block;
+      content: counter(main-timeline-counter);
+      font-weight: 300;
+      font-size: 25px;
+      color: #719bce;
+    }
+  }
+  &:hover {
+    background-color: rgba(#f4f8fe, 0.5);
+  }
+  &.selected {
+    background-color: rgba(#4c8ee8, 0.4);
+  }
+  &.invalid {
+    background-color: rgba(199, 81, 35, 0.5);
+  }
+}

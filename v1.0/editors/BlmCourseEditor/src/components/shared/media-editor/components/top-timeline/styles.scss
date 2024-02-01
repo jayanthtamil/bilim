@@ -1,0 +1,42 @@
+.top-timeline-wrapper {
+  position: absolute;
+  pointer-events: none;
+  z-index: 5;
+  height: 31px;
+  inset: 0 0 auto 0;
+  .add-cue-btn {
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: all;
+    inset: 0 auto auto 0;
+    transform: translate(-50%, -100%);
+    width: 21px;
+    height: 31px;
+    background: url("~assets/images/media-editor/marker-add-btn.png") no-repeat center;
+  }
+  .top-cues-scroller {
+    position: absolute;
+    overflow: hidden;
+    inset: -22px -11px auto -11px;
+    height: 22px;
+    .top-cues-wrapper {
+      position: absolute;
+      inset: 0 11px 0 11px;
+    }
+  }
+}
+.top-timeline-ctx-menu {
+  .MuiMenu-paper {
+    border-radius: 0;
+    .MuiMenu-list {
+      .MuiMenuItem-root {
+        font-weight: 500;
+        font-size: 14px;
+        &:hover {
+          background-color: #b3c6f1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.question-parameters-wrapper {
+  margin: 54px 0 0 49px;
+  .question-parameters-form-group {
+    .question-parameters-form-ctrl-lbl {
+      margin: 0;
+      width: max-content;
+      .MuiFormControlLabel-label {
+        margin: 0 0 0 9px;
+        font-weight: bold;
+        font-size: 18px;
+        color: #3a3e42;
+      }
+      &:not(:first-child) {
+        margin: 40px 0 0 0;
+      }
+    }
+    .question-parameters-sc-dropdown {
+      margin: 2px 0 0 -1px;
+      width: 335px;
+      height: 51px;
+      .BlmSelect-select {
+        background: #ffffff;
+      }
+    }
+    .question-parameters-weight-dropdown-box {
+      display: flex;
+      margin: 40px 0 0 0;
+      .mui-autocomplete {
+        margin: -2px 0 0 10px;
+        width: 70px;
+        .MuiAutocomplete-inputRoot {
+          background-color: #ffffff;
+        }
+      }
+    }
+    .question-parameters-timer-txt {
+      margin: 10px 0 0 1px;
+      padding: 2px 15px 2px 5px;
+      color: #3a3e42;
+      background-color: #ffffff;
+      .subscript-input {
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+  }
+}

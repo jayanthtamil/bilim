@@ -1,0 +1,6 @@
+name: Flag
+description: Create customized flags that users can set on entities.
+core_version_requirement: ^8.8 || ^9
+type: module
+package: Flags
+configure: entity.flag.collection

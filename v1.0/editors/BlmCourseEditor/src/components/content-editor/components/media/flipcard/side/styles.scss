@@ -1,0 +1,174 @@
+.flipcard-side-wrapper {
+  padding: 0 0 11px;
+  .flipcard-title {
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+  }
+  .flipcard-media-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-template-rows: 1fr max-content minmax(51px, max-content);
+    column-gap: 16px;
+    align-items: flex-end;
+    margin: 6px 0 18px 0;
+    .flipcard-media {
+      grid-row: 1/3;
+      width: 182px;
+      height: 130px;
+      background: #dee6fa;
+    }
+    .flipcard-icon-title {
+      margin: 0 0 8px 2px;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    .flipcard-icon {
+      width: 100px;
+      height: 72px;
+      background: #dee6fa;
+    }
+    .flipcard-option-dropdown {
+      margin: 9px 0 0 -2px;
+      width: 184px;
+      height: 42px;
+      border-radius: 5px;
+      border: 1px solid #dbdbdb;
+      background-color: #ffffff;
+      box-shadow: 5px 5px 7px rgba(27, 54, 94, 0.14);
+      .MuiSelect-root {
+        display: flex;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 3px 24px 3px 3px;
+        border: none;
+        background-color: transparent;
+        .MuiListItemIcon-root {
+          min-width: 30px;
+          margin-right: 5px;
+          img {
+            margin: auto;
+          }
+        }
+        .MuiListItemText-root {
+          align-self: center;
+          margin: 0;
+          .MuiTypography-root {
+            font-size: 15px;
+            font-weight: 500;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+  .flipcard-txt-wrapper {
+    display: inline-grid;
+    grid-template-columns: 163px 80px 82px;
+    row-gap: 8px;
+    margin: 0 22px 0 3px;
+    padding: 15px 0 0 0;
+    .flipcard-lbl-txt,
+    .flipcard-num-txt,
+    .flipcard-duration-txt {
+      padding: 10px 7px 9px;
+      font-weight: 500;
+      font-size: 15px;
+      color: #000000;
+      border: none;
+      background-color: #e8edfb;
+      ::placeholder {
+        font-weight: normal;
+      }
+    }
+    .flipcard-num-txt {
+      margin: 0 0 0 10px;
+    }
+    .flipcard-duration-txt {
+      margin: 0 0 0 12px;
+    }
+    .flipcard-title-txt,
+    .flipcard-desc-txt,
+    .flipcard-caption-txt {
+      padding: 8px 13px 7px 13px;
+      grid-column: 1/-1;
+      border: none;
+      background-color: #dee6fa;
+    }
+    .flipcard-desc-txt,
+    .flipcard-caption-txt {
+      font-weight: 500;
+      color: #000000;
+    }
+    .flipcard-title-txt {
+      font-weight: 500;
+      font-size: 18px;
+    }
+    .flipcard-desc-txt {
+      height: 85px;
+      font-size: 15px;
+    }
+    .flipcard-caption-txt {
+      height: 55px;
+      font-size: 14px;
+    }
+    ::placeholder {
+      color: #a4b8eb;
+      opacity: 1;
+    }
+  }
+  .flipcard-styles-wrapper {
+    margin-top: 20px;
+    .flipcard-styles-title {
+      margin: 0 46px 10px 1px;
+      padding-bottom: 3px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .style-tint-picker-wrapper {
+      margin: 0 0 0 1px;
+      .style-picker-params-wrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        .style-picker-lbl,
+        .style-picker-name {
+          display: none;
+        }
+        .tint-picker-wrapper {
+          display: flex;
+          flex-direction: column;
+          row-gap: 4px;
+          margin: -3px 0 0;
+          .tint-picker-sub-title {
+            display: none;
+          }
+          .alpha-picker-wrapper {
+            margin: 2px 0 0 -2px;
+          }
+        }
+        .style-picker-bg-tint-lbl {
+          margin: 17px 0 7px 0;
+        }
+        .style-picker-image-box {
+          position: relative;
+          inset: -26px auto auto -202px;
+        }
+      }
+    }
+  }
+}
+.flipcard-option-dropdown-menu {
+  .MuiListItem-root {
+    padding: 2px 6px;
+    .MuiListItemIcon-root {
+      min-width: 30px;
+      margin-right: 5px;
+      img {
+        margin: auto;
+      }
+    }
+  }
+}

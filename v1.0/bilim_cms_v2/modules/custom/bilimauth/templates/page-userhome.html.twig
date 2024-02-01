@@ -1,0 +1,203 @@
+{# page userhome template #}
+{{ attach_library('bilimauth/user-home') }}
+<script type="text/javascript">
+  const base_url = "{{ base_url }}";
+  const users = '{{ content.users|column("username")|json_encode()|raw }}';
+</script>
+<div class="main-container">
+  <header>
+    <div class="header-container">
+      <a href="{{base_url}}/platform/homepage" class="style-back-btn">
+        <button class="header-home-back-btn"></button>
+      </a>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl" onclick="javascript:location.href='{{base_url}}/platform/homepage'" style="cursor: pointer;">BILIM</span>
+        <span class="header-right-lbl">{{content.username}}</span>
+      </div>
+      <a href="{{base_url}}/user/logout" class="header-logout-btn"></a>
+    </div>
+  </header>
+
+  <section class="main-section">
+    <div class="title-container">
+      <div class="title-content">
+        <div class="title"><span>USER</span></div>
+        <div class="title-btns-container">
+          <button class="add-user-btn"
+            onclick="onNewUserBtnClick(event)"></button>
+        </div>
+      </div>
+    </div>
+    <div class="user-table-container">
+      <table class="user-table">
+        <thead>
+          <tr>
+            <td class="username-td">
+              <span>Username</span>
+              <div class="user-name-search-box">
+                <input type="text" id="username-value" class="user-filter-input"/>
+                  <button class="user-search-btn"/>
+                  </div>
+                </td>
+                <td class="firstname-td">
+                  <span>Firstname</span>
+                  <div class="user-name-search-box">
+                    <input type="text" id="firstname-value" class="user-filter-input"/>
+                    <button class="user-search-btn"/>
+                  </div>
+                </td>
+                <td class="lastname-td">
+                  <span>Lastname</span>
+                  <div class="user-name-search-box">
+                    <input type="text" id="lastname-value" class="user-filter-input"/>
+                    <button class="user-search-btn" />
+                  </div>
+                </td>
+                <td class="profil-td">
+                  <span>Profil</span>
+                  <div class="user-select-box">
+                    <select id="user-profile-select" class="user-detail-select">
+                      <option value='all'>ALL</option>
+                      {% for role in content.roles %}
+                      	{% if role.id == 'supervisor' or role.id == 'domain_admin' %}
+                      		<option value="{{role.id}}">{{role.id}}</option>
+                      	{% endif %}
+                      {% endfor %}
+                    </select>
+                  </div>
+                </td>
+                <td class="customer-td">
+                  <span>Customer</span>
+                  <div class="user-select-box">
+                    <select id="user-customer-select" class="user-detail-select">
+                      <option>ALL</option>
+                       {% for dm in content.domain %}
+                         <option value="{{ dm.name }}">{{ dm.name }}</option> 
+                       {% endfor %}
+                    </select>
+                  </div>
+                </td>
+              </tr>
+            </thead>
+            <tbody id="userTableBody" class="custom-scrollbar">
+            {% for user in content.users %}
+            	{% if user.profil != 'administrator' %}
+		            <tr id="user-id" class="user-{{user.id}}">
+		              <td class="username-td">
+				            <div>
+				              <span id="username-span-{{user.id}}">{{user.username}}</span>
+				            </div>
+				          </td>
+				          <td class="firstname-td">
+				            <div>
+				              <span id="firstname-span-{{user.id}}">{{user.firstname}}</span>
+				            </div>
+				          </td>
+				          <td class="lastname-td">
+				            <div>
+				              <span id="lastname-span-{{user.id}}">{{user.lastname}}</span>
+				            </div>
+				          </td>
+				          <td class="email-td" style="display:none;">
+				            <div>
+				              <span id="email-span-{{user.id}}">{{user.email}}</span>
+				            </div>
+				          </td>
+				          <td class="status-td" style="display:none;">
+				            <div>
+				              <span id="status-span-{{user.id}}">{{user.status}}</span>
+				            </div>
+				          </td>
+				          <td class="profil-td">
+				            <div>
+				              <span id="profile-span-{{user.id}}">{{user.profil}}</span>
+				            </div>
+				          </td>
+				          <td class="customer-td">
+				            <div>
+				              <span id="customer-span-{{user.id}}">{{user.customer}}</span>
+				            </div>
+				            <div class="user-btn-box">
+				              <button class="user-edit-btn" onclick="onEditUserBtnClick({{user.id}})"></button>
+				              <button class="user-delete-btn" data-uid="{{user.id}}" onclick="onUserDltBtnClick(event)"></button>
+				            </div>
+				          </td>
+			          </tr>
+		          {% endif %}
+		        {% endfor %}
+		        <tr id="no-user" class="no-user"><td>No Match found</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <div id="popupContainer" class="popup-container">
+      <div class="popup-backdrop"></div>
+      <div id="userPopup" class="popup user-popup new-user">
+      	<div class="loading-gif"></div>
+        <button class="popup-close-btn" onclick="onPopupClose(event)"></button>
+        <div class="user-popup-title">
+          <span class="add-user-lbl">Add User</span>
+          <span class="edit-user-lbl">Edit User</span>
+        </div>
+        <div class="user-popup-form">
+          <input type="text" placeholder="User-id*" class="username-txt" />
+	  <span class="warning">This user-id is already used</span>
+          <input type="text" placeholder="Firstname*" class="firstname-txt" />
+          <input type="text" placeholder="Lastname*" class="lastname-txt" />
+          <input type="text" placeholder="Email*" class="email-txt" />
+          <span class="invalid-email-msg">Please enter a valid email address</span>
+          <div class="user-form-select-box">
+            <div class="profill-select-ctrl">
+              <span>Profil*</span>
+              <div class="profill-select-box">
+                <select id="profile-select">
+                  <option disabled selected value="">Select</option>
+                  {% for role in content.roles %}
+                    {% if role.id == 'supervisor' or role.id == 'domain_admin' %}
+                    	<option value="{{role.id}}">{{role.id}}</option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="customer-select-ctrl">
+              <span>Customer access*</span>
+              <div class="customer-select-box">
+                <select id="customer-select">
+                  <option disabled selected value="">ALL</option>
+                   {% for dm in content.domain %}
+                     <option value="{{ dm.name }}">{{ dm.name }}</option> 
+                   {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="activate-chk-box">
+            <label class="custom-checkbox-lbl">
+              <input id="title" type="checkbox" />
+              <span class="custom-checkbox"></span>
+              <span>Activate</span>
+            </label>
+          </div>
+          <div class="user-form-btn-box">
+            <button class="create-user-btn"></button>
+            <button class="update-user-btn" data-id=""></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<!-- Delete user popup  -->
+<div id="delete-user-popup" class="delete-user-popup">
+	<div class="context-menu-backdrop"></div>
+	<div class="delete-container">
+   <h1>Delete Confirmation</h1>
+   <p>Do you want to delete this user?</p>
+   <div class="dlt-actions">
+  	 <input type='hidden' class='hidden-user-id' id='hidden-user-id'>
+	   <div class="cancel-btn" onclick="onUserDltCancel(event)">Cancel</div>
+	   <div class="dlt-user-btn dlt-btn">Yes</div>
+   </div>
+	</div>
+</div>

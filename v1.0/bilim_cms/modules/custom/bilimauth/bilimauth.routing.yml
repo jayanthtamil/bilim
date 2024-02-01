@@ -1,0 +1,33 @@
+bilimauth.login:
+  path: 'platform/login'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::preHome'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+  options:
+    _maintenance_access: TRUE
+
+bilimauth.homepage:
+  path: 'platform/homepage'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::customerHome'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+
+bilimauth.domain:
+  path: 'platform/domainview/{domain}/{root}/{cf}'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::domainView'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      domain:
+        type: entity:node  
+      root:
+        type: integer
+      cf:
+        type: integer

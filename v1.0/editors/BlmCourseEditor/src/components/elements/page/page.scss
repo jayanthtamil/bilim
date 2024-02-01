@@ -1,0 +1,11 @@
+@import "assets/styles/shared.scss";
+
+.page-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .template-board-wrapper {
+    margin-top: 47px;
+  }
+}

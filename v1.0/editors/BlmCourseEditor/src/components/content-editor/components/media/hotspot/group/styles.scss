@@ -1,0 +1,92 @@
+.hotspot-groups-editor-drawer {
+  .MuiPaper-root {
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    scrollbar-width: thin;
+    background-color: transparent;
+  }
+  .hotspot-groups-editor-wrapper {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, max-content) 284px;
+    grid-template-rows: max-content 1fr max-content;
+    align-items: flex-start;
+    pointer-events: all;
+    margin: auto;
+    padding: 48px 0 48px 46px;
+    scrollbar-width: thin;
+    overflow: auto;
+    width: 866px;
+    height: calc(100vh - 100px);
+    max-height: 690px;
+    color: #2b2b2b;
+    border-radius: 5px;
+    border: 1px solid #e0e5f1;
+    background: #ffffff;
+    background: linear-gradient(270deg, #ebf1fa 283px, #e0e5f1 283px, #e0e5f1 284px, #ffffff 284px);
+    .hotspot-groups-title,
+    .hotspot-groups-style-title {
+      font-weight: 500;
+      font-size: 26px;
+      text-transform: uppercase;
+    }
+    .hotspot-groups-title {
+      grid-column: 1/-2;
+      margin: 0 0 23px 2px;
+    }
+    .hotspot-groups-style-title {
+      margin: 0 0 0 43px;
+    }
+    .hotspot-groups-list-wrapper {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1/-2;
+      align-self: stretch;
+      margin: 0 0 18px 0;
+      min-height: 0;
+      .hotspot-groups-list-scroller {
+        flex: 0 1 auto;
+        scrollbar-width: thin;
+        overflow: auto;
+      }
+      .hotspot-groups-add-btn {
+        flex: 0 0 auto;
+        display: block;
+        cursor: pointer;
+        margin: 10px 44px 0 0;
+        height: 32px;
+        border-radius: 5px;
+        background: url("~assets/images/content-editor/add-1.png") no-repeat center #f2f5fc;
+        &.disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+    .style-picker-wrapper {
+      margin: 11px 0 0 23px;
+      .style-picker-style-wrapper {
+        width: 223px;
+        padding: 11px 9px 10px 9px;
+        .style-picker-expand-icon {
+          margin: 1px 0 0 0;
+        }
+      }
+    }
+    .hotspot-groups-save-btn,
+    .hotspot-groups-cancel-btn {
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 21px;
+      color: #3a3e42;
+      text-transform: uppercase;
+    }
+    .hotspot-groups-save-btn {
+      grid-column: 2/3;
+      margin: 0 40px 0 0;
+    }
+    .hotspot-groups-cancel-btn {
+      grid-column: 3/4;
+      margin: 0 60px 0 0;
+    }
+  }
+}

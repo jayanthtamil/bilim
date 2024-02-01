@@ -1,0 +1,34 @@
+@import "assets/styles/shared.scss";
+
+.question-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .template-board-wrapper {
+    margin-top: 42px;
+  }
+}
+
+.dialog.theme-warning-dialog {
+  &.MuiDialog-root {
+    .MuiPaper-root {
+      .dialog-content {
+        padding-top: 40px;
+        padding-bottom: 41px;
+        .dialog-title {
+          font-size: 20px;
+          font-weight: 500;
+          padding-bottom: 12px;
+          &::after {
+            background-color: #555555;
+          }
+        }
+        .dialog-message {
+          font-size: 17px;
+          margin-bottom: 7px;
+        }
+      }
+    }
+  }
+}

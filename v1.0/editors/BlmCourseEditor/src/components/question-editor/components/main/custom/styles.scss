@@ -1,0 +1,23 @@
+.question-custom-wrapper {
+  position: relative;
+  padding: 34px 0 0 6px;
+  color: #2b2b2b;
+  .question-custom-title {
+    grid-column: 1/-1;
+    margin: 0 7px 28px 0;
+    padding-bottom: 7px;
+    font-weight: 100;
+    font-size: 28px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #d2d5da;
+  }
+  .media-format-wrapper {
+    right: 9px;
+  }
+  .animation-wrapper {
+    margin: 0 0 0 -4px;
+  }
+  &:first-child {
+    margin-top: -12px;
+  }
+}

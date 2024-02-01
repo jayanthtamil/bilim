@@ -1,0 +1,191 @@
+.template-action-panel {
+  display: flex;
+  flex-direction: column;
+  color: #2b2b2b;
+  .template-action-anchor {
+    margin: 0 0 -3px 170px;
+    width: 30px;
+    height: 15px;
+    background: url("~assets/images/up-anchor-3.png");
+    z-index: 2;
+  }
+  .template-action-content {
+    position: relative;
+    display: flex;
+    min-height: 400px;
+    z-index: 1;
+    color: #232323;
+    .load-action-wrapper {
+      padding: 14px 12px 0 15px;
+      width: 325px;
+      border-radius: 7px 0 0 7px;
+      background-color: #ffffff;
+      .load-action-lbl {
+        font-weight: bold;
+        font-size: 17px;
+      }
+      .action-dashboard-wrapper {
+        margin: 8px 0 0 18px;
+        &:nth-child(2) {
+          border-top: none;
+        }
+      }
+      .load-navigation-accordion {
+        .action-dashboard-content-wrapper {
+          display: flex;
+          flex-direction: column;
+          padding: 4px 0 8px 0;
+        }
+        .load-next-frm-ctrl,
+        .load-previous-frm-ctrl,
+        .load-home-frm-ctrl {
+          margin: 4px 0 0 0;
+          .MuiFormControlLabel-label {
+            margin: 0 0 0 10px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #2b2b2b;
+          }
+        }
+      }
+      .load-simple-content-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 11px 0 16px 0;
+        }
+      }
+      .load-background-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 8px 0 10px 0;
+        }
+      }
+      .load-sound-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 8px 0 20px 0;
+        }
+      }
+    }
+    .complete-action-wrapper {
+      padding: 14px 40px 0 18px;
+      width: 350px;
+      border-radius: 0 7px 7px 0;
+      background-color: #ebf1fb;
+      .complete-action-lbl {
+        font-weight: bold;
+        font-size: 17px;
+      }
+      .action-dashboard-wrapper {
+        margin: 8px 0 0 15px;
+        border-top: 1px solid #dfe5ee;
+        &:nth-child(2) {
+          border-top: none;
+        }
+      }
+      .complete-navigation-accordion {
+        .action-dashboard-content-wrapper {
+          display: flex;
+          flex-direction: column;
+          padding: 4px 0 8px 0;
+        }
+        .complete-next-frm-ctrl,
+        .complete-previous-frm-ctrl,
+        .complete-home-frm-ctrl {
+          margin: 4px 0 0 0;
+          .MuiFormControlLabel-label {
+            margin: 0 0 0 10px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #2b2b2b;
+          }
+        }
+      }
+      .complete-simple-content-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 11px 0 16px 0;
+        }
+      }
+      .complete-background-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 8px 0 10px 0;
+        }
+      }
+      .complete-sound-accordion {
+        .action-dashboard-content-wrapper {
+          padding: 8px 0 20px 0;
+        }
+      }
+    }
+    .template-action-close-btn {
+      cursor: pointer;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      inset: 13px 14px auto auto;
+      background: url("~assets/images/close-1.png") no-repeat center;
+    }
+  }
+  &.screen,
+  &.simple_content,
+  &.question {
+    .template-action-anchor {
+      margin: 0 0 -3px 76px;
+    }
+  }
+  &.prime {
+    .template-action-content {
+      .load-action-wrapper {
+        .action-dashboard-wrapper {
+          .action-dashboard-title-wrapper {
+            padding-top: 10px;
+          }
+        }
+      }
+    }
+    &.screen {
+      .template-action-content {
+        .load-action-wrapper {
+          .action-dashboard-wrapper {
+            &:nth-child(2) {
+              margin-top: -3px;
+            }
+          }
+        }
+        .complete-action-wrapper {
+          .action-dashboard-wrapper {
+            &:nth-child(2) {
+              margin-top: 8px;
+            }
+          }
+        }
+      }
+    }
+    &.partpage {
+      .template-action-content {
+        .load-action-wrapper {
+          .action-dashboard-wrapper {
+            &:nth-child(2) {
+              margin-top: 6px;
+            }
+          }
+        }
+        .complete-action-wrapper {
+          .action-dashboard-wrapper {
+            &:nth-child(2) {
+              margin-top: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  &:not(.prime) {
+    .template-action-content {
+      min-height: 300px;
+      .load-action-wrapper {
+        border-radius: 7px;
+        .action-dashboard-wrapper {
+          margin-top: 19px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+.media-dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 81px 62px 20px 62px;
+  .media-player-title {
+    align-self: flex-start;
+    margin-bottom: 18px;
+    font-weight: 100;
+    font-size: 34px;
+    color: #131514;
+    text-transform: uppercase;
+  }
+  .media-player-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    .media-player {
+      &.video {
+        position: relative;
+        &::after {
+          pointer-events: none;
+          position: absolute;
+          content: " ";
+          inset: 50% 0 0 50%;
+          width: 32px;
+          height: 32px;
+          background: url("~assets/images/media-editor/play-btn.png") no-repeat center;
+        }
+      }
+    }
+    .media-controls {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 31px;
+      left: 0;
+      right: 0;
+      bottom: 13px;
+      .subtitle-txt {
+        user-select: all;
+        pointer-events: all;
+        padding: 5px 10px;
+        width: 100%;
+        font-weight: 500;
+        font-size: 12px;
+        text-align: center;
+        color: #ffffff;
+        outline: none;
+        resize: none;
+        border: none;
+        background-color: rgba(#000000, 0.63);
+      }
+      &.top-left {
+        padding: 0;
+        inset: 10px auto auto 10px;
+        .subtitle-txt {
+          text-align: left;
+        }
+      }
+      &.top-right {
+        padding: 0;
+        inset: 10px 10px auto auto;
+        .subtitle-txt {
+          text-align: left;
+        }
+      }
+      &.bottom-left {
+        padding: 0;
+        inset: auto auto 10px 10px;
+        .subtitle-txt {
+          text-align: left;
+        }
+      }
+      &.bottom-right {
+        padding: 0;
+        inset: auto 10px 10px auto;
+        .subtitle-txt {
+          text-align: left;
+        }
+      }
+    }
+    &.playing {
+      .media-player {
+        &.video {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

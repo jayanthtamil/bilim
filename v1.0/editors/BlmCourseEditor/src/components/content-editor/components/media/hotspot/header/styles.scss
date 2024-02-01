@@ -1,0 +1,67 @@
+.hotspot-header-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, max-content) 1fr;
+  grid-template-rows: auto 30px;
+  align-items: flex-start;
+  margin: 0 0 19px 0;
+  padding: 0 6px 0 12px;
+  color: #2b2b2b;
+  .hotspot-header-group-lbl,
+  .hotspot-header-order-lbl {
+    grid-column: 2/3;
+    margin: -1px 24px 0 8px;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .hotspot-header-display-dropdown {
+    grid-column: -2/-1;
+    justify-self: flex-end;
+    width: 238px;
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 40px;
+      font-weight: 500;
+      font-size: 16px;
+      color: #3a3e42;
+      background-color: #ffffff;
+      border-color: #d5dff7;
+      ~ .MuiSelect-icon {
+        margin-right: 7px;
+        background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+      }
+    }
+  }
+  .hotspot-header-group-edit-btn,
+  .hotspot-header-group-order-btn,
+  .hotspot-header-display-edit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 90px;
+    height: 22px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #3a3e42;
+    text-transform: uppercase;
+    border: 2px solid #c6d8ed;
+    border-radius: 5px;
+  }
+  .hotspot-header-display-edit-btn {
+    grid-column: -2/-1;
+    justify-self: flex-end;
+    margin: 8px 0 0 0;
+  }
+  &.panorama {
+    grid-template-columns: max-content repeat(2, auto 1fr);
+    grid-template-rows: auto;
+    margin: 0;
+    padding: 19px 6px 19px 19px;
+    background-color: #dee6fa;
+    .hotspot-header-order-lbl {
+      grid-column: 4/5;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+.hotspot-group-card-wrapper {
+  display: flex;
+  margin: 0 25px 0 0;
+  height: 57px;
+  color: #2b2b2b;
+  .hotspot-group-card-box {
+    display: flex;
+    flex: 1 auto;
+    align-items: center;
+    border: 1px solid #dee6fa;
+    .hotspot-group-name-txt {
+      flex: 1 auto;
+      margin: 0 0 0 14px;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+      border: none;
+      background-color: transparent;
+    }
+    .hotspot-group-color-picker {
+      flex: 0 0 auto;
+      margin: 0 25px;
+    }
+    .hotspot-group-drag-btn {
+      flex: 0 0 auto;
+      width: 29px;
+      height: 100%;
+      border-left: 1px solid #dee6fa;
+      background: url("~assets/images/content-editor/drag-1.png") no-repeat center;
+    }
+  }
+  .hotspot-group-delete-btn {
+    display: block;
+    flex: 0 0 auto;
+    align-self: center;
+    cursor: pointer;
+    margin: 0 0 0 11px;
+    width: 14px;
+    height: 18px;
+    visibility: hidden;
+    background: url("~assets/images/template/delete-btn-over.png") no-repeat center;
+  }
+  &:first-child {
+    .hotspot-group-card-box {
+      border-radius: 8px 8px 0 0;
+    }
+  }
+  &:last-child {
+    .hotspot-group-card-box {
+      border-radius: 0 0 8px 8px;
+    }
+  }
+  &:first-child:last-child {
+    .hotspot-group-card-box {
+      border-radius: 8px;
+      border: 1px solid #dee6fa;
+    }
+  }
+  &:not(:last-child) {
+    .hotspot-group-card-box {
+      border-bottom: none;
+    }
+  }
+  &.dragging {
+    .hotspot-group-card-box {
+      border-radius: 8px;
+      border: 1px solid #dee6fa;
+    }
+  }
+  &:hover {
+    .hotspot-group-card-box {
+      background-color: #f2f5fc;
+    }
+    &.deletable {
+      .hotspot-group-delete-btn {
+        visibility: visible;
+      }
+    }
+  }
+}

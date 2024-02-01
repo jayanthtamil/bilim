@@ -1,0 +1,25 @@
+.course-translation-item-wrapper {
+  display: flex;
+  padding: 6px 1px 0px 1px;
+  .course-translation-item-lbl {
+    flex: 1 1 100%;
+    cursor: pointer;
+    margin-right: 28px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #3b3e46;
+    white-space: pre;
+    white-space: pre-wrap;
+    border-bottom: 1px solid #c1c4cc;
+  }
+  .course-translation-item-txt {
+    flex: 1 1 100%;
+    padding: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #3b3e46;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #cdcece;
+  }
+}

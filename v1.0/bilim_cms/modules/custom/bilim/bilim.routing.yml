@@ -1,0 +1,7 @@
+bilim.bilim_controller_default:
+  path: '/bilim/primary'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::getLatestCourses'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains bilim.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bilim_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bilim module.
+    case 'help.page.bilim':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('API Module for custom rest communication call between react and cms.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_form_alter().
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function bilim_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == 'user_login_form' ) {
+    // Add placeholders.
+  	if($form_state->getUserInput()){
+	    $name = $form_state->getUserInput()['name'];
+	    $pass = $form_state->getUserInput()['pass'];
+	    $tempstore = \Drupal::service('tempstore.shared')->get('bilim');
+	    $tempstore->set($name,$pass);
+            //$tempstore->set('user_name',$name);
+	    //$tempstore->set('pass',$pass);
+  	}
+  }
+}
+
+

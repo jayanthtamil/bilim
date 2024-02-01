@@ -1,0 +1,23 @@
+{
+  "general": {
+    "brief_description": "Brief Description",
+    "full_description": "Full description",
+    "display_course_name": "Display Course Name"
+  },
+  "navigation": {
+    "unlinear": "unlinear",
+    "linear": "Linear",
+    "summary_level": "Summary levels",
+    "burger": "Burger",
+    "screen_toc": "Screen on TOC",
+    "toc_levels": "TOC levels"
+  },
+  "completion": {
+    "title": "Completeness"
+  },
+  "prerequisite": {
+    "title": "Prerequisite",
+    "all_chapter": "All chapters open",
+    "chapters_order": "Chapters in order \n (can be improved in each chapters properties)"
+  }
+}

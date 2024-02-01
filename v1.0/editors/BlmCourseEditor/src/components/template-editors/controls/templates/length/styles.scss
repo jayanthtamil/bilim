@@ -1,0 +1,132 @@
+.template-length-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-items: center;
+  .template-length-title {
+    margin: 5px 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #2b2b2b;
+    text-transform: uppercase;
+  }
+  .template-length-txt-ctrl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .icon-1 {
+      background: url("~assets/images/expand-2-open.png") no-repeat center;
+      transform: rotate(179deg);
+      width: 9px;
+      margin-left: -27px;
+      height: 6px;
+      margin-top: 1px;
+    }
+    .icon-2 {
+      background: url("~assets/images/expand-2-open.png") no-repeat center;
+      width: 9px;
+      margin-left: -27px;
+      height: 6px;
+      padding-left: -8px;
+      margin-top: 2px;
+    }
+    input {
+      width: 2em;
+      font-weight: 500;
+      font-size: 20px;
+      color: #262626;
+      text-align: center;
+      border: none;
+    }
+    span {
+      font-weight: 300;
+      font-size: 12px;
+      color: #262626;
+    }
+  }
+  .template-length-switch-ctrl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-weight: 300;
+    font-size: 11px;
+    color: #262626;
+    text-transform: uppercase;
+    .MuiSwitch-root {
+      margin: 0 3px;
+      width: 22px;
+      height: 9px;
+      .MuiButtonBase-root {
+        padding: 1px;
+        right: 12px;
+        &.Mui-checked {
+          transform: translateX(12px);
+        }
+        .MuiSwitch-thumb {
+          width: 7px;
+          height: 7px;
+        }
+      }
+    }
+  }
+  &.top {
+    width: 101px;
+    .template-length-txt-ctrl {
+      grid-row: 3/4;
+      padding: 6px 0;
+      border: 1px solid #dadada;
+      border-radius: 5px;
+      background-color: #ffffff;
+    }
+    .template-length-switch-ctrl {
+      margin-bottom: 5px;
+      font-weight: 500;
+      font-size: 10px;
+      color: #2b2b2b;
+      .MuiSwitch-root {
+        margin: 0 8px;
+      }
+    }
+  }
+  &.bottom {
+    width: 101px;
+    .template-length-title {
+      grid-row: 3/4;
+    }
+    .template-length-txt-ctrl {
+      padding: 6px 0;
+      border: 1px solid #dadada;
+      border-radius: 5px;
+      background-color: #ffffff;
+    }
+    .template-length-switch-ctrl {
+      margin-top: 5px;
+      font-weight: 500;
+      font-size: 10px;
+      color: #2b2b2b;
+      .MuiSwitch-root {
+        margin: 0 8px;
+      }
+    }
+  }
+  &.middle {
+    width: 57px;
+    .template-length-txt-ctrl {
+      padding: 10px 0;
+      border: 1px solid #dadada;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      border-bottom: none;
+      background-color: #ffffff;
+    }
+    .template-length-switch-ctrl {
+      border: 1px solid #dadada;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      border-top: none;
+      background-color: #ffffff;
+    }
+  }
+}

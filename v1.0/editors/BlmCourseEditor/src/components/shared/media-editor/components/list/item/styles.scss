@@ -1,0 +1,174 @@
+.cue-item-wrapper {
+  .cue-item-txt-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0 13px 0 10px;
+    padding: 11px 6px 11px 11px;
+    height: 100%;
+    .cue-item-txt {
+      width: 100%;
+      min-height: 46px;
+      font-weight: 500;
+      font-size: 15px;
+      color: #293449;
+      border: none;
+      resize: none;
+      outline: none;
+      background: transparent;
+      scrollbar-width: thin;
+    }
+    .cue-item-position-dropdown {
+      .MuiSelect-root {
+        display: flex;
+        padding: 0;
+        width: 49px;
+        height: 33px;
+        border: none;
+        background: url("~assets/images/media-editor/synchro-position-icon.png") no-repeat #b6d2f7;
+      }
+      .MuiSelect-icon {
+        display: none;
+      }
+      &.top-left {
+        .MuiSelect-root {
+          background-position: left 6px top 6px;
+        }
+      }
+      &.top-right {
+        .MuiSelect-root {
+          background-position: right 6px top 6px;
+        }
+      }
+      &.bottom-left {
+        .MuiSelect-root {
+          background-position: left 6px bottom 6px;
+        }
+      }
+      &.bottom-right {
+        .MuiSelect-root {
+          background-position: right 6px bottom 6px;
+        }
+      }
+    }
+    .BlmSelect-root {
+      min-width: auto;
+      .BlmSelect-select {
+        display: flex;
+        padding: 5px 24px 5px 1px;
+        box-sizing: border-box;
+        width: 227px;
+        border: none;
+      }
+    }
+    .cue-item-action-dropdown {
+      .MuiSelect-root {
+        padding: 0;
+        width: 211px;
+        border: none;
+        .synchro-action-item-wrapper {
+          .action-item-content {
+            margin: 0;
+          }
+        }
+      }
+      .MuiSelect-icon {
+        display: none;
+      }
+    }
+    .cue-item-delete-btn {
+      flex: 0 0 auto;
+      cursor: pointer;
+      visibility: hidden;
+      width: 13px;
+      height: 16px;
+      background: url("~assets/images/media-editor/delete-btn.png") no-repeat center;
+    }
+    &::after {
+      position: absolute;
+      display: block;
+      content: " ";
+      inset: auto auto 0 7px;
+      width: 149px;
+      height: 1px;
+      background-color: #dbdbdb;
+    }
+  }
+  &:hover {
+    .cue-item-txt-wrapper {
+      background-color: #f4f8fe;
+      .cue-item-delete-btn {
+        visibility: visible;
+      }
+    }
+  }
+  &.selected {
+    .cue-item-txt-wrapper {
+      background-color: #bcd7f8;
+      .cue-item-delete-btn {
+        visibility: visible;
+      }
+    }
+  }
+  &.invalid {
+    .cue-item-txt-wrapper {
+      background-color: #7b1d00;
+    }
+  }
+  &.labels,
+  &.contents {
+    .cue-item-txt-wrapper {
+      &::after {
+        right: 0;
+        width: auto;
+      }
+    }
+    &.selected {
+      .cue-item-txt-wrapper {
+        background-color: #e5effd;
+      }
+    }
+  }
+}
+.cue-item-position-menu {
+  .MuiPaper-root {
+    scrollbar-width: thin;
+    .MuiList-root {
+      padding: 0;
+      .MuiListItem-root {
+        height: 38px;
+        background: url("~assets/images/media-editor/synchro-position-icon.png") no-repeat #b6d2f7;
+        &.top-left {
+          background-position: left 6px top 6px;
+        }
+        &.top-right {
+          background-position: right 6px top 6px;
+        }
+        &.bottom-left {
+          background-position: left 6px bottom 6px;
+        }
+        &.bottom-right {
+          background-position: right 6px bottom 6px;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid #dbe9fb;
+        }
+        &:hover {
+          background-color: #a1c1eb;
+        }
+        &.Mui-selected {
+          background-color: #a1c1eb;
+        }
+      }
+    }
+  }
+}
+.cue-item-action-menu {
+  .MuiPaper-root {
+    scrollbar-width: thin;
+    .MuiList-root {
+      padding: 0;
+    }
+  }
+}

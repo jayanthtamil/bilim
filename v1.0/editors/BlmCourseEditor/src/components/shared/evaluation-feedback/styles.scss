@@ -1,0 +1,51 @@
+.evaluation-feedback-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-top: 3px;
+  .evaluation-score-lbl {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .evaluation-score-txt {
+    margin-top: 5px;
+    padding-top: 0px;
+    padding-bottom: 2px;
+  }
+  .evaluation-feedback-frm-lbl {
+    margin-top: 51px;
+    &.MuiFormControlLabel-root {
+      pointer-events: none;
+      position: relative;
+      margin-left: 0;
+      margin-right: 0;
+      .MuiCheckbox-root {
+        pointer-events: all;
+      }
+      .MuiFormControlLabel-label {
+        pointer-events: all;
+        font-weight: 500;
+        font-size: 20px;
+        color: #3a3e42;
+        margin-left: 7px;
+        margin-right: 7px;
+        border-bottom: 1px solid #eaeffb;
+      }
+      &::after {
+        display: block;
+        position: absolute;
+        content: " ";
+        left: 22px;
+        right: 7px;
+        bottom: 0px;
+        height: 1px;
+        background-color: #eaeffb;
+      }
+    }
+  }
+  .evaluation-feedback-display-dropdown {
+    position: absolute;
+    top: 107px;
+    right: 10px;
+  }
+}

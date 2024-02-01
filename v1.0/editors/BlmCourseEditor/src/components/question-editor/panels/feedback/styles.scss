@@ -1,0 +1,103 @@
+$tab-bar-width: 606px;
+
+.question-feedback-wrapper {
+  display: flex;
+  flex-direction: column;
+  .question-feedback-dropdown {
+    margin-left: 26px;
+    margin-top: 23px;
+    width: 335px;
+    .MuiSelect-root {
+      display: inline-flex;
+      align-items: center;
+      padding-top: 8px;
+      padding-left: 16px;
+      box-sizing: border-box;
+      height: 41px;
+      font-size: 18px;
+      border: 1px solid #dadada;
+      background-color: #ffffff;
+      box-shadow: 2px 3px 9px 0px rgba(46, 65, 107, 0.09);
+      text-shadow: 2px 3px 9px rgba(46, 65, 107, 0.09);
+    }
+    .MuiSelect-icon {
+      right: 6px;
+    }
+  }
+  .question-feedback-proposition {
+    display: inline-flex;
+    margin-top: 37px;
+    margin-left: 3px;
+    .question-feedback-proposition-icon {
+      width: 22px;
+      height: 19px;
+      background: url("~assets/images/info-2.png");
+    }
+    .question-feedback-proposition-text {
+      margin-top: 4px;
+      margin-left: 16px;
+      font-size: 13px;
+      color: #000000;
+    }
+  }
+  .question-feedback-tab-panel {
+    margin-top: 56px;
+    margin-left: -3px;
+    .MuiAppBar-root {
+      margin-left: 98px;
+      width: $tab-bar-width;
+      background-color: transparent;
+      .MuiTabs-root {
+        width: $tab-bar-width;
+        .MuiTabs-scroller {
+          min-width: $tab-bar-width;
+          .MuiTabs-flexContainer {
+            .MuiTab-root {
+              min-width: 0;
+              text-transform: none;
+            }
+            .MuiTab-wrapper {
+              width: fit-content;
+              color: #3a3e42;
+            }
+            border-bottom: 12px solid;
+            border-image: url("~assets/images/feedback/tab-border.png") 0 0 12;
+          }
+          .MuiTabs-indicator {
+            margin-left: -3px;
+            width: 129px !important;
+            height: 12px;
+            background-image: url("~assets/images/feedback/tab-indicator.png");
+            background-color: transparent;
+          }
+        }
+      }
+      .MuiTab-root {
+        margin-right: 0px;
+        min-width: 110px;
+        min-height: 25px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 18px;
+        color: #2b2b2b;
+        border-bottom: none;
+        &:first-child {
+          margin-left: 0px !important;
+          padding-left: 38px !important;
+        }
+        &:nth-child(2) {
+          margin-left: 80px !important;
+          padding-left: 21px !important;
+        }
+        &:nth-child(3) {
+          margin-left: 61px !important;
+          padding-left: 48px !important;
+        }
+        &:last-child {
+          margin-left: 78px !important;
+          padding-left: 39px !important;
+        }
+      }
+    }
+  }
+}

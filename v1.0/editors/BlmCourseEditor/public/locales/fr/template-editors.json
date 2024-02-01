@@ -1,0 +1,74 @@
+{
+  "associate_chapter": {
+    "select": "Select a chapter"
+  },
+  "background_action": {
+    "replace": "Replace page background"
+  },
+  "action_dashboard": {
+    "always": "Always",
+    "uncomplete": "If uncomplete"
+  },
+  "background": {
+    "background": "Background",
+    "info": "* not reflected in the editor",
+    "title": {
+      "size": "Size",
+      "color": "COLOR"
+    }
+  },
+  "simple_content_Action": {
+    "open_simple_content": "Open Simple Content / Annexes",
+    "popup": "Popup",
+    "flap": "Flap"
+  },
+  "sound_action": {
+    "play_sound": "Play sound",
+    "select_media": "Select media",
+    "play": "Play",
+    "stop": "Stop"
+  },
+  "transition": {
+    "basic": "Basic",
+    "fixed": "Fixed",
+    "parallax": "Parallax",
+    "zoom": "Zoom",
+    "label": {
+      "shadow": "Shadow/zoom effect",
+      "comp_parallaxe": "Components parallaxe"
+    }
+  },
+  "template_size": {
+    "expert": "Expert",
+    "content_height": "Content height",
+    "template": "Template",
+    "fullscreen": "Fullscreen",
+    "content": "Content",
+    "width": "Width",
+    "margin": "Margin",
+    "template_shift": "Template Shift",
+    "title": {
+      "top": "top",
+      "left": "left",
+      "right": "right",
+      "bottom": "bottom",
+      "px": "px"
+    }
+  },
+  "template_action": {
+    "on_load": "On load",
+    "on_completed": "On completed",
+    "label": {
+      "navigation": "Navigation",
+      "hide_button_next": "Hide button Next",
+      "hide_button_previous": "Hide button Previous",
+      "hide_button_home": "Hide button Home",
+      "simple_content": "Simple content",
+      "keep_button": "Keep button Next hidden",
+      "show_button": "Show button Previous",
+      "show_button_home": "Show button Home",
+      "background": "Background",
+      "sound": "Sound"
+    }
+  }
+}

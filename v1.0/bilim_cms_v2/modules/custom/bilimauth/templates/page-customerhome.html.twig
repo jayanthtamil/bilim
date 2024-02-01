@@ -1,0 +1,333 @@
+{# page userhome template #}
+{{ attach_library('bilimauth/homepage') }}
+<script type="text/javascript">
+  const base_url = "{{ base_url }}";
+  const course_props = {{content.course_properties|json_encode()|raw}};
+  const domains = {{content.domain|json_encode()|raw}};
+  console.log('domain',{{content.spl_domains|json_encode()|raw}});
+</script>
+<div class="main-container">
+  <header>
+    <div class="header-container">
+      <div class="header-menu-container">
+        <section class="app-bar-container">
+        {% if 'supervisor' in content.roles %}
+        	<a href="{{base_url}}/platform/domainlist" class="home-style-btn">
+	          <div class="app-bar-btn app-domains-btn">
+	            <div class="app-bar-icon-btn"></div>
+	            <span class="app-bar-lbl-btn">Domain</span>
+	          </div>
+	        </a>
+          <div class="app-bar-separator"></div>
+          <a href="{{base_url}}/platform/userhome" class="home-style-btn">
+	          <div class="app-bar-btn app-users-btn">
+	            <div class="app-bar-icon-btn"></div>
+	            <span class="app-bar-lbl-btn">Users</span>
+	          </div>
+          </a>
+          <div class="app-bar-separator"></div>
+          {% endif %}
+          <a href="{{base_url}}/platform/stylehome" class="home-style-btn">
+          	<div class="app-bar-btn app-styles-btn">
+              <div class="app-bar-icon-btn"></div>
+              <span class="app-bar-lbl-btn">Styles</span>
+            </div>
+          </a>
+        </section>
+        <button class="header-menu-btn"></button>
+      </div>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl" onclick="javascript:location.href='{{base_url}}/platform/homepage'" style="cursor: pointer;">BILIM</span>
+        <span class="header-right-lbl">{{content.username}}</span>
+      </div>
+      <a href="{{base_url}}/user/logout" class="header-logout-btn"></a>
+    </div> 
+  </header>
+
+  <section class="main-section platform-homepage">
+    <section class="left-section">
+      <div class="search-container" style="display:none;">
+        <button class="search-btn"></button>
+      </div>
+      <div class="list-container custom-scrollbar">
+        <div class="domain-list">
+          <ul>
+            {% for dm in content.domain %}
+              {% if dm.name != 'Tests' and dm.name != 'Modeles' %}
+                <li><a href="{{base_url}}/platform/domainview/{{dm.id}}/0/0">{{ dm.name }}</a></li>
+	      {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="btns-container">
+	  {% if content.spl_domains is empty %}
+	    <div class="icon-button">
+              <span>MODELES</span>
+            </div>
+	    <div class="btn-separator"></div>
+            <div class="icon-button">
+              <span>TESTS</span>
+            </div>
+	  {% else %}
+	    {% for dm in content.spl_domains %}
+              {% if dm.name == 'Modeles' %}
+                <div class="icon-button">
+                  <span class="spl-domain"><a href="{{base_url}}/platform/domainview/{{dm.id}}/0/0">MODELES</a></span>
+                </div>
+	        <div class="btn-separator"></div>
+	      {% endif %}
+            
+	      {% if dm.name == 'Tests' %}
+                <div class="icon-button">
+                  <span class="spl-domain"><a href="{{base_url}}/platform/domainview/{{dm.id}}/0/0">TESTS</a></span>
+                </div>
+	      {% endif %}
+	    {% endfor %}
+      	  {% endif %}
+      </div>
+    </section>
+    <section class="right-section">
+    	<div class="loading-gif"></div>
+      <div class="title-container">
+        <div class="title-content">
+          <span class="title">HOME</span>
+          <span class="sub-title">Choose a Course</span>
+        </div>
+      </div>
+      <div class="course-lists-container">
+        <div class="favorites-courses-container course-list-container">
+          <div class="course-list-title">My Favorites Courses</div>
+          <div class="course-list-row">
+            {% for key, rn in content.random %}
+            {% if key matches '/^\\d+$/'  %}
+            <div class="card course-card" data-crs="{{ rn.id }}">
+            {% set duplicateincompleteValues = rn.duplicateincompleteValues[0]['value'] %}
+           
+            {% if duplicateincompleteValues == '1' %}
+			  <div class="card-column-box">
+				  <div class="card-title">
+					<div class="card-title-lbl">{{ rn.domain }}</div>
+				  </div>
+				  <div class="card-content">
+					<span>{{ rn.name }}</span>
+				  </div>
+              </div>
+              {% else %}	
+              <div class="card-column-box" onclick="onClickToEditor(event)">
+				  <div class="card-title">
+					<div class="card-title-lbl">{{ rn.domain }}</div>
+				  </div>
+				  <div class="card-content">
+					<span>{{ rn.name }}</span>
+				  </div>
+              </div>
+              {% endif %}
+              <div class="card-modified">
+                <span class="title">Last modification</span>
+                <span class="date">{{ rn.date }}</span>
+                <span class="time">{{ rn.time }}</span>
+              </div>
+			  <div class="card-icon-conatainer">
+				<div class="card-lang-box">
+					{% if rn.flag_url %}
+        		<button class="card-icon flag-img-wrapper"><img class="flag-img" src={{ rn.flag_url }}></button>
+        	{% else %}
+          	<button class="card-icon card-lang-icon"></button>
+          {% endif %}
+				</div>
+        {% if duplicateincompleteValues == '1' %}
+        <div class="card-fav-box">				
+				</div>
+        {% else %}
+				<div class="card-fav-box">
+					{{ rn.flag_link }} 
+				</div>
+        {% endif %} 
+			  </div>
+              <div class="card-btn-box">
+                <button
+                  class="card-info-btn"
+                  onclick="onInfoBtnClick(event)" data-crs-id="{{ rn.id }}"></button>
+                <button
+                  class="card-ctx-btn"
+				  data-crs="{{rn.id}}" data-url="{{ rn.domainview_url }}" data-crs-dup= "{{ rn.duplicateincompleteValues[0]['value'] }}"
+                  onclick="onCtxBtnClick(event)" data-display="{{ rn.display }}"></button>
+              </div>
+
+            </div>
+	    {% endif %}
+            {% endfor %}
+            <div class="course-more-lbl">
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+        <div class="latest-courses-container course-list-container">
+          <div class="course-list-title">My Lasted Courses</div>
+          <div class="course-list-row">
+            {% for key, crs in content.courses|slice(0, 4) %}
+	    {% if key matches '/^\\d+$/'  %}
+            <div class="card course-card" data-crs="{{ crs.id }}">
+            {% set duplicateincompleteValues = crs.duplicateincompleteValues[0]['value'] %}
+        
+            {% if duplicateincompleteValues == '1' %}
+			  <div class="card-column-box" >
+				  <div class="card-title">
+					<div class="card-title-lbl">{{ crs.domain }}</div>
+				  </div>
+				  <div class="card-content">
+					<span>{{crs.name}}</span>
+				  </div>
+			  </div>		
+        {% else %}	 
+        <div class="card-column-box" onclick="onClickToEditor(event)">
+				  <div class="card-title">
+					<div class="card-title-lbl">{{ crs.domain }}</div>
+				  </div>
+				  <div class="card-content">
+					<span>{{crs.name}}</span>
+				  </div>
+			  </div>	 
+        {% endif %} 
+              <div class="card-modified">
+                <span class="title">Last modification</span>
+                <span class="date">{{ crs.date}}</span>
+                <span class="time">{{ crs.time}}</span>
+              </div>
+			  <div class="card-icon-conatainer">
+				  <div class="card-lang-box">
+					{% if crs.flag_url %}
+        		<button class="card-icon flag-img-wrapper"><img class="flag-img" src={{ crs.flag_url }}></button>
+        	{% else %}
+          	<button class="card-icon card-lang-icon"></button>
+          {% endif %}
+				  </div>
+				  <div class="card-fav-box">
+					{{ crs.flag_link }}
+				  </div>					  
+			  </div>
+              <div class="card-btn-box">
+                <button
+                  class="card-info-btn"
+                  onclick="onInfoBtnClick(event)"  data-crs-id="{{ crs.id }}"></button>
+                <button
+                  class="card-ctx-btn"
+				  data-crs="{{crs.id}}" data-url="{{crs.domainview_url}}" data-crs-dup= "{{ crs.duplicateincompleteValues[0]['value'] }}"
+                  onclick="onCtxBtnClick(event)" data-display="{{ crs.display }}"></button>
+              </div>
+            </div>
+	    {% endif %}
+            {% endfor %}
+            <div class="course-more-lbl">
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
+
+<div class="context-menu-container" onclick="onCtxMenuClick(event)">
+  <div class="context-menu-backdrop"></div>
+  <div class="context-menu">
+    <ul id = "crs_duplicate">
+      <li id="crs-url" class="edit-course-click">Edit course</li>
+      <li id="course-domain">See course in domain</li>
+      <div class="context-menu-divider"></div>
+      <li id="crs-preview">Preview</li>
+      <li id="click-export">Export ...</li>
+      <li class="not-activated">Translate</li>
+      <div class="context-menu-divider"></div>
+      <li id="crs-props" onclick="onInfoBtnClick(event)">Properties ...</li>
+    </ul>
+  </div>
+</div>
+
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <!-- <h3>Popup Content</h3> -->
+    <p>This course is not properly duplicated, Please contact Administrator.</p>
+    <div class="dlt-actions">
+    <div class="dlt-btn dup-dlt-btn" onclick="closePopup()">Close</div>
+</div>
+  </div>
+</div>
+<!--  Course properties popup -->
+<section id="crs-properties-container" class="crs-properties properties-container left-section">
+</section>
+
+<!-- Export course popup -->
+<div id="export-crs-popup" class="export-crs-container progress-container hide">
+  <div class="backdrop"></div>
+  <div id="export-crs-inner-container" class="show-container">
+    <button class="popup-close-btn" onclick="onExportCrsPopupClose(event)"></button>
+    <div id="crs-export">
+      <span class="exp-submit">EXPORT WEB</span>
+      <span class="right-arrow-icon" style="vertical-align:middle;margin-left:10px"></span>
+    </div>
+    <div style="display:flex;flex-flow:row">
+      <div class="export-section-left">
+        <h2>Export Course</h2>
+        <p class="export-web export-options active">WEB</p>
+        <div class="context-menu-divider"></div>
+        <p class="export-lms export-options">LMS</p>
+        <div class="context-menu-divider"></div>
+        <p class="export-trans export-options">TRANSLATION</p>
+      </div>
+      <div class="export-section-right">
+        <div class="ex-right-options">
+          <h2>Course Name</h2>
+          <div class="export-grid-wrapper">
+            <div class="options version hide">
+              <h3>Version</h3>
+              <div>
+                <select id="version-select" class="version-select">
+                  <option value="default">Scorm 2004 edition 3</option>
+                  <option value="scorm-1.2">Scorm 1.2</option>
+                </select>
+              </div>
+            </div>
+            <div class="package options hide">
+              <h3>Package</h3>
+              <div>
+                <select id="package-select" class="package-select">
+                  <option value="full-sco">1 full sco</option>
+                </select>
+              </div>
+            </div>
+	    		<div class="prerequisite options hide show">
+              <h3>Prerequisite</h3>
+              <div>
+                <select id="prereq-select" class="prereq-select">
+                  <option value="default">As defined in the course</option>
+                  <option value="no prerequisite">No prerequisite</option>
+                </select>
+              </div>
+            </div>
+            <div class="exit options hide">
+              <h3>Exit</h3>
+              <div>
+                <input id="exit-checkbox" class="exit-checkbox" type="checkbox" />
+		<label for="exit-checkbox" style="display: unset;">Force to close window at exit</label>
+              </div>
+            </div>
+            <div class="mobile-orientation options hide show">
+              <h3>Mobile Orientation</h3>
+              <div>
+                <select id="mob-orientation-select" class="mob-orientation-select">
+                  <option value="free">Free</option>
+                  <option value="portrait">Portrait only</option>
+                  <option value="landscape">Landscape only</option>
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

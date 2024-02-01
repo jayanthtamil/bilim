@@ -1,0 +1,25 @@
+@import "assets/styles/shared.scss";
+
+.course-properties-log-container {
+  padding: 48px 0px 40px 1px;
+  .course-properties-log-lbl {
+    font-family: get-font-family(primary);
+    font-weight: get-font-weight(medium);
+    font-size: 15px;
+    color: #507de2;
+  }
+  .course-properties-log-name {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 22px;
+    color: #3a3e42;
+    text-transform: capitalize;
+  }
+  .course-properties-log-hr {
+    width: 320px;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 24px;
+    border-top: 1px solid #e3e8f5;
+  }
+}

@@ -1,0 +1,133 @@
+.template-background-action-wrapper {
+  .template-background-frm-lbl {
+    margin: 0;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #2b2b2b;
+    }
+  }
+  .background-media-wrapper {
+    margin: 8px 0 0 27px;
+    grid-template-columns: 140px auto;
+    column-gap: 10px;
+    min-height: 182px;
+    .background-media-title {
+      grid-row: 2/3;
+      margin: 8px 0 0 2px;
+      max-width: 140px;
+      font-size: 10px;
+      text-transform: capitalize;
+    }
+    .media-picker-wrapper {
+      height: 94px;
+    }
+    .tint-picker-wrapper {
+      .tint-picker-title {
+        margin: 2px 0 0 0;
+        font-size: 14px;
+      }
+      .color-picker-wrapper {
+        width: 27px;
+        height: 22px;
+      }
+      .alpha-picker-wrapper {
+        margin: 0;
+        width: 60px;
+        .mui-autocomplete.MuiAutocomplete-root {
+          .MuiAutocomplete-inputRoot {
+            padding-right: 22px;
+            height: 24px;
+            font-size: 10px;
+            > :first-child {
+              padding-left: 3px;
+            }
+          }
+          .MuiAutocomplete-endAdornment {
+            top: calc(50% - 9px);
+            .MuiAutocomplete-popupIndicator {
+              width: 20px;
+              height: 20px;
+              .MuiIconButton-label {
+                width: 20px;
+                img {
+                  width: 100%;
+                  object-fit: contain;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .background-video-btns-wrapper {
+      margin: 4px 0 0 0;
+      .toggle-button-wrapper {
+        width: 43px;
+        height: 17px;
+        background-size: cover;
+      }
+      .background-video-loop-ctrl {
+        align-items: center;
+        margin: 0 0 0 4px;
+        .MuiCheckbox-root {
+          .checkbox-icon,
+          .checkbox-checked-icon {
+            width: 15px;
+            height: 15px;
+            background-size: cover;
+          }
+        }
+        .MuiFormControlLabel-label {
+          font-size: 12px;
+        }
+      }
+    }
+    .background-dropdown-wrapper {
+      margin: 6px 0 0 -2px;
+      height: auto;
+      .subscript-input-container {
+        margin: -10px 0 0 0;
+        .subscript-input {
+          font-size: 14px;
+        }
+      }
+    }
+    .bg-option-dropdown,
+    .bg-option-2-dropdown {
+      height: 33px;
+      .MuiSelect-root {
+        .MuiListItemIcon-root {
+          min-width: 25px;
+          img {
+            width: 22px;
+            height: 25px;
+            object-fit: contain;
+          }
+        }
+        .MuiListItemText-root {
+          .MuiTypography-root {
+            font-size: 12px;
+          }
+          &:first-child {
+            margin-top: auto;
+          }
+        }
+      }
+    }
+    .bg-option-2-dropdown {
+      grid-column: 1/2;
+      margin: 6px 0 0 -2px;
+      width: calc(100% + 4px);
+    }
+    &:not(.has-media) {
+      .background-media-title {
+        display: none;
+      }
+    }
+    &.screen {
+      min-height: auto;
+    }
+  }
+}

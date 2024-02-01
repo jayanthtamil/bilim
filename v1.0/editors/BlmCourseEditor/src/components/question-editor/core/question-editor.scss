@@ -1,0 +1,44 @@
+.question-editor-wrapper {
+  position: relative;
+  width: 1202px;
+  height: 100%;
+  .question-editor-tabs {
+    display: grid;
+    grid-template-columns: 279px 1fr;
+    grid-template-rows: max-content 1fr;
+    height: 100%;
+    .template-thumbnail-box {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      padding: 40px 0px;
+      margin: 13px 32px 29px 27px;
+      text-align: center;
+      border-bottom: 1px solid #dedede;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .MuiTabs-root {
+      grid-column: 1/2;
+      grid-row: 2/3;
+      .MuiTab-root {
+        padding-left: 49px;
+      }
+    }
+    .tab-panel-container {
+      grid-column: 2/3;
+      grid-row: 1/-1;
+      background-color: #eef0fb;
+    }
+  }
+  .question-editor-close-btn {
+    position: absolute;
+    cursor: pointer;
+    right: 26px;
+    top: 41px;
+    width: 15px;
+    height: 15px;
+    background: url("~assets/images/close-1.png") no-repeat center;
+  }
+}

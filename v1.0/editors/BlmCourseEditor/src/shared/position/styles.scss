@@ -1,0 +1,66 @@
+.position-wrapper {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  background: url("~assets/images/position/position-bg-1.png") no-repeat center;
+  .position-item {
+    position: absolute;
+    cursor: pointer;
+    width: 9px;
+    height: 9px;
+    &.top,
+    &.position_topcenter,
+    &.background_topmiddle {
+      inset: 0 auto auto calc(50% - 4.5px);
+    }
+    &.top-left,
+    &.position_topleft,
+    &.background_topleft {
+      inset: 0 auto auto 0;
+    }
+    &.top-right,
+    &.position_topright,
+    &.background_topright {
+      inset: 0 0 auto auto;
+    }
+    &.left,
+    &.position_centerleft,
+    &.background_middleleft {
+      inset: calc(50% - 4.5px) auto auto 0;
+    }
+    &.right,
+    &.position_centerright,
+    &.background_middleright {
+      inset: calc(50% - 4.5px) 0 auto auto;
+    }
+    &.bottom,
+    &.position_bottomcenter,
+    &.background_bottommiddle {
+      inset: auto auto 0 calc(50% - 4.5px);
+    }
+    &.center,
+    &.position_centercenter,
+    &.background_middlemiddle {
+      inset: calc(50% - 4.5px) auto 0 calc(50% - 4.5px);
+    }
+    &.bottom-left,
+    &.position_bottomleft,
+    &.background_bottomleft {
+      inset: auto auto 0 0;
+    }
+    &.bottom-right,
+    &.position_bottomright,
+    &.background_bottomright {
+      inset: auto 0 0 auto;
+    }
+    &.selected {
+      background-color: #3b7ddb;
+    }
+    &:hover {
+      background-color: rgba(#3b7ddb, 0.5);
+    }
+  }
+  &.limited {
+    background: url("~assets/images/position/limited-position-bg.png") no-repeat center;
+  }
+}

@@ -1,0 +1,85 @@
+{# page stylehome template #}
+{{ attach_library('bilimauth/style-home') }}
+<script type="text/javascript">
+  const base_url = "{{ base_url }}";
+</script>
+<div class="main-container">
+  <header>
+    <div class="header-container">
+      <a href="{{base_url}}/platform/homepage" class="style-back-btn">
+        <button class="header-home-back-btn"></button>
+      </a>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl">STYLE</span>
+        <div class="header-domain-container">
+          <div class="header-right-border"></div>
+        </div>
+        <span class="header-right-lbl">{{content.username}}</span>
+      </div>
+      <a href="{{base_url}}/user/logout" class="header-logout-btn"></a>
+    </div>
+  </header>
+
+  <section class="main-section platform-homepage">
+    <section class="left-section">
+      <div class="list-container custom-scrollbar style-home-list-container">
+        <div class="domain-list">
+          <ul>
+            {% for dm in content.domain %}
+	      {% if dm.name != 'Tests' and dm.name != 'Modeles' %}
+                <li><a href="{{base_url}}/platform/styleview/{{dm.id}}/0/0">{{ dm.name }}</a></li>
+	      {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="btns-container">
+          {% if content.spl_domains is empty %}
+	    <div class="icon-button">
+              <span>MODELES</span>
+            </div>
+	    <div class="btn-separator"></div>
+            <div class="icon-button">
+              <span>TESTS</span>
+            </div>
+	  {% else %}
+	    {% for dm in content.spl_domains %}
+              {% if dm.name == 'Modeles' %}
+                <div class="icon-button">
+                  <span class="spl-domain"><a href="{{base_url}}/platform/styleview/{{dm.id}}/0/0">MODELES</a></span>
+                </div>
+	        <div class="btn-separator"></div>
+	      {% endif %}
+            
+	      {% if dm.name == 'Tests' %}
+                <div class="icon-button">
+                  <span class="spl-domain"><a href="{{base_url}}/platform/styleview/{{dm.id}}/0/0">TESTS</a></span>
+                </div>
+	      {% endif %}
+	   {% endfor %}
+      	 {% endif %}
+      </div>
+    </section>
+    <section class="right-section">
+      <div class="title-container style-home-container">
+        <div class="title-content">
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
+<div class="context-menu-container" onclick="onCtxMenuClick(event)">
+  <div class="context-menu-backdrop"></div>
+  <div class="context-menu">
+    <ul>
+      <li id="crs-url" onclick="onEditBtnClick(event)">Edit course</li>
+      <li>See course in domain</li>
+      <div class="context-menu-divider"></div>
+      <li>Preview</li>
+      <li>Export</li>
+      <li>Translate</li>
+      <div class="context-menu-divider"></div>
+      <li>Properties</li>
+    </ul>
+  </div>
+</div>

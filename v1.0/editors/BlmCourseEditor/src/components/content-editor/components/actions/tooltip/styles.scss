@@ -1,0 +1,33 @@
+.tooltip-action-wrapper {
+  margin: 14px 0 0 3px;
+  .tooltip-action-label-txt {
+    width: 324px;
+    margin: 0 24px 20px 0;
+    padding: 0 10px;
+    height: 31px;
+    font-size: 18px;
+    color: #2b2b2b;
+    border: none;
+    background-color: #e8eefb;
+  }
+  .style-picker-wrapper {
+    row-gap: 7px;
+    .style-picker-style-wrapper {
+      padding: 6px 8px;
+      width: 147px;
+      height: 102px;
+      border: 1px solid #c1c8d9;
+      .style-picker-preview-wrapper {
+        width: 115px;
+        height: 100%;
+      }
+    }
+    .style-picker-apply-btn {
+      column-gap: 5px;
+      padding: 1px 2px 1px 10px;
+      border-radius: 20px;
+      border: 2px solid #b8cdeb;
+      background-color: #e4eafb;
+    }
+  }
+}

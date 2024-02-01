@@ -1,0 +1,65 @@
+.template-sound-action-wrapper {
+  .template-sound-frm-lbl {
+    margin: 0;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #2b2b2b;
+    }
+  }
+
+  .template-sound-frm-lbl-disable {
+    margin: 0;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #dddddd;
+    }
+  }
+  .template-sound-frm-lbls {
+    margin-left: 60px;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #2b2b2b;
+    }
+  }
+
+  .template-sound-frm-lbls-disable {
+    margin-left: 60px;
+    .MuiFormControlLabel-label {
+      margin: 0 0 0 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #dddddd;
+    }
+  }
+
+  .template-sound-picker {
+    margin: 6px 0 0 24px;
+    width: 87px;
+    height: 73px;
+    border: none;
+    .media-browse-wrapper {
+      .browse-placeholder {
+        display: none;
+      }
+    }
+    .media-preview-wrapper {
+      .media-name {
+        display: block;
+        position: absolute;
+        margin: 0;
+        top: 0px;
+        right: calc(-100% - 12px);
+        font-size: 15px;
+        font-weight: 500;
+        color: #2b2b2b;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

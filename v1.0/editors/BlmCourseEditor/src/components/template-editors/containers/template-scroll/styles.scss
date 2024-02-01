@@ -1,0 +1,121 @@
+.template-scroll-panel {
+  display: flex;
+  flex-direction: column;
+  color: #2b2b2b;
+  .template-scroll-anchor {
+    margin-left: 122px;
+    margin-bottom: -1px;
+    width: 27px;
+    height: 15px;
+    background: url("~assets/images/up-anchor-1.png");
+    z-index: 2;
+  }
+  .template-scroll-content {
+    position: relative;
+    display: grid;
+    grid-template-columns: 203px 245px;
+    height: 239px;
+    z-index: 1;
+    border-radius: 7px;
+    background-color: #ebf1fb;
+    .template-scroll-list {
+      padding: 15px 0;
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+      background-color: #ffffff;
+      .MuiMenuItem-root {
+        margin: 15px 0;
+        padding: 0 14px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        color: #1e1e1d;
+        text-transform: uppercase;
+        &:hover,
+        &.Mui-selected {
+          background-color: #e6effe;
+        }
+        &::before {
+          display: block;
+          content: " ";
+          margin-right: 10px;
+          width: 38px;
+          height: 33px;
+          background-color: red;
+        }
+        &.basic::before {
+          background: url("~assets/images/template/scroll-basic.png") no-repeat center;
+        }
+        &.fixed::before {
+          background: url("~assets/images/template/scroll-fixed.png") no-repeat center;
+        }
+        &.parallax::before {
+          background: url("~assets/images/template/scroll-parallax.png") no-repeat center;
+        }
+        &.zoom::before {
+          background: url("~assets/images/template/scroll-zoom.png") no-repeat center;
+        }
+      }
+    }
+    .template-scroll-ctrls {
+      display: flex;
+      flex-direction: column;
+      .template-scroll-preview {
+        margin: 65px 0 auto 43px;
+        width: 116px;
+        height: 70px;
+        border: 1px solid #769fe2;
+      }
+      .template-scroll-effect-frm-ctrl,
+      .template-scroll-parallaxe-frm-ctrl {
+        margin: 0 0 6px 20px;
+        .MuiCheckbox-root {
+          .checkbox-icon,
+          .checkbox-checked-icon {
+            width: 12px;
+            height: 12px;
+            background-size: contain;
+          }
+        }
+        .MuiFormControlLabel-label {
+          margin: 0 0 0 12px;
+          font-weight: bold;
+          font-size: 12px;
+          color: #3a3e42;
+        }
+      }
+      .template-scroll-parallaxe-frm-ctrl {
+        margin-bottom: 10px;
+      }
+      &.basic {
+        .template-scroll-preview {
+          background: url("~assets/images/template/basic.gif") no-repeat center;
+        }
+      }
+      &.fixed {
+        .template-scroll-preview {
+          background: url("~assets/images/template/fixed.gif") no-repeat center;
+        }
+      }
+      &.parallax {
+        .template-scroll-preview {
+          background: url("~assets/images/template/parallax.gif") no-repeat center;
+        }
+      }
+      &.zoom {
+        .template-scroll-preview {
+          background: url("~assets/images/template/zoom.gif") no-repeat center;
+        }
+      }
+    }
+    .template-scroll-close-btn {
+      cursor: pointer;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      right: 15px;
+      top: 12px;
+      background: url("~assets/images/close-1.png") no-repeat center;
+    }
+  }
+}

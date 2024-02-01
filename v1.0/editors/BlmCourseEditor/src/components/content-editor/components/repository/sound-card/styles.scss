@@ -1,0 +1,75 @@
+.sound-card-wrapper {
+  display: flex;
+  height: 59px;
+  .sound-card-box {
+    display: flex;
+    flex: 1 1 auto;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 9px;
+    padding: 0 5px 0 5px;
+    min-width: 0;
+    border-radius: 8px;
+    border: 1px solid #dee6fa;
+    .sound-card-lbl {
+      flex: 1 1 auto;
+      margin: 0 9px;
+      font-weight: bold;
+      font-size: 14px;
+      color: #2b2b2b;
+      text-transform: uppercase;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .sound-card-drag-btn {
+      display: block;
+      flex: 0 0 auto;
+      width: 22px;
+      height: 100%;
+      border-left: 1px solid #e2ecfa;
+      background: url("~assets/images/content-editor/drag-1.png") no-repeat right center;
+    }
+  }
+  .sound-card-delete-btn {
+    display: block;
+    flex: 0 0 auto;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 15px;
+    height: 21px;
+    visibility: hidden;
+    background: url("~assets/images/template/delete-btn-over.png") no-repeat center;
+  }
+  .sound-card-duplicate-btn {
+    display: block;
+    flex: 0 0 auto;
+    cursor: pointer;
+    margin-top: 8px;
+    width: 15px;
+    height: 21px;
+    visibility: hidden;
+    background: url("~assets/images/template/duplicate-btn-over.png") no-repeat center;
+  }
+  &:hover {
+    .sound-card-box {
+      background-color: #f2f5fc;
+    }
+    &.deletable {
+      .sound-card-delete-btn {
+        visibility: visible;
+      }
+      .sound-card-duplicate-btn {
+        visibility: visible;
+      }
+    }
+  }
+  &.dragging {
+    box-shadow: 3px 3px 12px 0px rgba(27, 54, 94, 0.09);
+  }
+  &.selected {
+    .sound-card-box {
+      background-color: #f2f5fc;
+    }
+  }
+}

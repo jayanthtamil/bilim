@@ -1,0 +1,16 @@
+.CopyFrom {
+  background: white;
+  width: 122% !important;
+  margin-top: 9px;
+  overflow-y: auto;
+  top: 30px;
+  min-height: 617px;
+  max-height: 617px;
+  margin: -24px 0px 0px -2px;
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(217, 19, 19, 0.931) !important;
+  }
+  ::-webkit-scrollbar-track-piece {
+    background-color: #212b43 !important;
+  }
+}

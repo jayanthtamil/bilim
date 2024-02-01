@@ -1,0 +1,26 @@
+//
+// Wrappers for project variables, to create a new variable
+// please use `variables-definitions.scss` file.
+//
+// If you want to use a variable, import `variables.scss` file,
+// and add the corresponding map-get wrapper here.
+//
+
+@import "../variables/main";
+@import "./utils";
+
+// Special map for colors
+@function get-color($namespace, $variance: normal) {
+  $color-map: get($color, $namespace);
+
+  @return get($color-map, $variance);
+}
+
+// Generic maps
+@function get-font-weight($key: normal) {
+  @return get($font-weight, $key);
+}
+
+@function get-font-family($key: primary) {
+  @return get($font-family, $key);
+}

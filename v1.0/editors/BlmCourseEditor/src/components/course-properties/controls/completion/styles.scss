@@ -1,0 +1,81 @@
+.course-completion-props-container {
+  display: grid;
+  grid-template-columns: 550px auto;
+  align-items: flex-start;
+  padding: 35px 0 30px 1px;
+  color: #2b2b2b;
+  .completion-props-container {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    width: max-content;
+    font-weight: 500;
+    .crs-completion-radio-group {
+      margin: -1px 0 0 -1px;
+      .crs-completion-form-ctrl-lbl {
+        width: max-content;
+        margin: 0 0 17px 0;
+        .MuiFormControlLabel-label {
+          margin-left: 6px;
+          font-size: 15px;
+          font-weight: 500;
+          color: #2b2b2b;
+        }
+      }
+    }
+    .crs-completion-form-group {
+      margin: -2px 0 0 22px;
+      .crs-completion-form-ctrl-lbl {
+        margin: 0 0 14px 0;
+        .MuiFormControlLabel-label {
+          margin-left: 11px;
+          font-weight: normal;
+        }
+      }
+      .crs-completion-timer-duration-txt {
+        margin: -7px 0 0 24px;
+        padding: 1px 16px 0 5px;
+        .subscript-input {
+          font-weight: bold;
+          font-size: 30px;
+        }
+      }
+    }
+  }
+  .prerequisite-props-container {
+    .prerequisite-option {
+      align-items: flex-start;
+      margin: -1px 0 0 9px;
+      .MuiRadio-root {
+        margin-top: 2px;
+      }
+      .MuiFormControlLabel-label {
+        margin-left: 8px;
+        font-weight: 500;
+        font-size: 15px;
+        color: #2b2b2b;
+        white-space: pre-line;
+      }
+      &:not(:nth-child(2)) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+.prerequisite-title,
+.crs-completion-title {
+  position: relative;
+  margin: 0 0 25px 0;
+  padding-bottom: 5px;
+  width: 192px;
+  font-weight: 500;
+  font-size: 20px;
+  &::after {
+    display: block;
+    position: absolute;
+    content: " ";
+    inset: auto 0 0 2px;
+    height: 3px;
+    background-color: #eaeffb;
+  }
+}

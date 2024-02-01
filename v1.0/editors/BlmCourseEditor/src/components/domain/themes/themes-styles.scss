@@ -1,0 +1,60 @@
+@import "assets/styles/shared.scss";
+
+.theme-name-container {
+  font-weight: bold;
+  font-size: 18px;
+  .theme-name {
+    font-size: 20px;
+    text-transform: uppercase;
+  }
+  .theme-edit-btn {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 0 0 23px;
+    width: 17px;
+    height: 17px;
+    background: url("~assets/images/buttons/edit.png") no-repeat center;
+    background-repeat: no-repeat;
+    &.disabled {
+      opacity: 0.5;
+      cursor: auto;
+    }
+  }
+}
+.themes-list-container {
+  .themes-list-title {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 500;
+    .alert-icon {
+      @include image-button("~assets/images/warning-1.png", 19px, 19px);
+      display: inline-block;
+      margin-left: 26px;
+      margin-bottom: -4px;
+    }
+  }
+  .themes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    margin-bottom: 24px;
+    .theme-list-item-container {
+      flex-grow: 153px 1 1;
+      height: 120px;
+    }
+  }
+  .theme-validate-btn {
+    height: 39px;
+    width: 141px;
+    font-size: 17px;
+    font-weight: bold;
+    background-color: #f1f4fb;
+    &:hover {
+      background-color: #f1f4fb;
+    }
+    &.Mui-disabled {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}

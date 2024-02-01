@@ -1,0 +1,900 @@
+$tree-node-height: 20px;
+
+.copy-from-struture-container {
+  .rc-tree-node-row {
+    .rc-tree-options {
+      .copy-from-button {
+        display: none !important;
+      }
+    }
+    &:hover {
+      .rc-tree-options {
+        background-image: none !important;
+      }
+    }
+    .rc-tree-options {
+      background-image: none;
+      background-position: center;
+      min-width: 30px;
+      width: auto;
+      height: $tree-node-height;
+      z-index: 2;
+      right: 0;
+      .copy-from-preview {
+        margin: 2px 0px -18px -67px !important;
+        font-style: italic !important;
+        color: #487ff9 !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+      }
+      .copy-from-add {
+        margin-top: 3px !important;
+        font-weight: 700 !important;
+        color: #487ff9 !important;
+        font-size: 14px !important;
+      }
+    }
+    &:hover {
+      .rc-tree-options {
+        .copy-from-button {
+          display: block !important;
+        }
+        .copy-from-preview,
+        .copy-from-add {
+          position: relative !important;
+          display: block !important;
+        }
+        .copy-from-preview:after {
+          content: "Preview" !important;
+        }
+        .copy-from-add:after {
+          content: "Add" !important;
+        }
+      }
+    }
+  }
+}
+.blm-tree-container,
+.blm-course-tree-container {
+  width: 100%;
+  text-align: left;
+  overflow: auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  font-family: get-font-family(primary);
+  font-weight: bold;
+  font-size: 13px;
+  position: relative;
+  overflow-x: hidden;
+
+  //highlight the draggable tree node drop place
+  .drag-over {
+    &.rc-tree-treenode-switcher-close {
+      //Not expanded
+      border: 2px blue solid;
+    }
+    &.rc-tree-treenode-switcher-open {
+      //Expanded with children
+      > .rc-tree-child-tree {
+        > li:first-child {
+          border-top: 2px blue solid;
+        }
+      }
+    }
+    &.rc-tree-treenode-switcher-open.tree-treenode-no-children {
+      //Expanded with no children
+      border: 2px blue solid;
+    }
+  }
+
+  .drag-over-gap-top {
+    border-top: 2px blue solid;
+  }
+
+  .drag-over-gap-bottom {
+    &.rc-tree-treenode-switcher-open {
+      &.tree-treenode-no-children {
+        //Expanded with no children
+        border-bottom: 2px blue solid;
+      }
+      > .rc-tree-child-tree {
+        //Expanded with children
+        > li:first-child {
+          border-top: 2px blue solid;
+        }
+      }
+    }
+    &.rc-tree-treenode-switcher-close {
+      //Not expanded
+      border-bottom: 2px blue solid;
+    }
+  }
+  &.starting {
+    padding: 7px 0px 22px 21px;
+    &.empty-tree {
+      padding-bottom: 0px;
+    }
+  }
+  &:not(.starting):not(.template) {
+    padding-top: 6px;
+    //Tree dotted lines between first items
+    .rc-tree {
+      > li {
+        padding: 12px 0 14px 0;
+
+        &:not(:first-child)::before {
+          content: "";
+          position: absolute;
+          margin-top: -12px;
+          left: 10px;
+          width: 150px;
+          height: 1px;
+          background: url("~./assets/images/tree/dotted-bg.png") 0 0 repeat-x;
+        }
+      }
+    }
+  }
+  .rc-tree {
+    padding: 0px 7px;
+
+    li {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      width: 100%;
+      &.rc-tree-treenode-selected {
+        > .rc-tree-node-row {
+          &::before {
+            position: absolute;
+            left: -100%;
+            right: -10px;
+            height: 25px;
+            content: "";
+            display: inline-block;
+            user-select: none;
+            background-color: #507de2;
+          }
+          .rc-tree-title {
+            color: #ffffff;
+          }
+          .rc-tree-options {
+            .home-icon {
+              background-image: url("~./assets/images/tree/home-selected.png");
+            }
+            .mixed-connection-icon {
+              background-image: url("~./assets/images/tree/mix-connection.png");
+            }
+            .first-connection-icon {
+              background-image: url("~./assets/images/tree/first-connection.png");
+            }
+            .second-connection-icon {
+              background-image: url("~./assets/images/tree/second-connection.png");
+            }
+            .repeat-connection-icon {
+              background-image: url("~./assets/images/tree/repeat-connection.png");
+            }
+            .question-icon {
+              width: 8px;
+              background-image: url("~./assets/images/tree/question-info-selected.png");
+            }
+          }
+          &:hover {
+            .rc-tree-options {
+              background-image: url("~./assets/images/tree/context-btn-selected.png");
+            }
+          }
+        }
+      }
+      &.tree-treenode-ctx-selected {
+        &:not(.rc-tree-treenode-selected) {
+          > .rc-tree-node-row {
+            &::before {
+              position: absolute;
+              left: -100%;
+              right: -10px;
+              height: 25px;
+              content: "";
+              display: inline-block;
+              user-select: none;
+              background-color: #d9e3fb;
+            }
+          }
+        }
+      }
+      &:not(.rc-tree-treenode-selected) {
+        > .rc-tree-node-row {
+          &:hover::before {
+            position: absolute;
+            left: -100%;
+            right: -10px;
+            content: "";
+            display: inline-block;
+            height: 25px;
+            user-select: none;
+            background-color: #d9e3fb;
+          }
+        }
+      }
+      &.tree-treenode-ctx-selected {
+        > .rc-tree-node-row {
+          .rc-tree-options {
+            background-image: url("~./assets/images/tree/context-btn.png");
+            * {
+              display: none;
+            }
+          }
+        }
+      }
+      &.tree-treenode-empty-template {
+        > .rc-tree-node-row {
+          .rc-tree-node-row-container {
+            .rc-tree-node-content-wrapper {
+              .rc-tree-title {
+                font-weight: 300;
+              }
+            }
+          }
+        }
+      }
+      &.tree-treenode-outdated-tempalte {
+        > .rc-tree-node-row {
+          .rc-tree-node-row-container {
+            .rc-tree-switcher.rc-tree-switcher-noop + .rc-tree-node-content-wrapper,
+            .rc-tree-node-content-wrapper {
+              .rc-tree-title {
+                color: #f13838;
+              }
+            }
+          }
+        }
+      }
+      .rc-tree-node-row {
+        height: $tree-node-height;
+        .rc-tree-node-row-container {
+          flex: auto 1 1;
+          z-index: 1;
+          .rc-tree-node-content-wrapper {
+            padding: 0px 3px 0px 2px;
+            flex: auto 1 1;
+            height: $tree-node-height;
+            .rc-tree-iconEle {
+              display: none;
+            }
+            .rc-tree-title {
+              padding-top: 2px;
+            }
+          }
+        }
+        span.rc-tree-switcher {
+          width: 17px;
+          height: $tree-node-height;
+          &.rc-tree-switcher_open {
+            background-image: url("~./assets/images/tree/chapter-open.png");
+            background-position: center;
+          }
+          &.rc-tree-switcher_close {
+            background-image: url("~./assets/images/tree/chapter-close.png");
+            background-position: center;
+          }
+          &.rc-tree-switcher-noop {
+            background-image: url("~./assets/images/tree/chapter-open.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: transparent;
+          }
+        }
+        .rc-tree-node-selected {
+          background-color: transparent;
+          border: none;
+        }
+        .rc-tree-title {
+          color: #3a3e42;
+        }
+        .rc-tree-options {
+          background-image: none;
+          background-position: center;
+          min-width: 30px;
+          width: auto;
+          height: $tree-node-height;
+          z-index: 2;
+          right: 0;
+
+          span {
+            width: 27px;
+            height: $tree-node-height;
+            display: inline-block;
+            margin-left: 2px;
+            background-position: center;
+            border: none;
+            background-repeat: no-repeat;
+          }
+          .unlinked-icon {
+            background-image: url("~./assets/images/tree/unlinked.png");
+          }
+          .home-icon {
+            background-image: url("~./assets/images/tree/home.png");
+          }
+          .mixed-connection-icon {
+            background-image: url("~./assets/images/tree/mix-connection.png");
+          }
+          .first-connection-icon {
+            background-image: url("~./assets/images/tree/first-connection.png");
+          }
+          .second-connection-icon {
+            background-image: url("~./assets/images/tree/second-connection.png");
+          }
+          .repeat-connection-icon {
+            background-image: url("~./assets/images/tree/repeat-connection.png");
+          }
+          .question-icon {
+            width: 27px;
+            background-image: url("~./assets/images/tree/question-info.png");
+          }
+          .alert-icon {
+            width: 29px;
+            height: 19px;
+            background-image: url("~./assets/images/warning-1.png");
+          }
+        }
+        &:hover {
+          .rc-tree-options {
+            background-image: url("~./assets/images/tree/context-btn.png");
+            * {
+              display: none;
+            }
+          }
+        }
+      }
+
+      ul {
+        padding: 2px 0 0 22px;
+      }
+    }
+
+    > li {
+      &.rc-tree-treenode-selected {
+        > .rc-tree-node-row {
+          &::before {
+            height: 30px;
+          }
+        }
+      }
+      &:not(.rc-tree-treenode-selected) {
+        > .rc-tree-node-row {
+          &:hover::before {
+            height: 30px;
+          }
+        }
+      }
+      &.tree-treenode-ctx-selected {
+        &:not(.rc-tree-treenode-selected) {
+          > .rc-tree-node-row {
+            &::before {
+              height: 30px;
+            }
+          }
+        }
+      }
+    }
+    .chapter,
+    .annexes_folder {
+      > ul {
+        padding: 7px 0 0 21px;
+      }
+    }
+    .screen,
+    .page {
+      > .rc-tree-node-row {
+        .rc-tree-title {
+          margin-top: -3px;
+          padding-left: 2px;
+          padding-top: 0px;
+        }
+      }
+    }
+    .partpage,
+    .feedback {
+      > .rc-tree-node-row {
+        .rc-tree-title {
+          margin-top: -2px;
+          padding-left: 3px;
+          padding-top: 0px;
+        }
+      }
+      > .rc-tree-child-tree {
+        .simple_page,
+        .simple_content {
+          > .rc-tree-node-row {
+            .rc-tree-title {
+              margin-top: -3px;
+              padding-left: 3px;
+            }
+          }
+        }
+      }
+    }
+    .custom {
+      > .rc-tree-node-row {
+        .rc-tree-switcher {
+          &.rc-tree-switcher_open,
+          &.rc-tree-switcher_close,
+          &.rc-tree-switcher-noop {
+            background-image: url("~./assets/images/tree/custom.png");
+            background-position: center;
+            width: 19px;
+          }
+        }
+        .rc-tree-title {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+      &.rc-tree-treenode-selected {
+        > .rc-tree-node-row {
+          .rc-tree-switcher {
+            &.rc-tree-switcher_open,
+            &.rc-tree-switcher_close,
+            &.rc-tree-switcher-noop {
+              background-image: url("~./assets/images/tree/custom-selected.png");
+              background-position: center;
+              width: 21px;
+            }
+          }
+        }
+      }
+      > ul {
+        padding: 7px 0 0 21px;
+      }
+    }
+    .root,
+    .chapter {
+      > .rc-tree-node-row {
+        .rc-tree-title {
+          font-size: 16px;
+          font-weight: get-font-weight(light);
+          color: #000000;
+        }
+      }
+      &.rc-tree-treenode-selected {
+        > .rc-tree-node-row {
+          .rc-tree-switcher {
+            &.rc-tree-switcher_open {
+              background-image: url("~./assets/images/tree/chapter-open-selected.png");
+              background-position: center;
+            }
+            &.rc-tree-switcher_close {
+              background-image: url("~./assets/images/tree/chapter-close-selected.png");
+              background-position: center;
+            }
+            &.rc-tree-switcher-noop {
+              background-image: url("~./assets/images/tree/chapter-open-selected.png");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+    .screen,
+    .simple_content {
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-position: center;
+          width: 19px;
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/screen-open.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_close {
+          background-image: url("~./assets/images/tree/screen-close.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/screen.png");
+        }
+        .rc-tree-title {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+    }
+    .page,
+    .simple_page {
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-position: center;
+          width: 19px;
+        }
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/page.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/page-open.png");
+        }
+        .rc-tree-title {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+    }
+    .partpage {
+      > ul {
+        > li {
+          &:after,
+          &:before {
+            border-color: #afc4f2;
+          }
+        }
+      }
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-position: center;
+          width: 15px;
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/part-page-open.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_close {
+          background-image: url("~./assets/images/tree/part-page-close.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/part-page.png");
+        }
+        .rc-tree-title {
+          font-weight: normal;
+          font-size: 13px;
+          color: #507de2;
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop + .rc-tree-node-content-wrapper {
+          .rc-tree-title {
+            color: #a2b7e7;
+          }
+        }
+      }
+      > .rc-tree-child-tree {
+        .simple_content,
+        .simple_page {
+          > .rc-tree-node-row {
+            .rc-tree-title {
+              color: #507de2;
+            }
+          }
+          &.rc-tree-treenode-selected {
+            > .rc-tree-node-row {
+              .rc-tree-title {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .question {
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/question.png");
+          background-position: center;
+          width: 19px;
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/question.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/question-open.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_close {
+          background-image: url("~./assets/images/tree/question-open.png");
+        }
+        .rc-tree-title {
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+    }
+    .feedback {
+      > ul {
+        > li {
+          &:after,
+          &:before {
+            border-color: #ceebd0;
+          }
+        }
+      }
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-position: center;
+          width: 15px;
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/feedback-open.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_close {
+          background-image: url("~./assets/images/tree/feedback-close.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/feedback.png");
+        }
+        .rc-tree-title {
+          font-weight: normal;
+          font-size: 13px;
+          color: #80cc87;
+        }
+      }
+      > .rc-tree-child-tree {
+        .simple_content {
+          > .rc-tree-node-row {
+            .rc-tree-switcher.rc-tree-switcher_open,
+            .rc-tree-switcher.rc-tree-switcher_close,
+            .rc-tree-switcher.rc-tree-switcher-noop {
+              background-image: url("~./assets/images/tree/feedback-simple-content.png");
+              background-position: center;
+              width: 19px;
+            }
+            .rc-tree-title {
+              color: #80cc87;
+            }
+          }
+          &.rc-tree-treenode-selected {
+            > .rc-tree-node-row {
+              .rc-tree-title {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+        .simple_page {
+          > .rc-tree-node-row {
+            .rc-tree-switcher.rc-tree-switcher_open,
+            .rc-tree-switcher.rc-tree-switcher_close,
+            .rc-tree-switcher.rc-tree-switcher-noop {
+              background-image: url("~./assets/images/tree/feedback-simple-page.png");
+              background-position: center;
+              width: 19px;
+            }
+            .rc-tree-title {
+              color: #80cc87;
+            }
+          }
+          &.rc-tree-treenode-selected {
+            > .rc-tree-node-row {
+              .rc-tree-title {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .associate_content {
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-position: center;
+          width: 15px;
+        }
+        .rc-tree-switcher.rc-tree-switcher_open {
+          background-image: url("~./assets/images/tree/associate-content-open.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher_close {
+          background-image: url("~./assets/images/tree/associate-content-close.png");
+        }
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          background-image: url("~./assets/images/tree/associate-content.png");
+        }
+        .rc-tree-title {
+          font-weight: normal;
+          font-size: 13px;
+          color: #818181;
+        }
+      }
+      > .rc-tree-child-tree {
+        .simple_content {
+          > .rc-tree-node-row {
+            .rc-tree-switcher.rc-tree-switcher_open,
+            .rc-tree-switcher.rc-tree-switcher_close,
+            .rc-tree-switcher.rc-tree-switcher-noop {
+              background-image: url("~./assets/images/tree/associate-simple-content.png");
+              background-position: center;
+              width: 19px;
+            }
+            .rc-tree-title {
+              font-weight: normal;
+              color: #818181;
+            }
+          }
+          &.rc-tree-treenode-selected {
+            > .rc-tree-node-row {
+              .rc-tree-title {
+                color: #ffffff;
+              }
+            }
+          }
+        }
+      }
+    }
+    .annexes_folder {
+      > .rc-tree-node-row {
+        .rc-tree-title {
+          font-weight: normal;
+          font-size: 16px;
+        }
+      }
+    }
+    .summary {
+      > ul {
+        > li {
+          &:after,
+          &:before {
+            border-color: #ceebd0;
+          }
+        }
+      }
+      > .rc-tree-node-row {
+        .rc-tree-switcher.rc-tree-switcher_open,
+        .rc-tree-switcher.rc-tree-switcher_close,
+        .rc-tree-switcher.rc-tree-switcher-noop {
+          width: 20px;
+          background-position: center;
+          background-image: url("~./assets/images/tree/summary.png");
+        }
+        .rc-tree-title {
+          font-weight: 500;
+          font-size: 14px;
+          color: #50c3e2;
+        }
+      }
+    }
+    //Tree lines
+    ul {
+      li {
+        position: relative;
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: -5px;
+          left: -14px;
+          width: 1px;
+          height: 100%;
+          border-left: 1px solid #d5d8df;
+          z-index: 1;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 13px;
+          left: -13px;
+          width: 5px;
+          border-top: 1px solid #d5d8df;
+          z-index: 1;
+        }
+
+        &:last-child:before {
+          top: -19px;
+          height: 33px;
+        }
+        &:first-child:last-child::before {
+          top: -3px;
+          height: 17px;
+        }
+      }
+    }
+
+    //Adjust lines
+    .screen,
+    .partpage,
+    .feedback {
+      > ul {
+        > li {
+          &:before {
+            top: -5px;
+            left: -15px;
+          }
+          &:after {
+            left: -14px;
+          }
+          &:last-child:before {
+            top: -19px;
+          }
+          &:first-child:last-child::before {
+            top: -6px;
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    //Clear lines for page
+    .page {
+      > ul {
+        > li {
+          &:after,
+          &:before {
+            content: unset;
+          }
+        }
+      }
+    }
+  }
+}
+.blm-course-tree-container {
+  &.structure,
+  &.template,
+  &.annexes {
+    padding: 15px 0px 15px 15px;
+  }
+  &:not(.starting):not(.template) {
+    padding: 15px 0px 15px 15px;
+
+    //Tree dotted lines between first items
+    .rc-tree > li {
+      &:not(:first-child)::before {
+        left: 23px;
+      }
+    }
+  }
+  //Tree lines
+  &.template {
+    padding-left: 28px;
+    ul {
+      li {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          top: 13px;
+          left: -13px;
+          width: 5px;
+          border-top: 1px solid #d5d8df;
+          z-index: 1;
+        }
+      }
+    }
+  }
+}
+.blm-associated-course-tree {
+  &.course-root {
+    .rc-tree {
+      padding: 0;
+    }
+    .root {
+      > .rc-tree-child-tree {
+        //Tree dotted lines between first items
+        > li {
+          padding: 12px 0 14px 0;
+          &::before,
+          &::after {
+            display: none;
+          }
+          &:not(:first-child)::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 150px;
+            height: 1px;
+            background: url("~./assets/images/tree/dotted-bg.png") 0 0 repeat-x;
+          }
+        }
+      }
+      > .rc-tree-node-row {
+        .rc-tree-switcher {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.link-media-picker {
+  position: relative;
+  .media-picker-1 {
+    width: 125px;
+    height: 100%;
+  }
+  .link-btn {
+    position: absolute;
+    cursor: pointer;
+    left: 10px;
+    top: 12px;
+    width: 20px;
+    height: 20px;
+    background: url("~assets/images/media/unlink-1-btn.png") no-repeat center;
+    &.linked {
+      background: url("~assets/images/media/link-1-btn.png") no-repeat center;
+    }
+  }
+}

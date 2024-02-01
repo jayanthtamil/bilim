@@ -1,0 +1,133 @@
+.attachment-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-columns: 82px max-content 1fr;
+  grid-template-rows: repeat(3, max-content);
+  column-gap: 20px;
+  align-items: center;
+  margin-left: 5px;
+  padding: 8px 0;
+  color: #3a3e42;
+  &:not(:last-child):after {
+    content: " ";
+    position: absolute;
+    bottom: 0px;
+    width: 372px;
+    height: 1px;
+    background-color: #e2e5ec;
+  }
+  .attachment-preview {
+    grid-row: 1/3;
+    height: 62px;
+    border: 1px solid #c9d7f8;
+    background-color: #dee6fa;
+    a {
+      display: block;
+      height: 100%;
+    }
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .attachment-lbl {
+    grid-row: 3/4;
+    margin-top: 5px;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .attachment-download-btn,
+  .attachment-replace-btn {
+    cursor: pointer;
+    grid-column: 2/3;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: 1px solid #c9d7f8;
+  }
+  .attachment-subs-wrapper {
+    display: inline-grid;
+    grid-template-columns: repeat(2, max-content);
+    grid-column: 3/4;
+    grid-row: 1/3;
+    row-gap: 9px;
+    margin-left: 100px;
+    padding: 0 0 0 14px;
+    color: #2b2b2b;
+    text-transform: uppercase;
+    border-left: 2px solid #e3e6ec;
+    .attachment-subs-title {
+      display: inline-flex;
+      align-items: center;
+      grid-column: 1/-1;
+      padding-bottom: 4px;
+      width: 199px;
+      font-weight: 100;
+      font-size: 20px;
+      border-bottom: 1px solid #d2d5da;
+      &::before {
+        content: " ";
+        display: inline-block;
+        margin-right: 7px;
+        width: 25px;
+        height: 19px;
+        background: url("~assets/images/animation/subtitle.png") no-repeat center;
+      }
+    }
+    .attachment-subs-download-btn,
+    .attachment-subs-replace-btn {
+      cursor: pointer;
+      justify-self: flex-start;
+      margin-left: 9px;
+      padding: 5px;
+      font-weight: normal;
+      font-size: 12px;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #c9d7f8;
+    }
+    .attachment-subs-replace-btn {
+      margin-left: -25px;
+    }
+  }
+  .attachment-download-btn,
+  .attachment-subs-download-btn {
+    > a {
+      display: inline-block;
+      text-decoration: none;
+      color: #3a3e42;
+    }
+  }
+  &.video {
+    .attachment-preview {
+      background: url("~assets/images/animation/play.png") no-repeat center #dee6fa;
+    }
+  }
+  &.audio {
+    .attachment-preview {
+      background: url("~assets/images/animation/sound.png") no-repeat center #dee6fa;
+    }
+  }
+  &.pdf {
+    .attachment-preview {
+      background: url("~assets/images/animation/pdf.png") no-repeat center #dee6fa;
+    }
+  }
+  &.json {
+    .attachment-preview {
+      background: url("~assets/images/animation/json.png") no-repeat center #dee6fa;
+    }
+  }
+  &.doc {
+    .attachment-preview {
+      background: url("~assets/images/animation/doc.png") no-repeat center #dee6fa;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "prerequisite": "Prerequisite",
+  "mobile_orientation": "Mobile Orientation",
+  "version": "Version",
+  "package": "Package",
+  "exit": "Exit",
+  "force_close": "Force to close window at exit",
+  "tabs": {
+    "web": "WEB",
+    "lms": "LMS"
+  },
+  "buttons": {
+    "export_web": "Export WEB",
+    "export_lms": "Export LMS"
+  },
+  "prerequisite_list": {
+    "defined_course": "As defined in the course",
+    "no_prerequisite": "No prerequisite"
+  },
+  "mobile_orientation_list": {
+    "free": "Free",
+    "portrait": "Portrait only",
+    "landscape": "Landscape only"
+  },
+  "version_list": {
+    "scorm_2004": "Scorm 2004 edition 3",
+    "scorm_1": "Scorm 1.2"
+  },
+  "package_list": {
+    "full_sco": "1 full sco"
+  }
+}

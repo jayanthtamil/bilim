@@ -1,0 +1,22 @@
+@import "assets/styles/shared.scss";
+
+.question-editor-dashboard {
+  padding: 56px 54px 50px 38px;
+  color: #2b2b2b;
+  .question-editor-title {
+    margin-bottom: 2px;
+    padding-bottom: 1px;
+    font-size: 20px;
+    font-weight: get-font-weight(medium);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-bottom: 1px solid #cfd0da;
+  }
+  .question-editor-label {
+    font-size: 25px;
+    font-weight: get-font-weight(light);
+    text-transform: uppercase;
+  }
+}

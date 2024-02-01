@@ -1,0 +1,315 @@
+bilim.bilim_controller_default:
+  path: '/bilim/primary'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::getLatestCourses'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+
+bilim.check_access:
+  path: '/service/checkaccess'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::checkAccess'
+    _title: 'Check User Access'
+  requirements:
+    _access: 'TRUE'
+    _method: 'GET'
+    _csrf_request_header_token: 'FALSE'
+
+bilim.file:
+  path: '/service/upload'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::Upload'
+    _title: 'File upload end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    _csrf_request_header_token: 'FALSE'
+
+bilim.file_remove:
+  path: '/service/file_remove'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::Remove'
+    _title: 'File remove end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'DELETE'
+    _csrf_request_header_token: 'FALSE'
+
+bilim.file_replace:
+  path: '/service/replace-animation'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::Replace'
+    _title: 'File replace end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    _csrf_request_header_token: 'FALSE'
+
+bilim.importstyle:
+  path: '/import-style'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::styleImport'
+    _title: 'Style Import end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.updatestyle:
+  path: '/update-style'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::updateStyle'
+    _title: 'Style Update end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.changestyle:
+  path: '/change-style'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::changeStyle'
+    _title: 'Change Course Style end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilim.delete_course:
+  path: '/delete-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteCourse'
+    _title: 'Delete Course end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST' 
+
+bilim.rename_course:
+  path: '/rename-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::renameCourse'
+    _title: 'Rename Course'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.add_course_content_folder:
+  path: '/add-course-content-folder'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::addCourseContentFolder'
+    _title: 'Add Course Content Folder'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.create_course:
+  path: '/create-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::createCourse'
+    _title: 'Create Course'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.update_course:
+  path: '/update-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::updateCourse'
+    _title: 'Update Course'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.user_filters:
+  path: '/user-filters'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::userFilters'
+    _title: 'User Filters'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.add_user:
+  path: '/add-user'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::addUser'
+    _title: 'Add User'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.edit_user:
+  path: '/edit-user'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::editUser'
+    _title: 'Edit User'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilim.add_domain:
+  path: '/add-domain'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::addDomain'
+    _title: 'Add Domain'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilim.update_domain:
+  path: '/update-domain'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::updateDomain'
+    _title: 'Update Domain'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilimauth.domain_delete:
+  path: '/delete-domain'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteDomain'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilimauth.export_course:
+  path: '/export-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::exportCourse'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    _csrf_request_header_token: 'FALSE'
+    
+bilim.delete_user:
+  path: '/delete-user'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteUser'
+    _title: 'Delete User'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.email_reset:
+  path: '/email-reset'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::emailResetRequest'
+    _title: 'Reset User'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.pwd_reset:
+  path: '/pwd-reset'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::pwdReset'
+    _title: 'Reset User Password'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.bulk_update_course:
+  path: '/bulk-update-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::bulkUpdateCourse'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+
+bilim.bulk_delete_nodes:
+  path: '/delete-elements'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteAllNodes'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+
+bilim.delete_style:
+  path: '/delete-style'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteStyle'
+    _title: 'Delete Style end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilim.check_domain:
+  path: '/check-domain'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::checkDomain'
+    _title: 'Check Domain end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilimauth.preview_course:
+  path: '/preview-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::previewCourse'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    _csrf_request_header_token: 'FALSE'
+
+bilim.delete_folder:
+  path: '/delete-folder'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteFolder'
+    _title: 'Delete Content Folder end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.delete_style_folder:
+  path: '/delete-style-folder'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::deleteStyleFolder'
+    _title: 'Delete Style Folder end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.duplicate_course:
+  path: '/duplicate-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::duplicateCourse'
+    _title: 'Duplicate Course end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.move_course:
+  path: '/move-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::moveCourse'
+    _title: 'Move Course end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.duplicate_move_course:
+  path: '/duplicate-move-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::duplicateMoveCourse'
+    _title: 'Duplicate and Move Course end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+
+bilim.style_external_file_replace:
+  path: '/service/replace-external-file'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\UploadController::ReplaceExternalFile'
+    _title: 'Style External File replace end-point'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    _csrf_request_header_token: 'FALSE'
+
+bilimauth.import_course:
+  path: '/import-course'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::importCourse'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+

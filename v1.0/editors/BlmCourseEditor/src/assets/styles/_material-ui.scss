@@ -1,0 +1,257 @@
+/*** Global Controls ***/
+.MuiCheckbox-root {
+  .checkbox-icon,
+  .checkbox-checked-icon {
+    width: 14px;
+    height: 14px;
+  }
+  .checkbox-icon {
+    background-image: url("~assets/images/forms/checkbox-1.png");
+  }
+  .checkbox-checked-icon {
+    background-image: url("~assets/images/forms/checkbox-1-checked.png");
+  }
+}
+.checkbox-2 {
+  &.MuiCheckbox-root {
+    .checkbox-icon,
+    .checkbox-checked-icon {
+      width: 22px;
+      height: 22px;
+    }
+    .checkbox-icon {
+      background-image: url("~assets/images/forms/checkbox-2.png");
+    }
+    .checkbox-checked-icon {
+      background-image: url("~assets/images/forms/checkbox-2-checked.png");
+    }
+  }
+}
+.checkbox-3 {
+  &.MuiCheckbox-root {
+    .checkbox-icon,
+    .checkbox-checked-icon {
+      width: 14px;
+      height: 14px;
+    }
+    .checkbox-icon {
+      background-image: url("~assets/images/forms/checkbox-3.png");
+    }
+    .checkbox-checked-icon {
+      background-image: url("~assets/images/forms/checkbox-3-checked.png");
+    }
+  }
+}
+.MuiRadio-root {
+  .radio-icon,
+  .radio-checked-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .radio-icon {
+    background-image: url("~assets/images/forms/radio-1.png");
+  }
+  .radio-checked-icon {
+    background-image: url("~assets/images/forms/radio-1-checked.png");
+  }
+}
+.radio-2 {
+  &.MuiRadio-root {
+    .radio-icon,
+    .radio-checked-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .radio-icon {
+      background-image: url("~assets/images/forms/radio-2.png");
+    }
+    .radio-checked-icon {
+      background-image: url("~assets/images/forms/radio-2-checked.png");
+    }
+  }
+}
+.radio-3 {
+  &.MuiRadio-root {
+    .radio-icon,
+    .radio-checked-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .radio-icon {
+      background-image: url("~assets/images/forms/radio-3.png");
+    }
+    .radio-checked-icon {
+      background-image: url("~assets/images/forms/radio-2-checked.png");
+    }
+  }
+}
+.radio-4 {
+  &.MuiRadio-root {
+    .radio-icon,
+    .radio-checked-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .radio-icon {
+      background-image: url("~assets/images/forms/radio-1.png");
+    }
+    .radio-checked-icon {
+      background-image: url("~assets/images/forms/radio-2-checked.png");
+    }
+  }
+}
+.MuiInput-root {
+  .MuiSelect-root {
+    ~ .MuiSelect-icon {
+      background: url("~assets/images/forms/dropdown-arrow-1.png") no-repeat center;
+    }
+  }
+}
+.select-2 {
+  .MuiSelect-root {
+    ~ .MuiSelect-icon {
+      background: url("~assets/images/forms/dropdown-arrow-3.png") no-repeat center;
+    }
+  }
+}
+.switch-1 {
+  &.MuiSwitch-root {
+    margin-right: 8px;
+    .MuiSwitch-track,
+    .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+      border-color: #3b7ddb;
+      background-color: #3b7ddb;
+    }
+    .MuiSwitch-thumb {
+      background-color: #ffffff;
+    }
+    .Mui-disabled {
+      + .MuiSwitch-track {
+        border-color: #959595;
+        background-color: #959595;
+      }
+      .MuiSwitch-thumb {
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+.switch-2 {
+  &.MuiSwitch-root {
+    width: 25px;
+    height: 14px;
+    .MuiSwitch-track,
+    .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+      background-color: #989797;
+      border-color: #989797;
+    }
+    .MuiSwitch-switchBase {
+      .MuiSwitch-thumb {
+        width: 10px;
+        height: 10px;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
+.switch-3 {
+  &.MuiSwitch-root {
+    width: 30px;
+    height: 15px;
+    .MuiSwitch-track,
+    .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+      background-color: #e3e5ef;
+      border-color: #e3e5ef;
+    }
+    .MuiSwitch-switchBase {
+      padding: 0;
+      .MuiSwitch-thumb {
+        width: 15px;
+        height: 15px;
+        background-color: #000000;
+      }
+      &.Mui-checked {
+        transform: translateX(15px);
+      }
+    }
+  }
+}
+/*** Individual Controls ***/
+.mui-radio-form-ctrl-lbl-1 {
+  &.MuiFormControlLabel-root {
+    margin-left: 0;
+    .MuiFormControlLabel-label {
+      font-size: 15px;
+      font-weight: 500;
+      color: #3a3e42;
+      margin-left: 10px;
+      &.Mui-disabled {
+        color: rgba(#3a3e42, 0.5);
+      }
+    }
+  }
+}
+.evaluation-tooltip-popper {
+  .MuiTooltip-tooltip {
+    box-sizing: border-box;
+    max-width: 498px;
+    height: 104px;
+    padding: 14px 8px 4px 8px;
+    margin: 0 -5px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.87);
+    border: 1px solid #e9e9e9;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 43px 0px rgba(27, 54, 94, 0.22);
+    text-shadow: 3px 3px 43px rgba(27, 54, 94, 0.22);
+    .evaluation-theme-tooltip-lbl {
+      font-size: 16px;
+      padding-top: 10px !important;
+    }
+  }
+}
+.mui-accordion {
+  &.MuiAccordion-root {
+    width: 100%;
+    box-shadow: none;
+    &::before {
+      background-color: #dcdcdc;
+    }
+    &.Mui-expanded {
+      margin: 0;
+      &:not(:first-child)::before,
+      & + .MuiAccordion-root::before {
+        opacity: 1;
+        display: initial;
+      }
+    }
+  }
+}
+.mui-accordion-2 {
+  &.MuiAccordion-root {
+    width: 100%;
+    box-shadow: none;
+    margin-top: 5px;
+    &.Mui-expanded {
+      margin: auto;
+      margin-top: 5px;
+      &:first-child {
+        margin-top: 5px;
+      }
+      & + .MuiAccordion-root::before {
+        opacity: 1;
+        display: initial;
+        background-color: #f1f5fe;
+      }
+    }
+  }
+}
+.mui-accordion-details {
+  &.MuiAccordionDetails-root {
+    padding: 0px;
+  }
+}

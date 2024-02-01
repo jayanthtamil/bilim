@@ -1,0 +1,82 @@
+{
+    "label": {
+        "timer": "Timer",
+        "sec": "sec",
+        "select_media": "Select media",
+        "no_sound": "No sound",
+        "no_simple_content": "no simple content"
+    },
+    "tabs": {
+        "introduction": "Introduction",
+        "main": "Main",
+        "feedback": "Feedback",
+        "parameters": "Parameters"
+    },
+    "introduction": {
+        "none": "No Introduction",
+        "media": "Introduction with media",
+        "display_ques": "Display question",
+        "button": "Button",
+        "auto_end": "Auto end video",
+        "select_sound": "Select Sound",
+        "warning_1": "Introduction are not applicable for partpage question",
+        "warning_2": "Introduction are not applicable for the questions in that evaluation theme"
+    },
+    "main": {
+        "add_desc": "Add a description",
+        "show_validate": "Show validate button",
+        "custom": "Custom",
+        "no_media": "No media",
+        "scq": "SCQ",
+        "mcq": "MCQ",
+        "propositions": "Propositions",
+        "text_val": "Lorem Ipsum dolor sit amen, construcrtor adju sit amen, construcrtor adjutisim elit, set lex ",
+        "info_title": "Info+ Title",
+        "add_info+": "Add Info+ full content here",
+        "proposition_title": "Proposition Feedback Title",
+        "add_info": "To add an extra information,select an option",
+        "select_simple_content": "SELECT A SIMPLE CONTENT",
+        "info": "INFO +",
+        "options": {
+            "none": "None",
+            "simple": "Simple",
+            "detailed": "Detailed"
+        }
+    },
+    "feedback": {
+        "tabs": {
+            "basic": "Basic",
+            "embedded": "Embedded",
+            "flap": "Flap",
+            "detailed": "Detailed",
+            "dashboard": {
+                "popup": "(popup)",
+                "popup+": "(popup+)",
+                "simple_content": "(simple content)",
+                "load": "Load simple content from the treeview"
+            }
+        },
+        "feedback_opt": {
+            "none": "No Feedback",
+            "per_posiotion": "Per proposition",
+            "global_feedback": "Global Feedback",
+            "fill_up": "Fill up the feedback for each proposition in the <<MAIN>> tab"
+        },
+        "title": {
+            "right_ans": "RIGHT ANSWER",
+            "wrong_ans": "WRONG ANSWER"
+        },
+        "list": {
+            "display": "display",
+            "popup": "Popup",
+            "below_template": "Below template"
+        }
+    },
+    "parameters": {
+        "related_to": "Related to",
+        "weight": "Weight",
+        "mandatory": "Mandatory",
+        "eliminatory": "Eliminatory",
+        "scoring": "Use for scoring"
+    }
+}

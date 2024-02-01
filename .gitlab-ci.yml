@@ -1,0 +1,26 @@
+#image: mwienk/docker-git-ftp
+
+#cache:
+  #untracked: true
+  #key: "$CI_BUILD_REF_NAME"
+  #paths:
+    #- node_modules/
+
+deploy_all:
+  script:
+    #- apt-get update -qq && apt-get install -y -qq lftp
+    #- lftp -c "set ftp:ssl-allow no; open -u $FTP_U,$FTP_P $FTP_HOST; mirror -Rnev ./ ./bilim --ignore-time --parallel=10 --exclude-glob .git* --exclude .git/"
+    #- sudo apt-get update
+    #- sudo apt-get -qq install git-ftp
+    - git config git-ftp.syncroot .
+    - git ftp push --force --user $FTP_U --passwd $FTP_P ftp://192.168.1.63/bilim/ -v
+    #- cd v1.0/editors/vendors/rc-tree
+    #- npm install
+    #- cd ../../BlmCourseEditor
+    #- cd v1.0/editors/BlmCourseEditor
+    #- npm install
+    #- npm test
+    #- npm run build
+  only:
+    - master
+    - echo "success"

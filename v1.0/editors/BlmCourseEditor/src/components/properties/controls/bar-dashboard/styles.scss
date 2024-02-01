@@ -1,0 +1,19 @@
+.prop-bar-dashboard-wrapper {
+  position: relative;
+  pointer-events: all;
+  background-color: white;
+  box-shadow: (
+    3px 3px 5px rgba(0, 0, 0, 0.349019607843137),
+    3px 3px 5px rgba(0, 0, 0, 0.349019607843137),
+    3px 3px 5px rgba(0, 0, 0, 0.349019607843137)
+  );
+  .prop-bar-dashboard-close-btn {
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    width: 15px;
+    height: 15px;
+    inset: 15px 15px auto auto;
+    background: url("~assets/images/close-1.png") no-repeat center;
+  }
+}

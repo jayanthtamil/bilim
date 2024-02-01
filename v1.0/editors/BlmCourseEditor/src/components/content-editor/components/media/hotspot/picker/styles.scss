@@ -1,0 +1,66 @@
+.hotspot-picker-wrapper {
+  position: relative;
+  width: 100%;
+  height: 530px;
+  .media-picker-wrapper {
+    .media-preview-wrapper {
+      .media-delete-btn,
+      .media-replace-btn {
+        z-index: 2;
+      }
+    }
+  }
+  .template-frame {
+    position: absolute;
+    inset: 0 0 0 0;
+    width: 100%;
+  }
+  .hotspots-fullscreen-btn {
+    position: absolute;
+    cursor: pointer;
+    inset: auto 0 0 auto;
+    width: 35px;
+    height: 35px;
+    z-index: 2;
+    background: url("~assets/images/content-media/hotspot-fullscreen.png") no-repeat center;
+  }
+}
+.hotspot-picker-drawer {
+  .MuiPaper-root {
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+    scrollbar-width: thin;
+    background-color: transparent;
+    .hotspot-picker-wrapper {
+      pointer-events: all;
+      margin: auto;
+      height: calc(100% - 100px);
+      .media-picker-wrapper {
+        .media-preview-wrapper {
+          .media-delete-btn {
+            display: none;
+          }
+          .media-replace-btn {
+            inset: 0 0 auto auto;
+          }
+        }
+      }
+    }
+    .hotspots-fullscreen-btn {
+      background: url("~assets/images/content-media/hotspot-fullscreen-exit.png") no-repeat center;
+    }
+  }
+}
+.hotspot-delete-warning {
+  .MuiDialog-container {
+    .MuiPaper-root {
+      .dialog-content {
+        .dialog-message {
+          width: auto;
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+}

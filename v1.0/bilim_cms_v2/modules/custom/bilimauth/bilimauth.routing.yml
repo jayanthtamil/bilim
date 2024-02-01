@@ -1,0 +1,86 @@
+bilimauth.login:
+  path: 'platform/login'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::preHome'
+  requirements:
+    _permission: 'access content'
+  options:
+    _maintenance_access: TRUE
+
+bilimauth.homepage:
+  path: 'platform/homepage'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::customerHome'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+
+bilimauth.domain:
+  path: 'platform/domainview/{domain}/{root}/{cf}'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::domainView'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      domain:
+        type: entity:node  
+      root:
+        type: integer
+      cf:
+        type: integer
+
+bilimauth.stylepage:
+  path: 'platform/styleview/{domain}/{root}/{sf}'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::styleView'
+    _title: 'content'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      domain:
+        type: entity:node  
+      root:
+        type: integer
+      cf:
+        type: integer
+
+bilimauth.stylehome:
+  path: 'platform/stylehome'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::styleHome'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+
+bilimauth.userhome:
+  path: 'platform/userhome'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::userHome'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+    
+bilim.add_style_folder:
+  path: '/add-style-folder'
+  defaults:
+    _controller: '\Drupal\bilim\Controller\BilimController::addStyleFolder'
+    _title: 'Add Style Folder'
+  requirements:
+    _access: 'TRUE'
+    _method: 'POST'
+    
+bilimauth.domain_list:
+  path: 'platform/domainlist'
+  defaults:
+    _controller: '\Drupal\bilimauth\Controller\UserTemplate::domainList'
+  requirements:
+    _user_is_logged_in: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+        

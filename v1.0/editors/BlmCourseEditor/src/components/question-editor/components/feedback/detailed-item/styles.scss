@@ -1,0 +1,22 @@
+.detailed-feedback-item-wrapper {
+  margin-left: 29px;
+  .detailed-feedback-item-title {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 33px;
+    font-weight: get-font-weight(thin);
+    color: #3a3e42;
+  }
+  .detailed-feedback-sp-dropdown {
+    box-sizing: border-box;
+    width: 335px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px 0px rgba(15, 28, 58, 0.06);
+    .MuiSelect-root {
+      padding: 11px 0 2px 16px;
+      height: 27px;
+      font-size: 16px;
+      background-color: white;
+    }
+  }
+}

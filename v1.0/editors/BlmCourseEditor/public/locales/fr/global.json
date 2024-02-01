@@ -1,0 +1,111 @@
+{
+  "label": {
+    "light": "Light",
+    "dark": "Dark",
+    "select": "SELECT",
+    "tint": "Tint",
+    "background": "Background",
+    "title": "Title",
+    "duration": "Duration",
+    "description": "Description",
+    "media": "Media",
+    "all": "All",
+    "select_1": "Select"
+  },
+  "button": {
+    "edit": "Edit",
+    "save": "Save",
+    "cancel": "Cancel",
+    "thumbnail": "Thumbnail"
+  },
+  "alert": {
+    "cancel_confirm": "Cancel Confirmation",
+    "save_all_changes": "Save all your changes?",
+    "warning": "Warning",
+    "error": "Error",
+    "invalid_subtitle": "Invalid subtitle File",
+    "invalid_marker": "Invalid Marker File",
+    "delete_confirm": "Delete confirmation",
+    "delete_msg_1": "Do you want to delete this",
+    "delete_msg_2": "and all his children?",
+    "reset_confirm": "Reset confirmation",
+    "reset_msg": "All content will be deleted. This operation cannot be reverted. Do you want to proceed?",
+    "save_changes": "Save your changes?",
+    "session_expired": "Session Expired",
+    "template_not_selected_target": "A default template is not selected for the target. Do you want to close and save ?",
+    "session_info": "Your session is expired. Please login again.",
+    "course_not_found": "Course ID not found. Please open editor with course.",
+    "failed": "Failed",
+    "api_failed": "API interaction was failed. Please try again later.",
+    "network_failed": "Network request was failed. Please try again later.",
+    "question_warning": "Question pop-up warning",
+    "question_info": "You cannot associate a template to this question as the evaluation has no theme defined. please define a theme ."
+  },
+  "tabs": {
+    "general": "General",
+    "navigation": "Navigation",
+    "completion": "Completion & Prerequisite",
+    "completions": "Completion",
+    "evaluation": "Evaluation",
+    "translation": "Translation",
+    "style": "Style",
+    "log": "Log"
+  },
+  "buttons": {
+    "preview": "Preview",
+    "export": "Export",
+    "library": "Library",
+    "properties": "properties"
+  },
+  "tooltips": {
+    "back_domain": "Close editor and back to domain"
+  },
+  "general": {
+    "name": "Name",
+    "keywords": "Keywords",
+    "learning_objectives": "Learning Objectives",
+    "language": "Language",
+    "version": "Version"
+  },
+  "completion": {
+    "title": "Custom Completeness",
+    "screen_displayed": "Screen Displayed",
+    "screen_undisplayed": "Screen Undisplayed",
+    "action": "By Action",
+    "all_button": "All button clicked",
+    "video_complete": "Video complete",
+    "sound_complete": "Sound complete",
+    "animation_complete": "Animation complete",
+    "interaction_complete": "Interaction complete",
+    "timer": "Timer (if no media or actions - Screens only)",
+    "timer_info": "sec"
+  },
+  "prerequisite": {
+    "title": "Custom Prerequisite"
+  },
+  "evaluation": {
+    "save_lms": "Save in LMS",
+    "proposition_fb": "Proposition feedback",
+    "question_fb": "Question feedback",
+    "by_question": "By question",
+    "in_evaluation_fb": "In evaluation feedback",
+    "advanced": "Advanced",
+    "success_score": "Success score",
+    "show_complete": "Show as complete even if no succeed",
+    "all_sub_eval": "All sub eval succeed for validate",
+    "list": {
+      "none": "Not an evaluation",
+      "evaluation": "Evaluation"
+    }
+  },
+  "translation": {
+    "original": "Original text",
+    "translated": "New translation"
+  },
+  "log": {
+    "created_on": "Course creation",
+    "modified_on": "Last modification",
+    "created_by": "Created from",
+    "modified_by": "Modified"
+  }
+}

@@ -1,0 +1,36 @@
+.goto-360-action-wrapper {
+  margin-top: 12px;
+  width: 100%;
+  .goto-360-actions-dropdown {
+    width: 100%;
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 40px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #3a3e42;
+      border: 1px solid #d5dff7;
+      background-color: #ffffff;
+      &.Mui-disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+.goto-360-actions-dropdown-popover {
+  .MuiMenu-paper {
+    padding: 5px 0;
+    scrollbar-width: thin;
+    .MuiMenuItem-root {
+      padding: 5px 10px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #3a3e42;
+      &.Mui-selected {
+        background-color: #99b6fd;
+      }
+    }
+  }
+}

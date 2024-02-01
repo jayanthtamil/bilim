@@ -1,0 +1,6 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations functions for the PHP-FFMpeg module.
+ */

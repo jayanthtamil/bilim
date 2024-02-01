@@ -1,0 +1,17 @@
+name: bilim
+description: Bilim LMS Platform
+type: theme
+core: 8.x
+version: 8.x-0.7
+
+libraries:
+  - bilim/global-styling
+  - bilim/fonts  
+regions:
+  header: 'Header'
+  breadcrumbs: 'Breadcrumbs'
+  main_navigation: 'Main Navigation'
+  content: 'Main Content'
+  sidebar_first: 'Left Sidebar' 
+  footer: 'Footer'
+  start_page_content: 'Start Page Content'

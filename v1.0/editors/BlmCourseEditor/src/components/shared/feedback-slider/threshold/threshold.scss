@@ -1,0 +1,18 @@
+.threshold-wrapper {
+  padding-left: 1px;
+  .threshold-lbl {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-bottom: 2px;
+  }
+  .threshold-dropdown {
+    width: 140px;
+    .MuiSelect-root {
+      font-size: 14px;
+      font-weight: bold;
+      padding-top: 2px;
+      padding-bottom: 2px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+bilimauth:
+  version: 1.0
+  css:
+    theme:
+      https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+      css/bilim-theme.css: {}
+  fontawesome:
+    css:
+      theme:
+        https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css: {}
+
+domain-tree:
+  version: 1.0
+  css:
+    theme:
+      css/domain-tree.css: {}
+  js:
+    js/domain-tree.js: {} 
+
+homepage:
+  version: 1.0
+  css:
+    theme:
+      css/homepage.css: {}
+  js:
+    js/homepage.js: {} 

@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+cd v1.0/editors/BlmCourseEditor
+npm run lint && npm run format

@@ -1,0 +1,35 @@
+//
+// Font-face generator for all the fonts of the project,
+// will be useful to add different files for each font.
+//
+
+@import "variables/main";
+@import "mixins/fonts";
+
+@include font-include(get-font-family(primary), "Roboto-Regular", normal, normal);
+@include font-include(get-font-family(primary), "Roboto-Italic", normal, italic);
+@include font-include(get-font-family(primary), "Roboto-Thin", get-font-weight(thin), normal);
+@include font-include(get-font-family(primary), "Roboto-ThinItalic", get-font-weight(thin), italic);
+@include font-include(get-font-family(primary), "Roboto-Light", get-font-weight(light), normal);
+@include font-include(
+  get-font-family(primary),
+  "Roboto-LightItalic",
+  get-font-weight(light),
+  italic
+);
+@include font-include(get-font-family(primary), "Roboto-Medium", get-font-weight(medium), normal);
+@include font-include(
+  get-font-family(primary),
+  "Roboto-MediumItalic",
+  get-font-weight(medium),
+  italic
+);
+@include font-include(get-font-family(primary), "Roboto-Bold", bold, normal);
+@include font-include(get-font-family(primary), "Roboto-BoldItalic", bold, italic);
+@include font-include(get-font-family(primary), "Roboto-Black", get-font-weight(black), normal);
+@include font-include(
+  get-font-family(primary),
+  "Roboto-BlackItalic",
+  get-font-weight(black),
+  italic
+);

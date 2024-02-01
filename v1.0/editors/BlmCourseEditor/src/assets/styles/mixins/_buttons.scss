@@ -1,0 +1,45 @@
+@import "../functions/main";
+
+@mixin btn {
+  cursor: pointer;
+}
+
+@mixin image-button($url, $width, $height) {
+  @include btn();
+  margin: 0px;
+  padding: 0px;
+  width: $width;
+  height: $height;
+  border: none;
+  background: url($url) no-repeat center transparent;
+}
+
+@mixin font-caps-button($color, $size) {
+  color: $color;
+  font-family: get-font-family(primary);
+  font-size: $size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin corner-button($color, $bgcolor, $width, $height) {
+  @include btn();
+  @include font-caps-button($color, 15px);
+  background-color: $bgcolor;
+  border-color: $bgcolor;
+  border-style: solid;
+  border-radius: 50px;
+  width: $width;
+  height: $height;
+  padding-top: 2px;
+}
+
+@mixin transparent-button($color) {
+  @include btn();
+  @include font-caps-button($color, 15px);
+  background: transparent;
+  border-style: none;
+  padding-top: 2px;
+  padding-left: 8px;
+  padding-right: 8px;
+}

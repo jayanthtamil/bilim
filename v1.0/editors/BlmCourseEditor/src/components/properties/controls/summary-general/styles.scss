@@ -1,0 +1,16 @@
+.summary-general-props-container {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 50px 42px 9px;
+  gap: 15px;
+  font-size: 15px;
+  .summary-general-screen-frm-lbl,
+  .summary-general-deactivate-frm-lbl {
+    margin: 0 0 0 4px;
+    .MuiFormControlLabel-label {
+      margin-left: 8px;
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains bilim.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bilim_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bilim module.
+    case 'help.page.bilim':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('API Module for custom rest communication call between react and cms.') . '</p>';
+      return $output;
+
+    default:
+  }
+}

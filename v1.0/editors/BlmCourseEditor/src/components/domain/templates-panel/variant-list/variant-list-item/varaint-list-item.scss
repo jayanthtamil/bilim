@@ -1,0 +1,39 @@
+.variant-item-wrapper {
+  display: inline-flex;
+  cursor: pointer;
+  width: 245px;
+  height: 145px;
+  outline: 1px solid #e1e4f3;
+  .variant-item-img {
+    width: 100%;
+    height: auto;
+  }
+  &.dark:hover {
+    outline: 4px solid #507de2;
+  }
+  &:hover,
+  &.selected {
+    outline: 2px solid #2b2b2b;
+  }
+  &.dark {
+    &.selected {
+      outline: 4px solid #507de2;
+    }
+  }
+  &.warning {
+    position: relative;
+    pointer-events: none;
+    &::before {
+      content: " ";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    &::after {
+      content: " ";
+      position: absolute;
+      inset: 0;
+      background: url("~assets/images/warning-2.png") no-repeat center;
+    }
+  }
+}

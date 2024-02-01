@@ -1,0 +1,182 @@
+.hotspot-item-props-wrapper {
+  margin: 23px 0 0 -1px;
+  padding: 15px 26px 35px 16px;
+  border-radius: 8px;
+  background-color: #dee6fa;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .hotspot-flex-cont1 {
+    width: 100%;
+
+    .hotspot-item-group-dropdown {
+      width: 53%;
+      height: 37px;
+
+      .MuiSelect-root {
+        box-sizing: border-box;
+        height: 100%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #3a3e42;
+        border-color: #ced4ed;
+
+        ~.MuiSelect-icon {
+          margin-right: 3px;
+          background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+        }
+
+        &.Mui-disabled {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  .hotspot-flex-cont2 {
+    display: flex;
+    gap: 8px;
+
+    .hotspot-flex-inner-cont1 {
+      margin: 0;
+    }
+
+    .hotspot-flex-inner-cont2 {
+      .hotspot-cont2-contain {
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-columns: auto auto;
+        gap: 10px;
+
+        .hotspot-cont2-item1 {
+          grid-row: 1 / 2;
+          grid-column: 1 / -1;
+
+          .hotspot-item-image-picker {
+            width: 128px;
+            height: 98px;
+          }
+        }
+
+        .hotspot-cont2-item2 {
+          grid-row: 2 / 3;
+          grid-column: auto;
+
+          .hotspot-cont2-item2-subitem {
+            display: flex;
+            flex-direction: column;
+
+            .hotspot-cont2-item2-subitem1 {
+              .hotspot-item-size-lbl {
+                font-weight: 500;
+              }
+            }
+
+            .hotspot-cont2-item2-subitem2 {
+              .hotspot-item-size-dropdown {
+                margin: 0px 0 0 0px;
+                width: 60px;
+                height: 37px;
+                font-weight: 500;
+                font-size: 16px;
+                color: #3a3e42;
+
+                .MuiSelect-root {
+                  box-sizing: border-box;
+                  height: 100%;
+                  border-color: #ced4ed;
+
+                  ~.MuiSelect-icon {
+                    margin-right: 3px;
+                    background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .hotspot-cont2-item3 {
+          grid-row: 2 / 3;
+          grid-column: auto;
+          margin-top: 13px;
+        }
+      }
+    }
+
+    .hotspot-flex-inner-cont3 {
+      width: 100%;
+      height: 100%;
+      .hotspot-item-name-txt {
+        margin: 0 24px 20px 0;
+        padding: 4px 10px 68px;
+        min-height: 35px;
+        font-weight: 500;
+        font-size: 18px;
+        color: #2b2b2b;
+        border: none;
+        background-color: #CFDAF4;
+      }
+    }
+  }
+
+  .hotspot-item-theme-box {
+
+    .hotspot-item-dark-switch-ctrl {
+      margin: 0 0 0 6px;
+      position: relative;
+      top: -30px;
+      left: 230px;
+      .MuiFormControlLabel-label {
+        margin: 0 0 0 9px;
+        font-weight: normal;
+        font-size: 14px;
+        color: #2b2b2b;
+      }
+    }
+
+  }
+
+  .hotspot-item-actions-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin: 27px 0 0 0;
+    padding: 0 0 0 3px;
+    .hotspot-item-actions-title {
+      grid-column: 1/-1;
+      padding-bottom: 3px;
+      width: 300px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .hotspot-item-actions-lbl {
+      margin: 14px 0 5px 5px;
+      font-weight: 100;
+      font-size: 20px;
+      .hotspot-item-actions-bold-lbl {
+        font-weight: bold;
+      }
+      &:nth-child(2) {
+        grid-column: 1/3;
+      }
+    }
+    .component-actions-wrapper {
+      margin: 0 0 0 3px;
+      .actions-dropdown {
+        .MuiSelect-root {
+          border-color: #ced4ed;
+        }
+      }
+      .media-picker-wrapper {
+        .media-browse-wrapper {
+          background-color: #e8eefb;
+        }
+      }
+    }
+  }
+
+}

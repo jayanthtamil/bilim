@@ -1,0 +1,47 @@
+.component-actions-wrapper {
+  width: 328px;
+  min-height: 120px;
+  .actions-dropdown {
+    width: 100%;
+    .MuiSelect-root {
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      height: 48px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #3a3e42;
+      border: 1px solid #dfe4f4;
+      ~ .BlmSelect-icon,
+      ~ .MuiSelect-icon {
+        margin-right: 7px;
+        background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+      }
+    }
+  }
+}
+.actions-dropdown-menu {
+  .MuiMenu-paper {
+    padding: 20px 0;
+    scrollbar-width: thin;
+    border-radius: 6px;
+    border: 1px solid #dfe4f4;
+    .actions-dropdown-divider-title {
+      margin: 0 20px 15px 20px;
+      font-weight: 500;
+      font-size: 12px;
+      color: #3484e7;
+      text-transform: uppercase;
+    }
+    .MuiMenuItem-root {
+      padding: 3px 20px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #3a3e42;
+    }
+    .MuiDivider-root {
+      margin: 20px 17px;
+      background-color: #eaeef9;
+    }
+  }
+}

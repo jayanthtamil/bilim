@@ -1,0 +1,538 @@
+<script type="text/javascript">
+  const domains = {{style.domain|json_encode()|raw}};
+  const style_props = {{style.style_properties|json_encode()|raw}};
+  const styles = '';
+  const base_url = "{{ base_url }}";
+  const domainlist = '';
+</script>
+{{ attach_library('bilimauth/domain-tree') }}
+<div class="main-container styleview">
+<input type="hidden" id="import-style-data" data-id="{{style.domaininfo.page_id}}" data-type="{{style.domaininfo.page_type}}">
+  <header>
+    <div class="header-container">
+      <a href="{{base_url}}/platform/homepage" class="style-back-btn">
+        <button class="header-home-back-btn"></button>
+      </a>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl">STYLE</span>
+        <div class="header-domain-container">
+          <a class="header-back-btn" href="{{base_url}}/platform/homepage"></a>
+          <div class="header-domain-title">
+            {% for bc in style.breadcrumb %}
+			  {% if bc.type != 'domain_styles_root' %}
+				<span><a class="breadcrumb-style" href="{{bc.link}}">{{bc.title}}</a></span>
+			  {% endif %}
+              {% if loop.last %}
+              {% else %}
+			    {% if bc.type != 'domain_styles_root' %}
+                  <span class="header-domain-title-separator">/</span>
+				{% endif %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <span class="header-right-lbl">{{style.username}}</span>
+      </div>
+      <a href="{{base_url}}/user/logout" class="header-logout-btn"></a>
+    </div>
+  </header>
+  <section class="main-section">
+
+    <section class="left-section">
+      <div href="{{base_url}}/platform/stylehome" class="style-back-btn domain-back-btn">
+        <a class="back-domain" href="{{base_url}}/platform/styleview/{{style.ids.domain}}/0/0">{{style.domaininfo.domain}}</a>
+        <a class="back-home" href="{{base_url}}/platform/stylehome"></a>
+      </div>
+     <!-- <a href="{{base_url}}/platform/stylehome" class="domain-back-btn">
+        <span>{{style.domaininfo.domain}}</span>
+      </a>-->
+      <div id="domainsTreeContainer" class="domains-tree-container custom-scrollbar"></div>
+
+      <div class="btns-container" style="visibility:hidden;">
+        <div class="icon-button">
+          <span>MODELES</span>
+        </div>
+        <div class="btn-separator"></div>
+        <div class="icon-button">
+          <span>TESTS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="right-section">
+      <div class="loading-gif"></div>
+      <div class="title-container style-title-container">
+        <div class="title-content">
+          <div class="title"><span>{{style.domaininfo.page_title}}</span></div>
+          <div class="title-btns-container">
+            <button class="add-folder-btn" data-id="{{style.domaininfo.page_id}}" data-type="{{style.domaininfo.page_type}}" onclick="onAddStyleFolder(event)">
+            	<b>ADD</b> 
+	            <span>FOLDER</span>
+            </button>
+            <button class="import-course-btn import-style-btn" data-id="{{style.domaininfo.page_id}}" data-type="{{style.domaininfo.page_type}}" onclick="onStyleImportBtnClick(event)">
+            	<b>IMPORT</b> 
+	            <span>STYLE</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar-container">
+        <div class="sort-list-container">
+          <span>Sort by:</span>
+          <select class="sort-select">
+            <option value="">-</option>
+            <option>Recent</option>
+            <option>Alphabhetical</option>
+          </select>
+        </div>
+      </div>
+      <div class="course-lists-container custom-scrollbar">
+        <div id="courseViewContainer" class="tile-view">
+          <div class="list-view-header">
+            <span class="list-title-header"></span>
+            <span class="list-created-header">Création</span>
+            <span class="list-modified-header">Modification</span>
+            <span class="list-lang-header"></span>
+            <span class="list-fav-header"></span>
+            <span class="list-ctx-header"></span>
+          </div>
+          
+          {% for stl in style.styles %}
+		  
+            {% if stl.type in ['domain_styles_root','style_folder'] %} 
+              <!-- category-card -->
+              {% if stl.type == 'style_folder' %}
+                  {% set sf_val = stl.id %}
+                  {% set sf_root = style.domain[0].id %}
+              {% else %}
+                  {% set sf_root = stl.id %}
+                  {% set sf_val = 0 %}
+              {% endif %}
+              <div class="card category-card" onclick="sub_stylefolder_view({{style.ids.domain}},{{sf_root}},{{sf_val}})">
+                <div class="card-column-box">
+                  <div class="card-title">
+                    <span></span>
+                  </div>
+                  <div class="card-content">
+                    <span>{{ stl.title }}</span>
+                  </div>
+                </div>
+                <div class="card-created">
+                  <span class="title">Created</span>
+                  <span class="date">{{ stl.date }}</span>
+                  <span class="time">{{ stl.time }}</span>
+                </div>
+                <div class="card-modified">
+                  <span class="title">Last modification</span>
+                  <span class="date">{{ stl.changed|date('d-m-Y') }}</span>
+                  <span class="time">{{ stl.changed|date('H:i') }}</span>
+                </div>
+                <!--<div class="card-lang-box">
+                  <div class="card-lang-btn"></div>
+                </div>-->
+                <div class="card-fav-box">
+                  <button class="card-fav-btn"></button>
+                </div>
+                <div class="card-btn-box">
+                	<button class="card-ctx-btn" onclick="onFolderCtxBtnClick(event)" data-crs="{{ stl.id }}" 
+                  	data-crs-name="{{ stl.title }}" data-type="{{ stl.type }}"></button>
+                </div>
+              </div>
+              <!-- end category-card -->
+            {% else %}
+              <!-- course card -->
+              <div class="card course-card" data-title="{{stl.title}}" data-changed="{{stl.changed}}">
+                <div class="card-column-box">
+                  <div class="card-title">
+                    <span class="course-title">{{stl.date}}</span>
+                  </div>
+                  <div class="card-content">
+                    <span class="desc">{{ stl.title }}</span>
+                  </div>
+                </div>
+                <div class="card-created">
+                  <span class="title">Created</span>
+                  <span class="date">{{ stl.date }}</span>
+                  <span class="time">{{ stl.time }}</span>
+                </div>
+                <div class="card-modified">
+                  <span class="title">Last modification</span>
+                  <span class="date">{{ stl.changed|date('d-m-Y') }}</span>
+                  <span class="time">{{ stl.changed|date('H:i') }}</span>
+                </div>
+                <!--<div class="card-lang-box">
+                  <button class="card-icon card-lang-icon"></button>
+                </div>-->
+                <div class="card-fav-box">
+                  {{ stl.flag_link }}
+                </div>
+                <div class="card-btn-box">
+                  <button class="card-info-btn" onclick="onStyleInfoBtnClick(event)" data-stl-id="{{stl.id}}"></button>
+                  <button class="card-ctx-btn" onclick="onStyleCtxBtnClick(event)" data-crs="{{ stl.id }}" 
+                  data-crs-name="{{ stl.title }}" data-type="{{ stl.type }}"></button>
+                </div>
+              </div>
+              <!-- end course-card -->
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+  </section>
+  <section id="searchPanel" class="search-section custom-scrollbar close">
+    <div class="search-title-box">
+      <span class="search-title-lbl">Search</span>
+      <button
+        class="search-close-btn"
+        onclick="searchCloseBtnClick(event)"
+      ></button>
+    </div>
+    <div class="search-txt-box">
+      <input type="text" class="search-txt" />
+    </div>
+    <div class="search-options-box">
+      <div class="search-options-column-box">
+        <label class="custom-checkbox-lbl">
+          <input id="title" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Title</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="description" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Description</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="version" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Version</span>
+        </label>
+      </div>
+      <div class="search-options-column-box">
+        <label class="custom-checkbox-lbl">
+          <input id="keyword" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Keyword</span>
+        </label>
+        <label class="custom-checkbox-lbl">
+          <input id="learnignObjectives" type="checkbox" />
+          <span class="custom-checkbox"></span>
+          <span>Learning objectives</span>
+        </label>
+      </div>
+    </div>
+    <div class="search-expand-box search-user-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Who</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <div class="search-user-ctrl">
+          <span class="search-user-lbl">Created by</span>
+          <input type="text" class="search-user-txt" />
+        </div>
+        <div class="search-user-ctrl">
+          <span class="search-user-lbl">Edited by</span>
+          <input type="text" class="search-user-txt" />
+        </div>
+      </div>
+    </div>
+    <div class="search-expand-box search-creation-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Creation date</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <input id="creationFrom" type="date" class="search-date-txt" />
+        <input id="creationTo" type="date" class="search-date-txt" />
+      </div>
+    </div>
+    <div class="search-expand-box search-edition-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Edition date</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <input id="editionFrom" type="date" class="search-date-txt" />
+        <input id="editionTo" type="date" class="search-date-txt" />
+      </div>
+    </div>
+    <div class="search-expand-box search-language-box">
+      <div class="search-expand-title-box">
+        <span class="search-expand-title">Language</span>
+        <button
+          class="search-expand-btn"
+          onclick="searchExpandBtnClick(event)"
+        ></button>
+      </div>
+      <div class="search-expand-body">
+        <select type="text" class="search-lang-select">
+          <option>Franch</option>
+          <option>English</option>
+        </select>
+      </div>
+    </div>
+    <div class="search-bottom-options-box">
+      <div class="search-course-options-box">
+        <span class="search-course-options-title">Course</span>
+        <div class="search-course-options">
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>All</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>Original</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="course" />
+            <span class="custom-radio"></span>
+            <span>Copied</span>
+          </label>
+        </div>
+      </div>
+      <div class="search-options-ruler"></div>
+      <div class="search-zone-options-box">
+        <span class="search-zone-options-title">Zone</span>
+        <div class="search-zone-options">
+          <label class="custom-radio-lbl">
+            <input type="radio" name="zone" />
+            <span class="custom-radio"></span>
+            <span>All</span>
+          </label>
+          <label class="custom-radio-lbl">
+            <input type="radio" name="zone" />
+            <span class="custom-radio"></span>
+            <span>Current</span>
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="search-filter-box">
+      <div class="search-filter-btn">FILTER</div>
+    </div>
+  </section>
+</div>
+
+<div class="context-menu-container" onclick="onCtxMenuClick(event)">
+  <div class="context-menu-backdrop"></div>
+  <div class="course-context-menu context-menu">
+    <ul>
+      <li id="crs-url" onclick="openRenamePopup(event)" class='course-rename'>Rename</li>
+      <li onclick="onStyleDltBtnClick(event)">Delete</li>
+      <div class="context-menu-divider"></div>
+      <li id="update-style" class="update-style-btn" onclick="onStyleUpdateBtnClick(event)">Update</li>
+      <li>Download</li> 
+    </ul>
+  </div>
+  <div class="tree-context-menu context-menu">
+    <ul>
+      <li onclick="onAddStyleFolder(event)" id="cur-info">Add Style Folder</li>
+      <li onclick="onStyleImportBtnClick(event)">Import Style</li>
+      <div class="context-menu-divider"></div>
+      <li onclick="openRenamePopup(event)" class='folder-rename'>Rename</li>
+      <li onclick="onDeleteStyleFolder(event)">Delete</li>
+      <li>Copy</li>
+      <li>Move</li>
+    </ul>
+  </div>
+   <div class="folder-context-menu context-menu">
+    <ul>
+      <li onclick="openRenamePopup(event)" class='course-rename'>Rename</li>
+      <li onclick="onDeleteStyleFolder(event)">Delete</li>
+      <li>Copy</li>
+      <li>Move</li>
+    </ul>
+  </div>
+</div>
+<!-- context menu -->
+
+<div id="popupContainer" class="popup-container">
+  <div class="popup-backdrop"></div>
+  <div class="popup new-course-popup">
+    <button class="popup-close-btn" onclick="onPopupClose(event)"></button>
+    <div class="new-course-popup-scroll custom-scrollbar">
+      <div class="new-course-popup-form">
+        <div class="course-name-form-control">
+          <div class="course-name-lbl">Name</div>
+          <input
+            class="course-name-txt"
+            type="text"
+            value="Danone - Aide a la vente"
+          />
+        </div>
+        <div class="course-lang-form-control">
+          <span class="course-lang-form-lbl">Language</span>
+          <div class="course-lang-list">
+            <span class="course-lang-list-lbl"></span>
+            <button class="course-lang-list-btn"></button>
+          </div>
+        </div>
+        <div class="course-style-form-box">
+          <div class="course-style-left-form">
+            <div class="course-style-title-box">
+              <div class="course-style-title-icon"></div>
+              <div class="course-style-title-lbl">Choose style</div>
+            </div>
+            <div class="course-style-list-box">
+              <div
+                class="course-style-drop-down-box"
+                onclick="onCourseStyleDropDownClick(event)"
+              >
+                <span class="course-style-drop-down-lbl">Cartier</span>
+                <span class="course-style-drop-down-icon"></span>
+              </div>
+              <div
+                id="styleDropDownList"
+                class="course-style-drop-down-list"
+              >
+                <div
+                  id="stylesTreeContainer"
+                  class="styles-tree-container custom-scrollbar"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="course-style-right-form">
+            <div class="course-style-details-box">
+              <span class="course-style-name">sales skills for cartier</span>
+              <img class="course-style-img" src="{{ base_url }}/modules/custom/bilimauth/images/style-temp.png" />
+              <div class="course-style-details-info">
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Creation :</span>
+                  <span class="course-style-info-txt date">Thu Sept 8</span>
+                  <span class="course-style-info-txt time">- 11h45 GMT - 2011</span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Modification :</span>
+                  <span class="course-style-info-txt date">Uta - Fri Oct 28</span>
+                  <span class="course-style-info-txt time">- 16h41 GMT - 2011</span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Created from :</span>
+                  <span class="course-style-info-txt"></span>
+                </div>
+                <div class="course-style-info-control">
+                  <span class="course-style-info-lbl">Modified :</span>
+                  <span class="course-style-info-txt"></span>
+                </div>
+              </div>
+              <div class="course-create-btn">
+                <span class="course-create-lbl-btn">CREATE</span>
+                <div class="course-create-icon-btn"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Import Style Container -->
+<div id="style-import-container" class="style-import-container">
+	<form id="style-import-form" name="style-import" method="post" enctype="multipart/form-data">
+		<input type="file" id="style-file" name="file" value="Browse">
+		<input type="submit" id="style-submit" value="Upload">
+	</form>
+</div>
+
+<!-- Update Style Container -->
+<div id="style-update-container" class="style-update-container">
+	<form id="style-update-form" name="style-update" method="post" enctype="multipart/form-data">
+		<input type="file" id="update-style-file" name="file" value="Browse">
+		<input type="submit" id="update-style-submit" value="Upload">
+	</form>
+</div>
+
+
+<!-- Add Style Folder popup -->
+<div id="create-course-popup" class="create-course-popup">
+	<div class="context-menu-backdrop" onclick="hideAddFolderPopup()"></div>
+	<div class="create-container">
+	<div class='title'>Add Folder</div>
+	<input type='text' class='create-folder-course' id='create-folder-course' placeholder="Folder name*">
+	<div class="course-rename-btn">
+	  <span class="course-create-lbl-btn" id="course-create-lbl-btn">CREATE</span>
+	  <div class="course-create-icon-btn"></div>
+	</div>
+	</div>
+</div>
+<div id="create-sf-popup" class="create-sf-popup">
+	<div class="context-menu-backdrop" onclick="hideAddStyleFolderPopup()" ></div>
+	<div class="create-container">
+		<div class='title'>Add Folder</div>
+		<input type="text" class="" id="create-sf-input" placeholder="Folder name*">
+		<div class="create-sf-btn">
+		  <span class="sf-create-lbl-btn" id="sf-create-lbl-btn">CREATE</span>
+		  <div class="sf-create-icon-btn"></div>
+		</div>
+	</div>
+</div>
+
+
+<!--  Rename style popup -->
+<div id="rename-course-popup" class="rename-course-popup">
+	<div class="context-menu-backdrop" onclick="hideRenamePopup()"></div>
+	<div class="rename-container">
+	<div class='rename-title'>Rename Folder</div>
+	<input type='text' class='rename-folder-course' id='rename-folder-course'>
+	<div class="course-rename-btn">
+	  <span class="course-rename-lbl-btn" id="course-rename-lbl-btn">RENAME</span>
+	  <div class="course-rename-icon-btn"></div>
+	</div>
+	</div>
+</div>
+
+<!--  style properties popup -->
+<section id="style-properties-container" class="style-properties properties-container left-section">
+</section>
+
+
+<!-- Delete style popup -->
+<div id="delete-style-popup" class="delete-style-popup">
+	<div class="context-menu-backdrop"></div>
+	<div class="delete-container">
+   <h1>Delete Confirmation</h1>
+   <p>Are you sure to delete this style?</p>
+   <div class="dlt-actions">
+		   <div class="cancel-btn" onclick="onStyleDltCancel(event)">Cancel</div>
+		   <div class="dlt-btn">Yes</div>
+   </div>
+	</div>
+</div>
+<div id="not-delete-style-popup" class="not-delete-style-popup">
+	<div class="context-menu-backdrop"></div>
+	<div class="delete-container">
+   <h1 style="color:red;">Action not allowed</h1>
+   <p>You cannot delete this style as it's used by at least one course</p>
+   <div class="dlt-actions">
+		   <div class="ok-btn">Ok</div>
+   </div>
+	</div>
+</div>
+
+<!-- Delete style folder popup -->
+<div id="delete-style-folder-popup" class="delete-folder-popup">
+	<div class="context-menu-backdrop"></div>
+	<div class="delete-container">
+   <h1>Delete Confirmation</h1>
+   <p>Do you want to delete this style category?</p>
+   <div class="dlt-actions">
+		   <div class="cancel-btn" onclick="onDltStyleFolderCancel(event)">Cancel</div>
+		   <div class="dlt-btn">Yes</div>
+   </div>
+	</div>
+</div>

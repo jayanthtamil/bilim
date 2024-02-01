@@ -1,0 +1,81 @@
+.completion-prerequisite-props-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(3, auto);
+  grid-template-columns: 430px auto;
+  padding: 57px 0 40px 60px;
+  font-family: get-font-family(primary);
+  font-weight: get-font-weight(medium);
+  font-size: 14px;
+  color: #000000;
+  .completion-chk-ctrl-lbl,
+  .prerequisite-chk-ctrl-lbl {
+    &.MuiFormControlLabel-root {
+      margin-left: 0;
+      .MuiFormControlLabel-label {
+        font-size: 20px;
+        font-weight: 500;
+        color: #2b2b2b;
+        margin-left: 15px;
+        border-bottom: 3px solid #eaeffb;
+        padding-bottom: -1px;
+        &.Mui-disabled {
+          color: rgba($color: #2b2b2b, $alpha: 0.5);
+        }
+      }
+    }
+  }
+  .completion-form-ctrl-lbl,
+  .prerequisite-form-ctrl-lbl {
+    margin-left: 0;
+    margin-bottom: 17px;
+    width: max-content;
+    .MuiFormControlLabel-label {
+      margin-left: 7px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #2b2b2b;
+    }
+  }
+  .completion-radio-group,
+  .prerequisite-form-group {
+    padding-left: 27px;
+    padding-top: 23px;
+  }
+  .completion-form-group {
+    margin-top: -2px;
+    padding-left: 50px;
+    .completion-form-ctrl-lbl {
+      .MuiFormControlLabel-label {
+        margin-left: 11px;
+        font-weight: normal;
+      }
+    }
+    .completion-timer-duration-input {
+      padding: 2px 15px 2px 5px;
+      margin-left: 24px;
+      margin-top: -7px;
+      color: #2b2b2b;
+      .subscript-input {
+        font-weight: bold;
+        font-size: 30px;
+      }
+    }
+  }
+  .prerequisite-chk-ctrl-lbl {
+    grid-column: -2/-1;
+  }
+  .prerequisite-form-group {
+    grid-row: 2/-1;
+    grid-column: -2/-1;
+    .prerequisite-form-ctrl-lbl {
+      .MuiFormControlLabel-label {
+        margin-left: 11px;
+        font-weight: normal;
+      }
+    }
+  }
+  &.prerequisite {
+    grid-template-columns: auto;
+  }
+}

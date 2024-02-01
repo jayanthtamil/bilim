@@ -1,0 +1,31 @@
+.style-list-wrapper {
+  .styles-list-scroller {
+    margin-top: 7px;
+    overflow: auto;
+    > .style-list-categories-wrapper,
+    > .style-list-items-wrapper {
+      margin: 7px 0 0 -1px;
+      &:first-child {
+        margin-top: 0px;
+      }
+    }
+    .style-list-categories-wrapper {
+      .style-list-category-title {
+        padding: 0 0 3px 1px;
+        font-weight: 500;
+        font-size: 16px;
+        color: #507de2;
+        text-transform: capitalize;
+        border-bottom: 1px solid #dddddd;
+      }
+      .style-list-items-wrapper {
+        margin: 7px 0 0 -1px;
+      }
+    }
+    .style-list-items-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1px;
+    }
+  }
+}

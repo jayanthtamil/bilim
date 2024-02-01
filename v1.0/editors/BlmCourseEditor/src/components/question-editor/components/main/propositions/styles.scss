@@ -1,0 +1,74 @@
+.main-propositions-wrapper {
+  margin-top: 45px;
+  .main-propositions-header {
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 9px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    font-size: 22px;
+    border-bottom: 1px solid #cfd0da;
+    .main-propositions-switch-lbl {
+      margin-left: auto;
+      font-weight: bold;
+      font-size: 16px;
+      &.disabled {
+        color: #c2c2c2;
+      }
+    }
+    .main-propositions-switch-ctrl {
+      margin-left: 11px;
+      margin-right: 16px;
+      padding-right: 18px;
+      height: 20px;
+      border-right: 1px solid #d6d8e2;
+      .MuiSwitch-root {
+        margin-right: 8px;
+      }
+      .MuiTypography-root {
+        font-weight: bold;
+        font-size: 16px;
+        &.Mui-disabled {
+          color: #c2c2c2;
+        }
+      }
+    }
+    .main-propositions-randomize-btn {
+      margin-top: -3px;
+      width: 23px;
+      height: 16px;
+      border: none;
+      border-radius: 0;
+      background: url("~assets/images/proposition/randomize-btn.png") no-repeat;
+      &.selected {
+        background: url("~assets/images/proposition/randomize-btn-selected.png") no-repeat;
+      }
+      &.disabled {
+        opacity: 0.5;
+      }
+    }
+  }
+  .main-proposition-list-wrapper {
+    margin-top: 19px;
+  }
+  .main-proposition-divider {
+    position: relative;
+    margin-top: 33px;
+    height: 1px;
+    background-color: #cfd0da;
+    .main-add-proposition-btn {
+      position: absolute;
+      cursor: pointer;
+      top: -15px;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      background: url("~assets/images/proposition/add-btn.png") no-repeat center;
+      &.disabled {
+        cursor: unset;
+        background: url("~assets/images/proposition/add-btn-disabled.png") no-repeat center;
+      }
+    }
+  }
+}

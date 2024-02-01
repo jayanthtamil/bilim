@@ -1,0 +1,178 @@
+.style-tint-picker-wrapper {
+  display: flex;
+  column-gap: 19px;
+  margin: 0 0 0 -1px;
+  padding: 9px 0 0 0;
+  .style-picker-wrapper {
+    .style-picker-apply-btn {
+      margin: 0 0 0 1px;
+      z-index: 2;
+    }
+  }
+  .style-picker-params-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-auto-rows: max-content;
+    column-gap: 85px;
+    align-items: flex-start;
+    margin: 1px 0 0 0;
+    .style-picker-lbl {
+      grid-column: 1/2;
+      font-weight: normal;
+      font-size: 12px;
+      color: #bcc1cc;
+    }
+    .style-picker-name {
+      grid-column: 1/3;
+      position: relative;
+      margin-top: -1px;
+      padding-bottom: 3px;
+      max-width: 320px;
+      font-weight: bold;
+      font-size: 24px;
+      color: #172024;
+      text-transform: uppercase;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      &::after {
+        display: inline-block;
+        position: absolute;
+        content: "";
+        left: 0px;
+        bottom: 0px;
+        width: 120px;
+        height: 1px;
+        background-color: #ced0d6;
+      }
+    }
+    .tint-picker-wrapper {
+      display: grid;
+      grid-column: 1/2;
+      column-gap: 24px;
+      row-gap: 3px;
+      align-items: flex-start;
+      margin: 8px 0 0 0;
+      .tint-picker-title,
+      .tint-picker-sub-title {
+        margin: 0;
+        font-weight: normal;
+        font-size: 12px;
+        color: #bcc1cc;
+      }
+      .color-picker-wrapper {
+        margin: 0 0 0 1px;
+      }
+      .alpha-picker-wrapper {
+        border-radius: 5px;
+        background-color: #ffffff;
+      }
+    }
+    .style-picker-bg-tint-lbl {
+      display: flex;
+      grid-column: 1/2;
+      align-items: flex-end;
+      gap: 7px;
+      margin: 13px 0 0 4px;
+      font-weight: normal;
+      font-size: 12px;
+      color: #bcc1cc;
+    }
+    .style-picker-bg-tint-over-lbl {
+      display: flex;
+      grid-column: 1/2;
+      align-items: flex-end;
+      gap: 7px;
+      margin: 13px 0 0 68px;
+      font-weight: normal;
+      font-size: 12px;
+      color: #bcc1cc;
+    }
+    .style-picker-image-box {
+      display: inline-grid;
+      grid-column: 2/3;
+      grid-row: 3/4;
+      align-items: center;
+      margin: 23px 0 0 -44px;
+      .style-picker-image-lbl {
+        grid-column: 1/-1;
+        margin: 0 0 2px 0;
+        font-weight: normal;
+        font-size: 12px;
+        color: #bcc1cc;
+      }
+      .style-picker-light-lbl {
+        grid-column: 1/2;
+        margin: 0 6px 0 0;
+        font-weight: normal;
+        font-size: 12px;
+      }
+      .style-picker-img-switch-ctrl {
+        grid-column: 2/3;
+        margin: 0;
+        .MuiSwitch-root {
+          margin-right: 7px;
+        }
+        .MuiFormControlLabel-label {
+          font-weight: normal;
+          font-size: 12px;
+        }
+      }
+    }
+    .style-picker-image-box-over {
+      margin: 29px 0px 0px -44px;
+      .style-picker-image-lbl {
+        grid-column: 1/-1;
+        margin: 0 0 2px 0;
+        font-weight: normal;
+        font-size: 12px;
+        color: #bcc1cc;
+      }
+      .style-picker-light-lbl {
+        grid-column: 1/2;
+        margin: 0 6px 0 0;
+        font-weight: normal;
+        font-size: 12px;
+      }
+      .style-picker-img-switch-ctrl {
+        grid-column: 2/3;
+        margin: 0;
+        .MuiSwitch-root {
+          margin-right: 7px;
+        }
+        .MuiFormControlLabel-label {
+          font-weight: normal;
+          font-size: 12px;
+        }
+      }
+    }
+    .style-shadow-media-button,
+    .style-shadow-button,
+    .style-shadow-media-button-summary {
+      margin: 40px -71px 0px 173px;
+      .MuiTypography-root {
+        margin-left: 6px;
+      }
+    }
+    .style-shadow-sound {
+      margin: 65px 0 0 -130px;
+      .MuiTypography-root {
+        margin-left: 6px;
+      }
+    }
+    .style-shadow-media-image {
+      margin: -17px 0px -28px -45px;
+      .MuiTypography-root {
+        margin-left: 6px;
+        font-size: 14px;
+      }
+    }
+    .style-shadow-media-video {
+      margin: 30px 0px 0px 0px;
+      .MuiTypography-root {
+        margin-left: 6px;
+        font-size: 14px;
+      }
+    }
+  }
+}

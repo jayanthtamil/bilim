@@ -1,0 +1,115 @@
+.repeater-list-wrapper {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  .repeater-list {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/3;
+    .media-card-wrapper {
+      .media-card-box {
+        grid-template-columns: auto 1fr auto;
+        position: relative;
+        margin-right: 7px;
+        border-radius: 0px;
+        padding: 5px 15px 5px 5px;
+        border-top: none;
+        border-bottom: none;
+      }
+      &:first-child {
+        .media-card-box {
+          border-radius: 5px 5px 0 0;
+          border-top: 1px solid #dee6fa;
+        }
+      }
+      &:not(:last-child) {
+        .media-card-box {
+          &::before {
+            position: absolute;
+            display: block;
+            content: " ";
+            left: 5px;
+            right: 5px;
+            bottom: 0px;
+            height: 1px;
+            background-color: #dee6fa;
+          }
+        }
+      }
+      &:hover,
+      &.selected {
+        .media-card-box {
+          position: relative;
+          background-color: transparent;
+          &::after {
+            position: absolute;
+            display: block;
+            content: " ";
+            left: 5px;
+            right: 5px;
+            top: 5px;
+            bottom: 5px;
+            background-color: #f2f5fc;
+            z-index: -1;
+          }
+        }
+      }
+    }
+    .button-card-wrapper {
+      .button-card-box {
+        margin-right: 10px;
+        padding-right: 6px;
+        border-radius: 0px;
+        border-bottom: none;
+      }
+      &:first-child {
+        .button-card-box {
+          border-radius: 5px 5px 0 0;
+        }
+      }
+    }
+    .sound-card-wrapper {
+      .sound-card-box {
+        margin-right: 10px;
+        padding-right: 6px;
+        border-radius: 0px;
+        border-bottom: none;
+      }
+      &:first-child {
+        .sound-card-box {
+          border-radius: 5px 5px 0 0;
+        }
+      }
+    }
+  }
+  .repeater-add-btn {
+    display: block;
+    cursor: pointer;
+    height: 32px;
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #dee6fa;
+    border-top: none;
+    background: url("~assets/images/content-editor/add-1.png") no-repeat center #f2f5fc;
+    &.disabled {
+      opacity: 0.5;
+    }
+  }
+  .repeater-edit-btn {
+    display: block;
+    cursor: pointer;
+    margin: 0 -5px 0 5px;
+    width: 25px;
+    height: auto;
+    background: url("~assets/images/content-editor/repeater-edit.png") no-repeat center;
+  }
+  &:not(.has-children) {
+    .repeater-add-btn {
+      border-radius: 5px;
+      border: 1px solid #dee6fa;
+    }
+  }
+  &:not(.has-options) {
+    .repeater-edit-btn {
+      visibility: hidden;
+    }
+  }
+}

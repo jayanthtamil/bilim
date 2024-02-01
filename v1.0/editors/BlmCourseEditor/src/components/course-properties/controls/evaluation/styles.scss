@@ -1,0 +1,95 @@
+.course-evaluation-props-container {
+  padding: 30px 0 30px 4px;
+  width: 673px;
+  color: #3a3e42;
+  .crs-evaluation-top-container {
+    display: flex;
+    margin: 0 0 0 -4px;
+    align-items: center;
+    .crs-evaluation-dropdown {
+      flex: 0 0 auto;
+      width: 310px;
+      .MuiSelect-root {
+        box-sizing: border-box;
+        min-height: 33px;
+        font-size: 20px;
+      }
+    }
+  }
+  .crs-evalutaion-switch-frm-lbl {
+    display: flex;
+    margin: 13px 0 19px -3px;
+    &::before {
+      content: " ";
+      display: block;
+      flex: 1;
+      margin-right: 12px;
+      border-bottom: 1px solid #bbd2f2;
+    }
+    &.MuiFormControlLabel-root {
+      margin-right: 6px;
+      .MuiFormControlLabel-label {
+        margin-left: 7px;
+        font-size: 16px;
+        font-weight: normal;
+        color: #2b2b2b;
+        &.Mui-disabled {
+          color: #bcbfc3;
+        }
+      }
+    }
+  }
+  .evaluation-feedback-wrapper {
+    .evaluation-feedback-frm-lbl {
+      margin-top: 41px;
+    }
+  }
+  .crs-evaluation-question-container {
+    display: grid;
+    grid-template-columns: 350px 220px;
+    grid-template-rows: repeat(3, auto);
+    justify-content: space-between;
+    margin: 72px 0 0 -2px;
+    padding-right: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    .crs-evaluation-proposition-feedback-title,
+    .crs-evaluation-question-feedback-title {
+      grid-row: 1/2;
+      margin-bottom: 18px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid #eaeffb;
+    }
+    .crs-evaluation-proposition-feedback-group,
+    .crs-evaluation-question-feedback-group {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      min-height: 120px;
+    }
+    .crs-evaluation-proposition-feedback-option {
+      margin-bottom: 17px;
+    }
+    .crs-evaluation-question-feedback-option {
+      margin-bottom: 15px;
+    }
+    .crs-evaluation-question-feedback-group {
+      margin-left: -2px;
+    }
+  }
+  .crs-evaluation-advanced-container {
+    display: flex;
+    flex-direction: column;
+    margin: 13px 8px 0 0;
+    .crs-evaluation-advanced-title {
+      margin-bottom: 15px;
+      padding-bottom: 4px;
+      font-size: 20px;
+      font-weight: 500;
+      border-bottom: 1px solid #eaeffb;
+    }
+    .MuiFormControlLabel-root {
+      margin-bottom: 18px;
+    }
+  }
+}

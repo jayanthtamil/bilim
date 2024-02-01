@@ -1,0 +1,48 @@
+//
+// Basic variables for the application,
+// to import variables you have to import
+// the file `variables.scss`.
+//
+
+// Fonts
+$font-weight: (
+  thin: 100,
+  extraLight: 200,
+  light: 300,
+  normal: 400,
+  medium: 500,
+  semiBold: 600,
+  bold: 700,
+  extraBold: 800,
+  black: 900,
+  extraBlack: 950,
+);
+
+$font-family: (
+  primary: "BlmRoboto",
+);
+
+// Colors
+$color-primary: (
+  brightest: null,
+  brighter: null,
+  bright: #48dddd,
+  normal: #06b2b1,
+  dark: #0e2e2e,
+  darker: null,
+  darkest: #06131f,
+);
+
+$color-secondary: (
+  normal: #ffdd2e,
+  dark: #d1b425,
+);
+
+// Add all colors to this map
+$color: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+);
+
+$arial-font-stack: Arial, "Helvetica Neue", Helvetica, sans-serif !default;
+$structure-width: 325px;

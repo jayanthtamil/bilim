@@ -1,0 +1,157 @@
+{# page userhome template #}
+{{ attach_library('bilimauth/homepage') }}
+<div class="main-container">
+  <header>
+    <div class="header-container">
+      <div class="header-menu-container">
+        <section class="app-bar-container">
+          <div class="app-bar-btn app-domains-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Domain</span>
+          </div>
+          <div class="app-bar-separator"></div>
+          <div class="app-bar-btn app-users-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Users</span>
+          </div>
+          <div class="app-bar-separator"></div>
+          <div class="app-bar-btn app-styles-btn">
+            <div class="app-bar-icon-btn"></div>
+            <span class="app-bar-lbl-btn">Styles</span>
+          </div>
+        </section>
+        <button class="header-menu-btn"></button>
+      </div>
+      <div class="header-lbl-container">
+        <span class="header-left-lbl">BILIM</span>
+        <span class="header-right-lbl">{{content.username}}</span>
+      </div>
+      <a href="/bilim/v1.0/bilim_cms/user/logout" class="header-logout-btn"></a>
+    </div>
+  </header>
+
+  <section class="main-section platform-homepage">
+    <section class="left-section">
+      <div class="search-container">
+        <button class="search-btn"></button>
+      </div>
+      <div class="list-container custom-scrollbar">
+        <div class="domain-list">
+          <ul>
+            {% for dm in content.domain %}
+              <li><a href="/bilim/v1.0/bilim_cms/platform/domainview/{{dm.id}}/0/0">{{ dm.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="btns-container">
+        <div class="icon-button">
+          <span>MODELES</span>
+        </div>
+        <div class="btn-separator"></div>
+        <div class="icon-button">
+          <span>TESTS</span>
+        </div>
+      </div>
+    </section>
+    <section class="right-section">
+      <div class="title-container">
+        <div class="title-content">
+          <span class="title">HOME</span>
+          <span class="sub-title">Choose a Course</span>
+        </div>
+      </div>
+      <div class="course-lists-container">
+        <div class="favorites-courses-container course-list-container">
+          <div class="course-list-title">My Favorites Courses</div>
+          <div class="course-list-row">
+            {% for rn in content.random %}
+            <div class="card">
+              <div class="card-title">
+                <div class="card-title-lbl">{{ rn.domain }}</div>
+                <div class="card-icon-conatainer">
+                  <button class="card-icon card-lang-icon"></button>
+                  {{ rn.flag_link }} 
+                </div>
+              </div>
+              <div class="card-content">
+                <span>{{ rn.name }}</span>
+              </div>
+              
+              <div class="card-modified">
+                <span class="title">Last modification</span>
+                <span class="date">{{ rn.date }}</span>
+                <span class="time">{{ rn.time }}</span>
+              </div>
+
+              <div class="card-btn-box">
+                <button
+                  class="card-info-btn"
+                  onclick="onInfoBtnClick(event)" ></button>
+                <button
+                  class="card-ctx-btn"
+                  onclick="onCtxBtnClick(event)" ></button>
+              </div>
+
+            </div>
+            {% endfor %}
+            <div class="course-more-lbl">
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+        <div class="latest-courses-container course-list-container">
+          <div class="course-list-title">My Lasted Courses</div>
+          <div class="course-list-row">
+            {% for crs in content.courses %}
+            <div class="card">
+              <div class="card-title">
+                <div class="card-title-lbl">{{ crs.domain }}</div>
+                <div class="card-icon-conatainer">
+                  <button class="card-icon card-lang-icon"></button>
+                  {{ crs.flag_link }} 
+                </div>
+              </div>
+              <div class="card-content">
+                <span>{{crs.name}}</span>
+              </div>
+              <div class="card-modified">
+                <span class="title">Last modification</span>
+                <span class="date">{{ crs.date}}</span>
+                <span class="time">{{ crs.time}}</span>
+              </div>
+
+              <div class="card-btn-box">
+                <button
+                  class="card-info-btn"
+                  onclick="onInfoBtnClick(event)" ></button>
+                <button
+                  class="card-ctx-btn"
+                  onclick="onCtxBtnClick(event)" ></button>
+              </div>
+            </div>
+            {% endfor %}
+            <div class="course-more-lbl">
+              <span>More</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
+<div class="context-menu-container" onclick="onCtxMenuClick(event)">
+  <div class="context-menu-backdrop"></div>
+  <div class="context-menu">
+    <ul>
+      <li>Edit course</li>
+      <li>See course in domain</li>
+      <div class="context-menu-divider"></div>
+      <li>Preview</li>
+      <li>Export</li>
+      <li>Translate</li>
+      <div class="context-menu-divider"></div>
+      <li>Properties</li>
+    </ul>
+  </div>
+</div>

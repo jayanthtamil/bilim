@@ -1,0 +1,75 @@
+.content-media-wrapper {
+  position: relative;
+  padding: 49px 0 34px 0;
+  height: 100%;
+  .tabs-container {
+    .MuiAppBar-root {
+      padding-left: 45px;
+      background: transparent;
+      .MuiTabs-root {
+        min-height: 41px;
+        .MuiTab-root {
+          margin-right: 5px;
+          min-width: 75px;
+          min-height: 33px;
+          font-weight: bold;
+          font-size: 14px;
+          color: #c6cfe6;
+          border: none;
+          .MuiTab-wrapper {
+            padding: 3px 13px 0 13px;
+            align-items: center;
+          }
+          &.Mui-selected {
+            color: #000000;
+            background-color: #fefeff;
+            box-shadow: 4px 4px 6px 0px rgba(19, 45, 121, 0.24);
+          }
+        }
+        .MuiTabs-indicator {
+          display: none;
+        }
+      }
+    }
+    .tab-panel-container {
+      position: relative;
+      padding: 0 34px 0 45px;
+    }
+  }
+  .content-media-activate-btn {
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    top: 49px;
+    left: 41px;
+    right: 76px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #535353;
+    border-radius: 10px;
+    background-color: #f8fafd;
+    z-index: 1100;
+    &::before {
+      display: block;
+      content: "  ";
+      margin-right: 7px;
+      width: 24px;
+      height: 16px;
+      background: url("~assets/images/content-editor/activate-btn-2.png") no-repeat center;
+    }
+  }
+  &.deactivated {
+    &::after {
+      position: absolute;
+      content: " ";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(242, 245, 252, 0.85);
+    }
+  }
+}

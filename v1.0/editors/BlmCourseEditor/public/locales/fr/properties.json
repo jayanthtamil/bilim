@@ -1,0 +1,45 @@
+{
+    "tabs": {
+        "files": "Files",
+        "prerequisite": "Prerequisite",
+        "background": "Background"
+    },
+    "general": {
+        "title2": "Title 2",
+        "options": "Options",
+        "define_here": "Define here the properties of the chapter to be used in the parent summary",
+        "auto_summary":  "Auto summary",
+        "over": "Over",
+        "default": "Default",
+        "misc": "Misc"
+    },
+    "evaluation": {
+        "randomize_question": "Randomize Questions",
+        "lock": "Lock when success",
+        "sec": "sec",
+        "timer": "Timer",
+        "retry_quiz": "Retry quiz",
+        "related_to": "Related to",
+        "question": "Question",
+        "list": {
+          "placement": "Placement test",
+          "attempt2": "2 attempts",
+          "attempt3": "3 attempts",
+          "unlimited": "Unlimited attempts"
+        }
+      },
+      "page_screen_background": {
+        "background_clr": "Background Color",
+        "background_media": "Background Media",
+        "size": "Size"
+      },
+      "page_evaluation": {
+        "validate_button": "Validate button",
+        "one_per_ques": "One per question",
+        "button_end": "One button of the end"
+      },
+      "summary_general": {
+        "display_screen": "Display screens and questions as chapter",
+        "deactivate_summary": "Deactivate Auto Summary (reactivate it from the context menu of the parent)"
+      }
+}

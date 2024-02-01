@@ -1,0 +1,44 @@
+@import "assets/styles/shared.scss";
+
+.feedback-slider-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: flex-end;
+  .slider-container {
+    grid-column: 1/-1;
+    margin-bottom: 17px;
+  }
+  .add-threshold-btn {
+    @include image-button("~assets/images/feedback/add-threshold.png", 29px, 29px);
+  }
+  .threshold-wrapper:nth-last-child(2),
+  .threshold-wrapper:nth-last-child(1) {
+    justify-self: flex-end;
+    .threshold-lbl {
+      color: #80cc87;
+    }
+    .threshold-dropdown {
+      .MuiSelect-root {
+        border: 1px solid #80cc87;
+        color: #80cc87;
+      }
+    }
+  }
+  .add-threshold-btn:nth-last-child(3) {
+    justify-self: center;
+    margin-left: 17px;
+  }
+  .add-threshold-btn:last-child {
+    justify-self: flex-end;
+    margin-right: 22px;
+  }
+  .threshold-wrapper:nth-last-child(3) {
+    margin-left: 22px;
+  }
+  .threshold-wrapper:nth-last-child(2) {
+    margin-right: -18px;
+  }
+  .threshold-wrapper:last-child {
+    margin-right: -40px;
+  }
+}

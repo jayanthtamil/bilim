@@ -1,0 +1,60 @@
+.cue-list-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  z-index: 0;
+  .button-wrap {
+    display: flex;
+    align-items: center;
+    margin-left: 29px;
+    .import-btn {
+      width: 31px;
+      height: 23px;
+      margin-bottom: 8px;
+      margin-top: -16px;
+      background: url("~assets/images/media-editor/import_out.png") no-repeat center #e2e8fa;
+      cursor: pointer;
+      &:hover {
+        background: url("~assets/images/media-editor/import_over.png") no-repeat center #e2e8fa;
+      }
+      .input-file {
+        display: none;
+      }
+    }
+    .export-btn {
+      width: 31px;
+      height: 23px;
+      margin-bottom: 8px;
+      margin-top: -16px;
+      background: url("~assets/images/media-editor/export_out.png") no-repeat center #e2e8fa;
+      cursor: pointer;
+      &:hover {
+        background: url("~assets/images/media-editor/export_over.png") no-repeat center #e2e8fa;
+      }
+    }
+  }
+  .cue-list-title {
+    position: relative;
+    padding: 0 0 28px 32px;
+    font-weight: 500;
+    font-size: 23px;
+    color: #131514;
+    &::after {
+      position: absolute;
+      content: " ";
+      display: block;
+      inset: auto auto 24px 32px;
+      width: 113px;
+      height: 1px;
+      background-color: #dbdbdb;
+    }
+  }
+  .cue-list {
+    flex: 1 0 0;
+  }
+  .ReactVirtualized__List {
+    scrollbar-color: #507de2 #edf2fc;
+    scrollbar-width: thin;
+  }
+}

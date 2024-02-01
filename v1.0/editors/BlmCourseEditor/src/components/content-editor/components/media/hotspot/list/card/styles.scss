@@ -1,0 +1,63 @@
+.hotspot-card-wrapper {
+  display: flex;
+  height: 57px;
+  color: #2b2b2b;
+  border: 1px solid #dee6fa;
+  .hotspot-card-icon {
+    flex: 0 0 auto;
+    width: 14px;
+  }
+  .hotspot-card-lbl {
+    display: flex;
+    flex: 1 auto;
+    align-items: center;
+    padding: 0 10px;
+    min-width: 0;
+    border-right: 1px solid #dee6fa;
+    span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: bold;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+  }
+  .hotspot-card-drag-btn {
+    flex: 0 0 auto;
+    width: 29px;
+    background: url("~assets/images/content-editor/drag-1.png") no-repeat center;
+  }
+  &:first-child {
+    border-radius: 8px 8px 0 0;
+    .hotspot-card-icon {
+      border-radius: 8px 0 0 0;
+    }
+  }
+  &:last-child {
+    border-radius: 0 0 8px 8px;
+    .hotspot-card-icon {
+      border-radius: 0 0 0 8px;
+    }
+  }
+  &:first-child:last-child {
+    border-radius: 8px;
+    .hotspot-card-icon {
+      border-radius: 8px 0 0 8px;
+    }
+  }
+  &:not(:last-child) {
+    border-bottom: none;
+  }
+  &:hover {
+    background-color: #f2f5fc;
+  }
+  &.dragging {
+    border-radius: 8px;
+    border: 1px solid #dee6fa;
+    background-color: #f2f5fc;
+    .hotspot-card-icon {
+      border-radius: 8px 0 0 8px;
+    }
+  }
+}

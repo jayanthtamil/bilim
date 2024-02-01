@@ -1,0 +1,163 @@
+.content-media-slideshow-wrapper {
+  margin: 0 4px 0 -15px;
+  padding: 33px 0 0 0;
+  color: #2b2b2b;
+  .slideshow-params-wrapper {
+    .slideshow-params-title {
+      margin: 0 26px 28px 20px;
+      padding-bottom: 3px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .slidshow-horizontal-list {
+      position: relative;
+      margin: 0 -20px;
+      counter-reset: slideshow-counter;
+      .horizontal-list {
+        margin: 0 11px;
+        padding: 0 24px;
+        .slideshow-item-wrapper {
+          counter-increment: slideshow-counter;
+          .slideshow-item-lbl::before {
+            content: counter(slideshow-counter, decimal-leading-zero);
+          }
+        }
+      }
+      .horizontal-list-prev-btn,
+      .horizontal-list-nxt-btn {
+        margin-top: 44px;
+      }
+      &::before,
+      &::after {
+        display: block;
+        content: " ";
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+        inset: 63px auto 68px 20px;
+        width: 63px;
+        background: url("~assets/images/content-media/slideshow/overlay-gradient.png") repeat-y;
+      }
+      &::before {
+        transform: rotate(180deg);
+      }
+      &::after {
+        left: auto;
+        right: 20px;
+      }
+      &.prev-disabled::before,
+      &.nxt-disabled::after {
+        display: none;
+      }
+    }
+    .slideshow-params-txt-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 14px;
+      row-gap: 8px;
+      margin-top: -63px;
+      padding: 71px 15px 15px 17px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      background-color: #dee6fa;
+      .slideshow-params-title-txt,
+      .slideshow-params-desc-txt,
+      .slideshow-params-caption-txt {
+        padding: 8px 13px 7px 15px;
+        grid-column: 1/-1;
+        font-weight: 500;
+        color: #000000;
+        border: none;
+        background-color: #e8eefb;
+        &::placeholder {
+          color: #a4b8eb;
+          opacity: 1;
+        }
+      }
+      .slideshow-params-caption-txt {
+        height: 85px;
+      }
+      .slideshow-params-title-txt {
+        font-size: 18px;
+      }
+      .slideshow-params-desc-txt {
+        width: 100%;
+        min-height: 85px;
+        font-size: 15px;
+      }
+      .slideshow-params-caption-txt {
+        font-size: 14px;
+      }
+    }
+  }
+  .slideshow-actions-wrapper {
+    padding: 13px 15px 13px 20px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #dee6fa;
+    .slideshow-actions-title {
+      padding: 0 0 1px 2px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #c1c8d9;
+    }
+    .slideshow-actions-lbl {
+      margin: 27px 0 15px 5px;
+      font-weight: 100;
+      font-size: 20px;
+      .slideshow-actions-bold-lbl {
+        font-weight: bold;
+      }
+    }
+    .component-actions-wrapper {
+      .actions-dropdown {
+        .MuiSelect-root {
+          border-color: #ced4ed;
+        }
+      }
+      .document-action-wrapper {
+        .document-action-picker {
+          background-color: #e8eefb;
+        }
+      }
+      .link-action-wrapper {
+        .link-action-txt {
+          background-color: #e8eefb;
+        }
+      }
+      .media-picker-wrapper {
+        .media-browse-wrapper {
+          background-color: #e8eefb;
+          bottom: 4px;
+        }
+      }
+    }
+  }
+  .slideshow-styles-wrapper {
+    margin: 33px 0 0 19px;
+    .slideshow-styles-title {
+      margin: 0 30px 10px 0;
+      padding-bottom: 4px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .slideshow-styles-sub-title {
+      margin: 20px 0 0 12px;
+      font-weight: 100;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+    .style-list-wrapper {
+      margin: 0 -8px 0 10px;
+      padding-bottom: 5px;
+    }
+    .style-tint-picker-wrapper {
+      margin: -3px 0 0 1px;
+    }
+  }
+}

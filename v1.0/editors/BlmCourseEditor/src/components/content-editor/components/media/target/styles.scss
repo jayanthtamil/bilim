@@ -1,0 +1,111 @@
+.content-media-target-wrapper {
+  padding: 33px 0 0 0px;
+  color: #2b2b2b;
+  .target-params-wrapper {
+    display: flex;
+    flex-direction: column;
+    color: #2b2b2b;
+    .target-params-title {
+      margin: 0 30px 20px 4px;
+      padding-bottom: 3px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .target-name-lbl {
+      margin: 0 0 3px 1px;
+      font-size: 12px;
+      color: #bcc1cc;
+    }
+    .target-name-txt {
+      padding: 5px 12px 7px 12px;
+      font-weight: 500;
+      font-size: 16px;
+      width: 314px;
+      height: 37px;
+      border: none;
+      background-color: #dee6fa;
+    }
+  }
+  .target-other-params-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 28px;
+    margin: 26px 0 0 0;
+    .target-template-lbl,
+    .target-transition-lbl {
+      margin: 0 0 5px 8px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .target-template-dropdown,
+    .target-transition-dropdown {
+      margin-left: 3px;
+      width: 312px;
+      height: 40px;
+      box-shadow: 2px 5px 7px rgba(115, 138, 196, 0.14);
+      .BlmSelect-select,
+      .MuiSelect-root {
+        display: flex;
+        align-items: center;
+        padding: 4px 24px 4px 16px;
+        height: 100%;
+        box-sizing: border-box;
+        font-weight: 500;
+        font-size: 16px;
+        color: #3a3e42;
+        border: 1px solid #d5dff7;
+        background-color: #ffffff;
+        ~ .BlmSelect-icon,
+        ~ .MuiSelect-icon {
+          margin-right: 7px;
+          background: url("~assets/images/forms/dropdown-arrow-2.png") no-repeat center;
+        }
+      }
+    }
+    .target-transition-dropdown {
+      width: 206px;
+    }
+    .target-background-wrapper {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 30px;
+      grid-column: 1/-1;
+      align-items: flex-start;
+      margin: 80px 0 0 9px;
+      color: #2b2b2b;
+      .target-background-lbl {
+        grid-column: 1/-1;
+        margin: 0 0 15px 2px;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .target-bg-template-lbl,
+      .target-bg-target-lbl {
+        margin: 0 0 13px 2px;
+        font-family: get-font-family(primary);
+        font-size: 18px;
+        font-weight: 300;
+      }
+      .target-bg-template,
+      .target-bg-target {
+        cursor: pointer;
+        width: 230px;
+        height: 138px;
+      }
+      .target-bg-template {
+        background: url("~assets/images/content-media/full-template.png") no-repeat center;
+        &.selected {
+          outline: 2px solid #507de2;
+        }
+      }
+      .target-bg-target {
+        background: url("~assets/images/content-media/only-target.png") no-repeat center;
+        &.selected {
+          outline: 2px solid #507de2;
+        }
+      }
+    }
+  }
+}

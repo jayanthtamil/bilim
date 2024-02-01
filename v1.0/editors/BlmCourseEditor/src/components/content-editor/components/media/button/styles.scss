@@ -1,0 +1,197 @@
+.content-media-button-wrapper {
+  padding: 33px 0 30px 5px;
+  color: #2b2b2b;
+  .button-params-wrapper {
+    .button-params-title {
+      margin: 0 30px 28px 0;
+      padding-bottom: 3px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .button-params-list-wrapper {
+      display: flex;
+      column-gap: 14px;
+      margin: 0 30px 0 -1px;
+      .button-params-item-wrapper {
+        position: relative;
+        .button-params-item-title {
+          font-weight: bold;
+          font-size: 22px;
+          text-transform: uppercase;
+        }
+        .media-picker-3 {
+          width: 182px;
+          height: 130px;
+          background: #dee6fa;
+        }
+        &:not(:first-child) {
+          padding-left: 17px;
+          &::before {
+            position: absolute;
+            content: " ";
+            left: 0;
+            top: 28px;
+            bottom: 0;
+            width: 1px;
+            background-color: #d2d5da;
+          }
+        }
+        &:nth-last-child(2) {
+          padding-left: 12px;
+        }
+        &:last-child {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding-left: 8px;
+          .button-params-item-title {
+            margin: 0 0 7px 2px;
+            text-transform: none;
+          }
+          .media-picker-3 {
+            width: 100px;
+            height: 72px;
+            background: #dee6fa;
+          }
+        }
+      }
+    }
+    .button-params-option-dropdown {
+      margin: 13px 0 0 -3px;
+      width: 139px;
+      height: 42px;
+      border-radius: 5px;
+      border: 1px solid #d9d8d8;
+      background-color: #ffffff;
+      box-shadow: 5px 5px 7px rgba(27, 54, 94, 0.14);
+      .MuiSelect-root {
+        display: flex;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 3px 24px 3px 3px;
+        border: none;
+        background-color: transparent;
+        .MuiListItemIcon-root {
+          min-width: 30px;
+          margin-right: 5px;
+          img {
+            margin: auto;
+          }
+        }
+        .MuiListItemText-root {
+          align-self: center;
+          margin: 0;
+          .MuiTypography-root {
+            font-size: 15px;
+            font-weight: 500;
+            color: #000000;
+          }
+        }
+      }
+    }
+    .position-wrapper {
+      margin: -39px 0px 0px 152px;
+    }
+    .button-params-txt-wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      column-gap: 14px;
+      row-gap: 8px;
+      margin: 12px 19px 0 -3px;
+      padding: 15px 0 0 0;
+      border-top: 1px solid #d0d3d8;
+      .button-params-lbl-txt,
+      .button-params-num-txt,
+      .button-params-duration-txt {
+        padding: 9px 15px 10px 15px;
+        font-weight: 500;
+        font-size: 15px;
+        color: #000000;
+        border: none;
+        background-color: #e8edfb;
+      }
+      .button-params-title-txt,
+      .button-params-desc-txt,
+      .button-params-caption-txt {
+        padding: 8px 13px 7px 13px;
+        grid-column: 1/-1;
+        border: none;
+        background-color: #dee6fa;
+      }
+      .button-params-desc-txt,
+      .button-params-caption-txt {
+        height: 85px;
+        font-weight: 500;
+        color: #000000;
+      }
+      .button-params-title-txt {
+        font-weight: 500;
+        font-size: 18px;
+      }
+      .button-params-desc-txt {
+        font-size: 15px;
+      }
+      .button-params-caption-txt {
+        height: 55px;
+        font-size: 14px;
+      }
+      ::placeholder {
+        color: #a4b8eb;
+        opacity: 1;
+      }
+    }
+  }
+  .button-actions-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 27px;
+    padding-right: 30px;
+    .button-actions-title {
+      grid-column: 1/-1;
+      padding-bottom: 3px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+    .button-actions-lbl {
+      margin: 27px 0 15px 5px;
+      font-weight: 100;
+      font-size: 20px;
+      .button-actions-bold-lbl {
+        font-weight: bold;
+      }
+      &:nth-child(2) {
+        grid-column: 1/3;
+      }
+    }
+    .component-switch-actions-btn {
+      margin: 3px 5px 0 5px;
+    }
+  }
+  .button-styles-wrapper {
+    margin-top: 21px;
+    .button-styles-title {
+      margin: 0 30px 10px 0;
+      padding-bottom: 4px;
+      font-weight: 100;
+      font-size: 28px;
+      text-transform: uppercase;
+      border-bottom: 1px solid #d2d5da;
+    }
+  }
+}
+.button-params-option-dropdown-menu {
+  .MuiListItem-root {
+    padding: 2px 6px;
+    .MuiListItemIcon-root {
+      min-width: 30px;
+      margin-right: 5px;
+      img {
+        margin: auto;
+      }
+    }
+  }
+}

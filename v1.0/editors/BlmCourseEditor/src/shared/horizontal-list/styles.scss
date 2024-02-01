@@ -1,0 +1,28 @@
+.horizontal-list-wrapper {
+  display: flex;
+  align-items: center;
+  .horizontal-list {
+    display: flex;
+    flex: 1 1 auto;
+    overflow: hidden;
+    margin: 0 9px;
+    scroll-behavior: smooth;
+  }
+  .horizontal-list-prev-btn,
+  .horizontal-list-nxt-btn {
+    flex: 0 0 auto;
+    cursor: pointer;
+    width: 9px;
+    height: 17px;
+  }
+  .horizontal-list-prev-btn {
+    background: url("~assets/images/right-arrow-2.png") no-repeat center;
+  }
+  .horizontal-list-nxt-btn {
+    background: url("~assets/images/left-arrow-2.png") no-repeat center;
+  }
+  &.prev-disabled > .horizontal-list-prev-btn,
+  &.nxt-disabled > .horizontal-list-nxt-btn {
+    visibility: hidden;
+  }
+}

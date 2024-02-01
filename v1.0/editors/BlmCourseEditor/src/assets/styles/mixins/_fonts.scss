@@ -1,0 +1,49 @@
+@import "../functions/utils";
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $stretch: normal,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: "?#iefix",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    eot: "embedded-opentype",
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-weight: $weight;
+    font-style: $style;
+    @if $stretch != normal {
+      font-stretch: $stretch;
+    }
+    @if index($exts, eot) {
+      src: url(quote($path + ".eot"));
+    }
+    src: $src;
+  }
+}
+
+@mixin font-include($font, $file, $weight: null, $style: null, $stretch: normal) {
+  @include font-face($font, "~./assets/fonts/" + $file, $weight, $style, $stretch, ttf);
+}

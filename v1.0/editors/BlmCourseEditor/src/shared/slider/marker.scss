@@ -1,0 +1,74 @@
+.marker-wrapper {
+  position: absolute;
+  height: 100%;
+  .marker-bg {
+    position: absolute;
+    left: 1px;
+    right: 1px;
+    top: 3px;
+    bottom: 3px;
+    background-color: #dadada;
+    .marker-add-bg {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      height: 100%;
+      cursor: url("~assets/images/slider/add.png") 12 12, auto;
+    }
+  }
+  .marker-start,
+  .marker-end {
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    cursor: col-resize;
+    background-repeat: no-repeat;
+  }
+  .marker-start {
+    background-image: url("~assets/images/slider/marker-start.png");
+    background-position-x: 1px;
+  }
+  .marker-end {
+    right: 0px;
+    background-image: url("~assets/images/slider/marker-end.png");
+    background-position-x: 2px; //width - 4
+  }
+  .marker-start-lbl,
+  .marker-end-lbl {
+    position: absolute;
+    bottom: -33px;
+    left: 0px;
+    font-size: 19px;
+    font-weight: bold;
+    transform: translateX(-50%);
+  }
+  .marker-end-lbl {
+    left: unset;
+    right: 0px;
+    display: none;
+    transform: translateX(50%);
+  }
+  &:first-child {
+    .marker-start {
+      cursor: default;
+    }
+  }
+  &:last-child {
+    .marker-bg {
+      background-color: #80cc87;
+    }
+    .marker-start {
+      background-image: url("~assets/images/slider/marker-last-start.png");
+    }
+    .marker-end {
+      background-image: url("~assets/images/slider/marker-last-end.png");
+      cursor: pointer;
+    }
+    .marker-start-lbl {
+      color: #80cc87;
+    }
+    .marker-end-lbl {
+      display: block;
+    }
+  }
+}

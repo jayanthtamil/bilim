@@ -1,0 +1,47 @@
+{% include directory ~ '/templates/layout/header.html.twig' %}
+
+<div class="">
+    <main role="main" class="node custom-user-login">
+        <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+        <div class="layout-content col-block col-lg-6">
+            <div class="col-block-wrapper">
+                <!--- Start Breadcrumbs -->
+                {% if page.breadcrumbs %}
+                    {{ page.breadcrumbs }}
+                {% endif %}
+                <!---End Breadcrumbs -->	
+
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-12">
+                        <div class="login-box">
+                            {{ page.content }}
+                            {% set myUrl = url('<front>')|raw %}
+                            {% set myBaseUrl = myUrl["#markup"]|replace({"/browser/": ""}) %}
+                            <p class="reset-pwd"><a href="/user/password">Reset password</a></p>
+                            <div class="lang-switch container">
+                                <div class="switch">
+                                    <input type="radio" class="switch-input" name="view" value="french" id="french" checked>
+                                    <label for="french" class="switch-label switch-label-off">FRANçais</label>
+                                    <input type="radio" class="switch-input" name="view" value="english" id="english">
+                                    <label for="english" class="switch-label switch-label-on">ENGLISH</label>
+                                    <span class="switch-selection"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>{# /.layout-content #}
+        <div class="col-block col-lg-6 login-blue-half-bg">
+            <div class="login-draw-box">
+                <h1 class="bilim-logo">BILIM</h1>
+                <h5 class="bilim-tagline">easy content creator</h5>
+                <div class="bilim-border-box">&nbsp;</div>
+                <div class="login-mascot-box">
+                    <img src="../../images/bilim-mascot.jpg" />
+                </div>
+            </div>
+        </div>
+    </main>
+</div>{# /.layout-container #}

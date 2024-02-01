@@ -1,0 +1,233 @@
+{
+  "label": {
+    "lbl": "Label",
+    "caption": "Caption",
+    "number": "Number",
+    "image": "Image",
+    "position": "Position",
+    "action": "Action",
+    "roll_over": "Roll-OVER",
+    "on": "On",
+    "click": "CLICK",
+    "auto_start": "Auto start",
+    "action_label": "Action Label",
+    "text": "Text",
+    "media": "Media",
+    "button": "Button",
+    "sound": "Sound",
+    "shadow": "Shadow"
+  },
+  "list": {
+    "cover": "Cover",
+    "contain": "Contain",
+    "no_resize": "No resize",
+    "parallax": "Parallax"
+  },
+  "title": {
+    "out": "OUT",
+    "over": "OVER",
+    "icon": "ICON",
+    "opacity": "Opacity",
+    "style": "Style",
+    "width": "Width",
+    "height": "Height",
+    "parameters": "Parameters"
+  },
+  "image": {
+    "zoom_on_click": "Zoom on click",
+    "apply_image": "Apply Style and format to all images of this template"
+  },
+  "button": {
+    "inline": "Inline",
+    "apply_button": "Apply Style and format to all buttons of this template"
+  },
+  "media_button": {
+    "apply_button": "Apply Style and format to all buttons of this template"
+  },
+  "sound": {
+    "apply_style": "Apply this style to all sound of this template",
+    "play_globally": "Play globally in the page",
+    "mp3": "Mp3",
+    "play_partpage": "Play in partpage ",
+    "in_complete": " (in component)"
+  },
+  "video": {
+    "external": "External",
+    "no_subtitles": "No Subtitles",
+    "load_external": "Load video from external",
+    "platforms": "platforms",
+    "video_standard": "VIDEO STANDARD",
+    "with_subtitles": "With Subtitles",
+    "importer_video_with": "Importer a video with",
+    "subtitles": "subtitles",
+    "apply_image": "Apply Style and format to all videos of this template"
+  },
+  "flipkart": {
+    "recto": "Recto",
+    "verso": "Verso",
+    "on_click": "on click",
+    "on_roll_over": "on roll-over",
+    "return_card": "Return Card",
+    "apply_flipkart": "Apply format, recto and verso to all flipcard of this template"
+  },
+  "external_video": {
+    "video_address": "Video address"
+  },
+  "standar_video": {
+    "click_to_play": "Click to play",
+    "loop": "Loop",
+    "mp4": "Mp4",
+    "webm": "Webm"
+  },
+  "hotspot": {
+    "enable_group": "Enable group",
+    "hotspot_order": "Hotspot Order",
+    "pan_zoom": "Pan & Zooom",
+    "pan_zoom_opt": "Pan & Zoom options",
+    "select_group": "Select Group",
+    "call_action": "Call to action",
+    "image_icon": "hotspot image and icon only",
+    "size": "Size",
+    "zone_only": "Zone only",
+    "arrow_tooltip": "Arrow and tooltip only",
+    "tooltip_label": "Tooltip Label",
+    "allow_zoom": "Allow zoom",
+    "mini_view": "Mini view",
+    "click_hotspot": "Center image on click on hotspot",
+    "group_list": "Group List",
+    "prerequisite_order": "Prerequisite by order",
+    "apply_tooltip": "Apply all tooltip",
+    "apply_hotspot": "Apply Style to all hotspot"
+  },
+  "hotspot360": {
+    "delete_confirm": "Do you want to delete the {{name}}?",
+    "delete_error": "You can't delete the {{name}}."
+  },
+  "slideshow": {
+    "slideshow_style": "Slideshow Style",
+    "slide_style": "Slide Style",
+    "apply_all_slideshow": "Apply Style and format to all slideshow of this template"
+  },
+  "custom": {
+    "download": "Download",
+    "replace": "Replace"
+  },
+  "synchro": {
+    "synchro": "Synchro"
+  },
+  "target": {
+    "target_name": "Target name",
+    "default_temp": "Default template",
+    "transition": "Transition",
+    "fade": "Fade",
+    "wipe_left": "Wipe Left",
+    "wipe_down": "Wipe Down",
+    "none": "None",
+    "target_background": "Target background display",
+    "full_template": "Full template",
+    "only_target": "Only in target"
+  },
+  "subtitle_marker": {
+    "sub_marker": "Subtitles & markers"
+  },
+  "repeater_option": {
+    "repeater_options": "Repeater options"
+  },
+  "media_layer": {
+    "layer_info": "* new media should have EXACT dimension of the original media"
+  },
+  "style": {
+    "style_name": "style name",
+    "secondary_tint_opacity": "Secondary tint and opacity",
+    "background_tint": "Background Tint",
+    "secondary_tint": "Secondary Tint",
+    "select_style": "Select a style",
+    "click_play": "Click to play"
+  },
+  "actions": {
+    "no_action": "No Action",
+    "open_simple_content": "Open Simple Content / Annexes",
+    "open_simple": "Open Simple Content",
+    "open_document": "Open Document",
+    "open_http": "Open Http Link",
+    "mail_to": "Mail to",
+    "replace_background": "Replace Background",
+    "replace_target": "Replace Target",
+    "/": "Video marker",
+    "audio_marker": "Audio marker",
+    "animation": "Animation",
+    "goto": "Go to",
+    "expert": "Expert",
+    "tooltip": "Tooltip",
+    "popover": "Popover",
+    "media_layer": "Media Layer",
+    "goto360": "Goto 360",
+    "navigation": "Navigation",
+    "closeorexit": "Close / Exit"
+  },
+  "open_simplecontent_opt": {
+    "popup": "Popup",
+    "flap": "Flap",
+    "below": "Below",
+    "target": "Target"
+  },
+  "target_option": {
+    "select_a_target": "Select a target",
+    "select_target": "Select Target",
+    "no_target": "No target",
+    "transform_media": "Transform a media into a target",
+    "select_simple_content": "Select Simple Content"
+  },
+  "popup_option": {
+    "left_large": "Left large",
+    "left_medium": "Left medium",
+    "left_small": "Left small",
+    "right_large": "Right large",
+    "right_medium": "Right medium",
+    "right_small": "Right small",
+    "top": "Top",
+    "bottom": "Bottom",
+    "full": "Full",
+    "large": "Large",
+    "medium": "Medium",
+    "small": "Small",
+    "popover_small": "Popover small",
+    "popover_medium": "Popover medium",
+    "apply_popover": "Apply all popover",
+    "popover_options": "Popover options",
+    "button_label": "Button label"
+  },
+  "document": {
+    "browse": "Browse"
+  },
+  "mail_to": {
+    "mailto": "mailto"
+  },
+  "go_to_opt": {
+    "eval_chap_page_scr": "Evaluation / Chapter / Page / Screen",
+    "previous": "Previous",
+    "next": "Next",
+    "home": "Home",
+    "top": "Top",
+    "redo_evaluation": "Redo Evaluation",
+    "last_location":"Last Location",
+    "previous_partpage": "Previous Part Page",
+    "next_partpage": "Next Part Page",
+    "previous_anchor": "Previous Anchor",
+    "next_anchor": "Next Anchor",
+    "select_structure": "Select in structure",
+    "page_screen": "Page/Screen"
+  },
+  "close_or_exit": {
+    "close_pop_up": "Close Popup",
+    "close_flap": "Close flap",
+    "close_below": "Close Below",
+    "exit_course": "Exit Course"
+  },
+  "video_marker": {
+    "video_label": "Video"
+  },
+  "sound_marker": {
+    "Sound_label": "Audio"
+  }
+}

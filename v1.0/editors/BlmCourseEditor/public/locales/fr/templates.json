@@ -1,0 +1,21 @@
+{
+  "part_page_tool": {
+    "change_template": "Change template",
+    "background": "Background",
+    "transition": "Transition",
+    "event": "Event",
+    "less_option": "Less option",
+    "more_option": "More option",
+    "move_up": "Move up",
+    "move_down": "Move down",
+    "duplicate": "Duplicate",
+    "delete": "Delete",
+    "position": "Position",
+    "anchor": "Anchor"
+  },
+  "page_menu": {
+    "content": "Content",
+    "summary": "Summary",
+    "question": "Question"
+  }
+}
